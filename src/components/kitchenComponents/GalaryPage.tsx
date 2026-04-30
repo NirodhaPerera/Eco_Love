@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { X, Maximize2 } from "lucide-react";
 
-const sliderImages = ['/Eco_Love_Kitchen/slider1.jpeg', '/Eco_Love_Kitchen/slider2.jpeg', '/Eco_Love_Kitchen/slider3.jpeg','/Eco_Love_Kitchen/gallery/img_11.JPG','/Eco_Love_Kitchen/gallery/img_10.JPG'];  
+const sliderImages = [
+  '/Eco_Love_Kitchen/slider1.jpeg', 
+  '/Eco_Love_Kitchen/slider2.jpeg', 
+  '/Eco_Love_Kitchen/slider3.jpeg',
+  '/Eco_Love_Kitchen/gallery/img_11.JPG',
+  '/Eco_Love_Kitchen/gallery/img_10.JPG'
+];
+
 const galleryImages = [
   '/Eco_Love_Kitchen/slider1.jpeg', '/Eco_Love_Kitchen/slider2.jpeg', '/Eco_Love_Kitchen/slider3.jpeg', '/Eco_Love_Kitchen/slider4.jpeg',
   '/Eco_Love_Kitchen/slider5.jpeg', '/Eco_Love_Kitchen/slider6.jpeg', '/Eco_Love_Kitchen/slider7.jpeg',
   '/Eco_Love_Kitchen/about1.jpeg', '/Eco_Love_Kitchen/about2.jpeg', '/Eco_Love_Kitchen/about3.jpeg', '/Eco_Love_Kitchen/about4.jpeg',
   '/Eco_Love_Kitchen/about5.jpeg',
   '/Eco_Love_Kitchen/gallery/img_1.JPG', '/Eco_Love_Kitchen/gallery/img_2.JPG', '/Eco_Love_Kitchen/gallery/img_3.JPG',
- '/Eco_Love_Kitchen/gallery/img_5.JPG', '/Eco_Love_Kitchen/gallery/img_6.JPG',
+  '/Eco_Love_Kitchen/gallery/img_5.JPG', '/Eco_Love_Kitchen/gallery/img_6.JPG',
   '/Eco_Love_Kitchen/gallery/img_7.JPG', '/Eco_Love_Kitchen/gallery/img_8.JPG', '/Eco_Love_Kitchen/gallery/img_9.JPG',
   '/Eco_Love_Kitchen/gallery/img_10.JPG', '/Eco_Love_Kitchen/gallery/img_11.JPG', '/Eco_Love_Kitchen/gallery/img_12.JPG',
   '/Eco_Love_Kitchen/gallery/img_13.JPG', '/Eco_Love_Kitchen/gallery/img_14.JPG', '/Eco_Love_Kitchen/gallery/img_15.JPG',
-  // Add more images up to 30...
 ];
 
 const GalleryPage: React.FC = () => {
@@ -21,76 +28,92 @@ const GalleryPage: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % sliderImages.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-900">
-      {/* Slider */}
-      <div className="relative w-full h-screen overflow-hidden">
+    <div className="bg-[#FDFCFB] min-h-screen font-sans">
+      
+      
+      <div className="relative w-full h-[85vh] overflow-hidden bg-slate-900">
         {sliderImages.map((img, index) => (
-          <img
+          <div
             key={index}
-            src={img}
-            alt={`Slide ${index + 1}`}
-            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              index === current ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 transition-all duration-[3000ms] ease-in-out ${
+              index === current ? "opacity-100 scale-110" : "opacity-0 scale-100"
             }`}
-          />
+          >
+            <img src={img} alt="Eco Love" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
         ))}
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-          <h1 className="text-white text-4xl sm:text-5xl font-bold mb-4 drop-shadow-lg">
-            Step into the heart of Sri Lankan Cuisines
-
-
+        
+        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-[1px] w-12 bg-white/40" />
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/80">The Gallery</span>
+            <div className="h-[1px] w-12 bg-white/40" />
+          </div>
+          <h1 className="text-white text-5xl md:text-7xl font-serif italic mb-8 drop-shadow-2xl">
+            Symphony of <br/> Nature & Culture.
           </h1>
-          <p className="text-white text-base sm:text-lg mb-6 max-w-xl drop-shadow-md">
-            Discover the vibrant energy of our cooking sessions — where fresh garden ingredients, cultural traditions, and joyful moments come together.
+          <p className="text-white/80 text-[10px] md:text-xs font-light tracking-[0.4em] max-w-xl leading-loose uppercase">
+            A visual documentation of heritage, joy, and the art of Sri Lankan cuisine.
           </p>
         </div>
       </div>
 
-      {/* Gallery Grid */}
-      <div className="max-w-screen-2xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8 text-center">
-          Moments from the Kitchen
-        </h2>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:gap-6">
+      
+      <div className="max-w-screen-2xl mx-auto px-6 py-24">
+        <div className="text-center mb-20">
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-800 block mb-4">Visual Stories</span>
+          <h2 className="text-4xl font-serif italic text-slate-900">Moments from the Kitchen</h2>
+        </div>
+
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
           {galleryImages.map((img, index) => (
             <div
               key={index}
               onClick={() => setSelectedImage(img)}
-              className="group relative flex h-48 sm:h-56 md:h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer"
+              className="relative group overflow-hidden rounded-2xl bg-slate-100 cursor-none transition-all duration-700 hover:shadow-2xl"
             >
               <img
                 src={img}
                 alt={`Gallery Image ${index + 1}`}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover object-center transition duration-300 group-hover:scale-110"
+                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30" />
+              
+              <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                 <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 scale-50 group-hover:scale-100 transition-transform duration-500">
+                    <Maximize2 size="{20}"/>
+                 </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Image Preview Modal */}
+      
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center" onClick={() => setSelectedImage(null)}>
+        <div 
+          className="fixed inset-0 bg-slate-950/95 z-[100] flex items-center justify-center p-6 backdrop-blur-sm animate-fade-in" 
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size="{32}"/>
+          </button>
+          
           <img
             src={selectedImage}
             alt="Preview"
-            className="max-w-full max-h-full object-contain rounded-lg shadow-lg transition-transform duration-300"
-            onClick={(e) => e.stopPropagation()} // prevent modal close on image click
+            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+            onClick={(e) => e.stopPropagation()}
           />
-          <button
-            className="absolute top-4 right-4 text-white text-3xl font-bold bg-black/50 px-3 py-1 rounded-full"
-            onClick={() => setSelectedImage(null)}
-          >
-            ×
-          </button>
         </div>
       )}
     </div>

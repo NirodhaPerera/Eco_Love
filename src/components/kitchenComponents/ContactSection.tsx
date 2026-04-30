@@ -1,79 +1,91 @@
 import React from 'react';
-import LottieAnimationContact from '../LottiAnimationContact';
+import { ArrowRight } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
+  // Brand Color Constants
+ 
+  
   return (
-    <section id="contact" className="bg-white py-20 px-6 sm:px-12 lg:px-24">
+    <section id="contact" className="bg-[#FDFCFB] py-24 md:py-40 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        {/* Title and Subtitle */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-            Contact Us
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-24">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-[1px] w-12 bg-[#14532d]" />
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#14532d]">
+              Inquiries
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-serif italic text-slate-900 leading-[1.1] mb-8">
+            Let’s start a <br /> conversation.
           </h2>
-          <p className="text-gray-700">
-            We'd love to hear from you. Reach out through the form or contact us directly.
+          <p className="text-sm md:text-base text-slate-500 max-w-md leading-relaxed tracking-wide">
+            Whether you are planning a traditional cooking session in our kitchen or an eco-tour through the heart of Galle, we are here to help.
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Lottie Animation */}
-          <div className="w-full lg:w-1/2 h-[400px] max-w-md mx-auto">
-            <LottieAnimationContact />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
+          
+          {/* Contact Details */}
+          <div className="lg:col-span-4 space-y-16">
+            <div className="space-y-10">
+              <ContactDetail 
+                title="Electronic Mail" 
+                value="ecovovetours@gmail.com" 
+                href="mailto:ecovovetours@gmail.com"
+              />
+              <ContactDetail 
+                title="Instant Messaging" 
+                value="+94 77 419 1148" 
+                href="https://wa.me/94774191148"
+              />
+              <ContactDetail 
+                title="Physical Presence" 
+                value="Galle, Southern Province, Sri Lanka" 
+                href="#"
+              />
+            </div>
+
+            <div className="pt-12 border-t border-slate-100">
+               <p className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300 mb-2">Established</p>
+               <p className="font-serif italic text-slate-400 text-lg">Eco Love Sri Lanka.</p>
+            </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="w-full lg:w-1/2">
+          {/* Form */}
+          <div className="lg:col-span-8">
             <form
-              action="https://formspree.io/f/mnnvppkq" // 👉 Replace with your real Formspree endpoint
+              action="https://formspree.io/f/mnnvppkq"
               method="POST"
-              className="space-y-6 bg-white p-6 rounded-xl shadow-lg border border-gray-200"
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"
             >
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Message
+              <FloatingInput label="Full Name" name="name" type="text" />
+              <FloatingInput label="Email Address" name="email" type="email" />
+              
+              <div className="md:col-span-2 group relative">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-4 group-focus-within:text-[#14532d]">
+                  How can we help?
                 </label>
                 <textarea
                   name="message"
-                  id="message"
-                  rows={5}
                   required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800 transition duration-150 resize-none"
+                  rows={4}
+                  className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-[#14532d] transition-all resize-none text-sm tracking-wide placeholder:text-slate-100"
+                  placeholder="Tell us about your travel dates or dietary preferences..."
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-green-800 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition duration-200 shadow-md"
-              >
-                Send Message
-              </button>
+              <div className="md:col-span-2">
+                {/* REFINED COMPACT BUTTON */}
+                <button
+                  type="submit"
+                  className="group relative inline-flex items-center gap-4 bg-[#064e3b] text-white font-black uppercase tracking-[0.3em] text-[10px] py-3.5 px-10 rounded-full transition-all hover:bg-[#14532d] shadow-xl active:scale-95"
+                >
+                  <span className="relative z-10">Send Inquiry</span>
+                  <ArrowRight size={14} className="relative z-10 group-hover:translate-x-1 transition-transform duration-500" />
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -81,5 +93,26 @@ const ContactSection: React.FC = () => {
     </section>
   );
 };
+
+const ContactDetail = ({ title, value, href }: any) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="group block">
+    <p className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400 mb-3 group-hover:text-[#14532d] transition-colors">{title}</p>
+    <p className="text-base font-medium text-slate-900 border-b border-transparent group-hover:border-[#14532d] inline-block transition-all pb-1">{value}</p>
+  </a>
+);
+
+const FloatingInput = ({ label, name, type }: any) => (
+  <div className="group relative">
+    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2 transition-colors group-focus-within:text-[#14532d]">
+      {label}
+    </label>
+    <input
+      type={type}
+      name={name}
+      required
+      className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-[#14532d] transition-all text-sm tracking-wide"
+    />
+  </div>
+);
 
 export default ContactSection;

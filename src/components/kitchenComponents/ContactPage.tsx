@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp, FaFacebookF, FaInstagram, FaTripadvisor } from "react-icons/fa";
-import LottieAnimationContact from "../LottiAnimationContact";
+import { Mail, Phone, ArrowRight } from "lucide-react";
+import { FaWhatsapp, FaFacebookF, FaInstagram, FaTripadvisor } from "react-icons/fa";
 
-const sliderImages = ['/Eco_Love_Kitchen/slider1.jpeg', '/Eco_Love_Kitchen/slider2.jpeg', '/Eco_Love_Kitchen/slider3.jpeg','/Eco_Love_Kitchen/gallery/img_11.JPG','/Eco_Love_Kitchen/gallery/img_10.JPG'];
+const sliderImages = [
+  '/Eco_Love_Kitchen/slider1.jpeg', 
+  '/Eco_Love_Kitchen/slider2.jpeg', 
+  '/Eco_Love_Kitchen/slider3.jpeg',
+  '/Eco_Love_Kitchen/gallery/img_11.JPG',
+  '/Eco_Love_Kitchen/gallery/img_10.JPG'
+];
 
-const GOOGLE_MAPS_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5444.987139418722!2d80.23091297621761!3d6.062435593923488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae1734e5ee6d3d9%3A0x70dbce6ac78efce1!2sEco%20Love%20Kitchen!5e1!3m2!1sen!2slk!4v1749459793694!5m2!1sen!2slk";
-// Replace with your real Google Maps embed URL
+const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5444.987139418722!2d80.23091297621761!3d6.062435593923488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae1734e5ee6d3d9%3A0x70dbce6ac78efce1!2sEco%20Love%20Kitchen!5e1!3m2!1sen!2slk!4v1749459793694!5m2!1sen!2slk";
 
 const ContactPage: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -14,190 +18,171 @@ const ContactPage: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % sliderImages.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setForm({ ...form, [e.target.name]: e.target.value });
-    };
-  
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      window.location.href = `mailto:pereraadithya1@gmail.com?subject=Message from ${form.name}&body=${form.message} (from ${form.email})`;
-    };
-
   return (
-
-
-    
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
-      {/* Slider */}
-      <div className="relative w-full h-screen overflow-hidden">
+    <div className="bg-[#FDFCFB] min-h-screen font-sans">
+      
+      {/* 1. CINEMATIC HERO SLIDER */}
+      <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-slate-900">
         {sliderImages.map((img, index) => (
-          <img
+          <div
             key={index}
-            src={img}
-            alt={`Slide ${index + 1}`}
-            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              index === current ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 transition-all duration-[2500ms] ease-in-out ${
+              index === current ? "opacity-100 scale-105" : "opacity-0 scale-100"
             }`}
-          />
+          >
+            <img src={img} alt="Contact Eco Love" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
         ))}
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-          <h1 className="text-white text-4xl sm:text-5xl font-bold mb-4 drop-shadow-lg">
-           We’d Love to Hear from You
+        
+        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-[1px] w-12 bg-white/40" />
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/80">Contact</span>
+            <div className="h-[1px] w-12 bg-white/40" />
+          </div>
+          <h1 className="text-white text-5xl md:text-7xl font-serif italic mb-8 drop-shadow-2xl">
+            Let’s start a <br/> conversation.
           </h1>
-          <p className="text-white text-base sm:text-lg mb-6 max-w-xl drop-shadow-md">
-            We’d love to hear from you! Find us on the map or reach out using the details below.
-          </p>
         </div>
       </div>
 
+      {/* 2. CONTACT INFO & MAP SECTION */}
+      <div className="max-w-7xl mx-auto px-6 -mt-16 md:-mt-24 z-30 relative py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Map Feature */}
+          <div className="lg:col-span-8 rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.06)] border border-slate-50 bg-white p-2">
+            <iframe
+              src={GOOGLE_MAPS_EMBED_URL}
+              width="100%"
+              height="450"
+              allowFullScreen
+              loading="lazy"
+              className="w-full h-full border-0 rounded-2xl"
+              title="Eco Love Kitchen Location"
+            ></iframe>
+          </div>
 
-      {/* Contact Info and Map */}
-      <div className="max-w-6xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-8 items-stretch  relative z-30">
-        {/* Map */}
-        <div className="w-full lg:w-2/3 rounded-2xl overflow-hidden shadow-lg border border-emerald-100">
-          <iframe
-            src={GOOGLE_MAPS_EMBED_URL}
-            width="100%"
-            height="400"
-            allowFullScreen
-            loading="lazy"
-            className="w-full h-80 lg:h-full border-0"
-            title="Eco Love Kitchen Location"
-          ></iframe>
-        </div>
-        {/* Details */}
-        <div className="w-full lg:w-1/3 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 flex flex-col justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-emerald-700 mb-4 flex items-center gap-2">
-              <FaMapMarkerAlt className="text-emerald-600" /> Our Location
-            </h2>
-            <p className="text-gray-700 dark:text-gray-200 mb-6">
-              No.227/12 Mories Road,Ambalawatta,<br />
-              Galle,<br />
-              Sri Lanka
-            </p>
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-emerald-700 mb-2">Contact Details</h3>
-              <div className="flex items-center gap-2 mb-2">
-                <FaPhoneAlt className="text-emerald-600" />
-                <a href="tel:+94774191148" className="text-gray-800 dark:text-gray-100 hover:underline">+94 77 41 91 148</a>
+          {/* Contact Details Card */}
+          <div className="lg:col-span-4 bg-white rounded-3xl shadow-[0_40px_100px_rgba(0,0,0,0.06)] p-10 flex flex-col justify-between border border-slate-50">
+            <div className="space-y-10">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-800 block mb-4">Our Home</span>
+                <p className="text-sm font-medium text-slate-900 leading-relaxed">
+                  No.227/12 Mories Road,<br />
+                  Ambalawatta, Galle,<br />
+                  Sri Lanka
+                </p>
               </div>
-              <div className="flex items-center gap-2 mb-2">
-                <FaWhatsapp className="text-green-500" />
-                <a href="https://wa.me/94774191148" target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-gray-100 hover:underline">
-                  WhatsApp Chat
-                </a>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <FaEnvelope className="text-emerald-600" />
-                <a href="mailto:info@ecolovekitchen.com" className="text-gray-800 dark:text-gray-100 hover:underline">
-                  ecolovetours@gmail.com
-                </a>
+
+              <div className="space-y-6">
+                <ContactDetail icon={<Phone size={16}/>} title="Direct Line" value="+94 77 419 1148" href="tel:+94774191148" />
+                <ContactDetail icon={<FaWhatsapp size={16}/>} title="WhatsApp" value="Instant Chat" href="https://wa.me/94774191148" />
+                <ContactDetail icon={<Mail size={16}/>} title="Email" value="ecolovetours@gmail.com" href="mailto:ecovovetours@gmail.com" />
               </div>
             </div>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-emerald-700 mb-2">Follow Us</h3>
-            <div className="flex gap-4">
-              <a href="https://www.facebook.com/share/1AjgEvmJX3/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-800 text-2xl">
-                <FaFacebookF />
-              </a>
-              <a href="https://www.instagram.com/ecolovekitchen?igsh=NjFldTBoMW4xbmk2&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-800 text-2xl">
-                <FaInstagram />
-              </a>
-              <a href="https://wa.me/94774191148" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-800 text-2xl">
-                <FaWhatsapp />
-              </a>
-              <a href="https://www.tripadvisor.com/Restaurant_Review-g297896-d19462729-Reviews-Eco_Love_Kitchen-Galle_Galle_District_Southern_Province.html?m=69573" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-800 text-2xl">
-                <FaTripadvisor />
-              </a>
+
+            <div className="pt-10 border-t border-slate-100">
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-300 block mb-4">Social</span>
+              <div className="flex gap-6">
+                <SocialIcon icon={<FaFacebookF />} href="https://www.facebook.com/share/1AjgEvmJX3/?mibextid=wwXIfr" />
+                <SocialIcon icon={<FaInstagram />} href="https://www.instagram.com/ecolovekitchen?igsh=NjFldTBoMW4xbmk2&utm_source=qr" />
+                <SocialIcon icon={<FaTripadvisor />} href="https://www.tripadvisor.com/Restaurant_Review-g297896-d19462729-Reviews-Eco_Love_Kitchen-Galle_Galle_District_Southern_Province.html?m=69573" />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-
-      <section id="contact" className="bg-white py-20 px-6 sm:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Content: Left and Right */}
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Left Side - Animation */}
-          <div className="w-full lg:w-1/2 h-[400px] max-w-md mx-auto">
-            <LottieAnimationContact />
+      {/* 3. INQUIRY FORM SECTION (Clean Minimalist Style) */}
+      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-slate-100 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          
+          <div className="space-y-6">
+             <div className="flex items-center gap-3 mb-4">
+                <div className="h-[1px] w-12 bg-emerald-800" />
+                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-emerald-800">Inquiry</span>
+             </div>
+             <h2 className="text-4xl md:text-5xl font-serif italic text-slate-900 leading-tight">
+               Write to us.
+             </h2>
+             <p className="text-slate-500 text-sm tracking-wide leading-relaxed max-w-md">
+               Whether you have questions about our cooking sessions, tour availability, or dietary requirements, our team is here to assist.
+             </p>
           </div>
 
-          {/* Right Side - Contact Info & Form */}
-          <div className="w-full lg:w-1/2">
-            
+          <div className="w-full">
             <form
-              onSubmit={handleSubmit}
-              className="space-y-6 bg-white p-6 rounded-xl shadow-lg border border-gray-200"
+              action="https://formspree.io/f/mnnvppkq"
+              method="POST"
+              className="space-y-10"
             >
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  required
-                  value={form.name}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  value={form.email}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Message
+              <FloatingInput label="Full Name" name="name" type="text" />
+              <FloatingInput label="Email Address" name="email" type="email" />
+              
+              <div className="group relative">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2 group-focus-within:text-emerald-800 transition-colors">
+                  How can we help?
                 </label>
                 <textarea
                   name="message"
-                  id="message"
-                  rows={5}
                   required
-                  value={form.message}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150 resize-none"
+                  rows={4}
+                  className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-emerald-800 transition-all resize-none text-sm tracking-wide placeholder:text-slate-100"
+                  placeholder="Tell us about your plans..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition duration-200 shadow-md"
+                className="group relative inline-flex items-center gap-4 bg-[#064e3b] text-white font-black uppercase tracking-[0.3em] text-[10px] py-3.5 px-10 rounded-full transition-all hover:bg-[#14532d] shadow-xl active:scale-95"
               >
-                Send Message
+                <span>Send Inquiry</span>
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };
+
+// --- SUB-COMPONENTS ---
+
+const ContactDetail = ({ icon, title, value, href }: any) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="group block">
+    <div className="flex items-center gap-3 mb-1">
+      <span className="text-emerald-700">{icon}</span>
+      <span className="text-[9px] font-black uppercase tracking-widest text-slate-300 group-hover:text-emerald-800 transition-colors">{title}</span>
+    </div>
+    <p className="text-sm font-medium text-slate-900 ml-7">{value}</p>
+  </a>
+);
+
+const SocialIcon = ({ icon, href }: any) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-emerald-800 transition-colors text-xl">
+    {icon}
+  </a>
+);
+
+const FloatingInput = ({ label, name, type }: any) => (
+  <div className="group relative">
+    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1 group-focus-within:text-emerald-800 transition-colors">
+      {label}
+    </label>
+    <input
+      type={type}
+      name={name}
+      required
+      className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-emerald-800 transition-all text-sm tracking-wide"
+    />
+  </div>
+);
 
 export default ContactPage;

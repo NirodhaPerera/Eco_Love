@@ -44,14 +44,15 @@ const Header = () => {
         {/* Desktop View: Iconic Orb Cluster */}
         <div className="hidden md:flex items-center gap-2 md:gap-4">
           <div className="flex items-center gap-2">
-            <HeaderOrb href="mailto:info@ecolove.com" icon={<Mail size={scrolled ? 14 : 16} />} label="Email" scrolled={scrolled} />
-            <HeaderOrb href="tel:+94712345678" icon={<Phone size={scrolled ? 14 : 16} />} label="Call" scrolled={scrolled} />
+            
+            <HeaderOrb href="tel:+94774191148" icon={<Phone size={scrolled ? 14 : 16} />} label="Call" scrolled={scrolled} />
+            <HeaderOrb href="https://wa.me/94774191148" icon={<FaWhatsapp size={scrolled ? 14 : 16} />} label="WhatsApp"  scrolled={scrolled} />
           </div>
           <div className="h-8 w-[1px] bg-slate-200 mx-2" />
           <div className="flex items-center gap-2">
             <HeaderOrb href="#" icon={<FaFacebookF size={12} />} label="Facebook" isSocial scrolled={scrolled} />
             <HeaderOrb href="#" icon={<FaInstagram size={12} />} label="Instagram" isSocial scrolled={scrolled} />
-            <HeaderOrb href="#" icon={<FaWhatsapp size={12} />} label="WhatsApp" isSocial scrolled={scrolled} />
+            <HeaderOrb href="mailto:ecolovetours@gmail.com" icon={<Mail size={12} />} label="Email" isSocial scrolled={scrolled} />
           </div>
         </div>
 
@@ -80,9 +81,9 @@ const Header = () => {
           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40">Connect with us</span>
           
           <div className="space-y-4 w-full">
-            <MobileMenuLink href="tel:+94712345678" icon={<Phone size={20}/>} title="Call Us" detail="+94 71 234 5678" />
+            <MobileMenuLink href="tel:+94774191148" icon={<Phone size={20}/>} title="Call Us" detail="+94 71 234 5678" />
             <MobileMenuLink href="mailto:info@ecolove.com" icon={<Mail size={20}/>} title="Email Us" detail="info@ecolove.com" />
-            <MobileMenuLink href="https://wa.me/94712345678" icon={<MessageCircle size={20}/>} title="WhatsApp" detail="Direct Chat" />
+            <MobileMenuLink href="https://wa.me/94774191148" icon={<MessageCircle size={20}/>} title="WhatsApp" detail="Direct Chat" />
           </div>
 
           <div className="flex gap-6 mt-4">

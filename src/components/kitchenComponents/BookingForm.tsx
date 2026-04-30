@@ -1,7 +1,8 @@
 import React, { useState, useEffect, type ChangeEvent, type FormEvent } from "react";
-import { FaUser, FaEnvelope, FaWhatsapp, FaCalendarAlt, FaClock, FaLeaf, FaUtensils } from "react-icons/fa";
+import { User, Mail, MessageSquare, Calendar, Clock, Leaf, Users, CheckCircle, ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
-const WHATSAPP_NUMBER = "94767763437";
+const WHATSAPP_NUMBER = "94774191148"; // Verified primary contact
 
 interface FormState {
   title: string;
@@ -30,10 +31,11 @@ const initialFormState: FormState = {
 const BookingForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<FormState>(initialFormState);
-  const [amount, setAmount] = useState(20);
+  const [amount, setAmount] = useState(25);
 
   useEffect(() => {
-    setAmount(form.noOfPacks * 20);
+    // Standard $25 per person pricing
+    setAmount(form.noOfPacks * 25);
   }, [form.noOfPacks]);
 
   const handleChange = (
@@ -46,164 +48,162 @@ const BookingForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/kitchen-book", {
+
+    // INTEGRATION: Sending details to ecolovetours@gmail.com via Formspree
+    try {
+      const response = await fetch("https://formspree.io/f/mnnvppkq", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
-        .then((res) => {
-          if (res.ok) setSubmitted(true);
-          else alert("Failed to send booking.");
-        })
-        .catch(() => alert("Failed to send booking."));
+        body: JSON.stringify({
+            ...form,
+            totalAmount: `$${amount}` // Adding the calculated total to the email report
+        }),
+      });
 
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Failed to send booking email. Please try again.");
+      }
+    } catch (error) {
+      alert("An error occurred. Please check your connection.");
+    }
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hi, I just booked a session!\n\nTitle: ${form.title}\nName: ${form.name}\nEmail: ${form.email}\nWhatsApp: ${form.whatsapp}\nNo. of Packs: ${form.noOfPacks}\nDate: ${form.date}\nTime: ${form.time}\nDietary Preference: ${form.diet}\nMessage: ${form.message}\nTotal Amount: $${amount}`
+    `Hi Eco Love! I've booked a Coockery session.\n\nName: ${form.title} ${form.name}\nEmail: ${form.email}\nGuests: ${form.noOfPacks}\nDate: ${form.date}\nTime: ${form.time}\nDiet: ${form.diet}\nTotal: $${amount}`
   );
 
   return (
-    <div className="w-full max-w-7xl mx-auto bg-white dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-2xl p-8 mt-8">
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.05)] p-8 md:p-16">
       {!submitted ? (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <h2 className="text-3xl text-center font-extrabold mb-8 text-black tracking-tight">
-            <span className="inline-flex items-center gap-2">
-              <FaUtensils className="text-green-600" /> Book Your Session
-            </span>
-          </h2>
-          {/* Title & Name */}
-          <div className="flex gap-4">
-            <div className="w-1/3">
-              <label className="block font-semibold mb-1">Title <span className="text-red-500">*</span></label>
-              <select
-                name="title"
-                value={form.title}
-                onChange={handleChange}
-                required
-                className="w-full p-2 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
-              >
-                <option value="" disabled>Select</option>
-                <option value="Mr.">Mr.</option>
-                <option value="Mrs.">Mrs.</option>
-                <option value="Miss">Miss</option>
-                <option value="Ms.">Ms.</option>
-                <option value="Dr.">Dr.</option>
-              </select>
-            </div>
-            <div className="flex-1">
-              <label className="block font-semibold mb-1">Name <span className="text-red-500">*</span></label>
-              <div className="relative">
-                <FaUser className="absolute left-3 top-3 text-green-500" />
-                <input
-                  name="name"
-                  type="text"
-                  required
-                  value={form.name}
+        <form onSubmit={handleSubmit} className="space-y-12">
+          {/* Section Header */}
+          <div className="text-center">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-emerald-800 block mb-4">Reservation</span>
+            <h2 className="text-4xl font-serif italic text-slate-900">Secure Your Session</h2>
+          </div>
+
+          <div className="space-y-10">
+            {/* Row 1: Title & Name */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-3">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Title</label>
+                <select
+                  name="title"
+                  value={form.title}
                   onChange={handleChange}
-                  className="w-full p-2 pl-10 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
-                  placeholder="Your full name"
-                />
+                  required
+                  className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
+                >
+                  <option value="" disabled>Select</option>
+                  <option value="Mr.">Mr.</option>
+                  <option value="Mrs.">Mrs.</option>
+                  <option value="Ms.">Ms.</option>
+                  <option value="Dr.">Dr.</option>
+                </select>
+              </div>
+              <div className="md:col-span-9">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Full Name</label>
+                <div className="relative group">
+                  <User className="absolute right-0 top-3 text-slate-200 group-focus-within:text-emerald-800 transition-colors" size={16} />
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    value={form.name}
+                    onChange={handleChange}
+                    className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
+                    placeholder="Enter your name"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          {/* WhatsApp & Email */}
-          <div className="flex gap-4">
-            <div className="flex-1">
-              <label className="block font-semibold mb-1">WhatsApp <span className="text-red-500">*</span></label>
-              <div className="relative">
-                <FaWhatsapp className="absolute left-3 top-3 text-green-400" />
+
+            {/* Row 2: WhatsApp & Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="relative group">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">WhatsApp Number</label>
+                <FaWhatsapp className="absolute right-0 top-10 text-slate-200 group-focus-within:text-emerald-800 transition-colors" size={16} />
                 <input
                   name="whatsapp"
                   type="tel"
                   required
                   value={form.whatsapp}
                   onChange={handleChange}
-                  className="w-full p-2 pl-10 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
-                  placeholder="e.g. 94712345678"
+                  className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
+                  placeholder="e.g. 94771234567"
                 />
               </div>
-            </div>
-            <div className="flex-1">
-              <label className="block font-semibold mb-1">Email <span className="text-gray-400">(optional)</span></label>
-              <div className="relative">
-                <FaEnvelope className="absolute left-3 top-3 text-green-400" />
+              <div className="relative group">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Email Address (Optional)</label>
+                <Mail className="absolute right-0 top-10 text-slate-200 group-focus-within:text-emerald-800 transition-colors" size={16} />
                 <input
                   name="email"
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="w-full p-2 pl-10 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
+                  className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
                   placeholder="you@example.com"
                 />
               </div>
             </div>
-          </div>
-          {/* Packs, Date, Time, Diet */}
-          <div className="flex flex-wrap gap-4">
-            <div className="w-1/4 min-w-[120px]">
-              <label className="block font-semibold mb-1">No. of Packs <span className="text-red-500">*</span></label>
-              <input
-                name="noOfPacks"
-                type="number"
-                min={1}
-                required
-                value={form.noOfPacks}
-                onChange={handleChange}
-                className="w-full p-2 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
-              />
-            </div>
-            <div className="w-1/4 min-w-[120px]">
-              <label className="block font-semibold mb-1">Date <span className="text-red-500">*</span></label>
+
+            {/* Row 3: Details Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="relative">
-                <FaCalendarAlt className="absolute left-3 top-3 text-emerald-400" />
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Guests</label>
+                <Users className="absolute right-0 top-10 text-slate-200" size={14} />
+                <input
+                  name="noOfPacks"
+                  type="number"
+                  min={1}
+                  required
+                  value={form.noOfPacks}
+                  onChange={handleChange}
+                  className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
+                />
+              </div>
+              <div className="relative">
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Date</label>
+                <Calendar className="absolute right-0 top-10 text-slate-200" size={14} />
                 <input
                   name="date"
                   type="date"
                   required
                   value={form.date}
                   onChange={handleChange}
-                  className="w-full p-2 pl-10 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
+                  className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
                 />
               </div>
-            </div>
-            <div className="w-1/4 min-w-[120px]">
-              <label className="block font-semibold mb-1">Time <span className="text-red-500">*</span></label>
               <div className="relative">
-                <FaClock className="absolute left-3 top-3 text-green-500" />
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Time</label>
+                <Clock className="absolute right-0 top-10 text-slate-200" size={14} />
                 <select
                   name="time"
                   value={form.time}
                   onChange={handleChange}
                   required
-                  className="w-full p-2 pl-10 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
+                  className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
                 >
                   <option value="" disabled>Select</option>
                   <option value="10:00 AM">10:00 AM</option>
-                  <option value="11:00 AM">11:00 AM</option>
-                  <option value="12:00 PM">12:00 PM</option>
                   <option value="1:00 PM">1:00 PM</option>
-                  <option value="2:00 PM">2:00 PM</option>
-                  <option value="3:00 PM">3:00 PM</option>
                   <option value="4:00 PM">4:00 PM</option>
-                  <option value="5:00 PM">5:00 PM</option>
                   <option value="6:00 PM">6:00 PM</option>
-                  <option value="7:00 PM">7:00 PM</option>
                 </select>
               </div>
-            </div>
-            <div className="w-1/4 min-w-[120px]">
-              <label className="block font-semibold mb-1">Diet <span className="text-red-500">*</span></label>
               <div className="relative">
-                <FaLeaf className="absolute left-3 top-3 text-green-400" />
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Diet</label>
+                <Leaf className="absolute right-0 top-10 text-slate-200" size={14} />
                 <select
                   name="diet"
                   value={form.diet}
                   onChange={handleChange}
                   required
-                  className="w-full p-2 pl-10 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
+                  className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm"
                 >
                   <option value="" disabled>Select</option>
                   <option value="Vegetarian">Vegetarian</option>
@@ -212,41 +212,58 @@ const BookingForm: React.FC = () => {
                 </select>
               </div>
             </div>
+
+            {/* Row 4: Message */}
+            <div className="relative group">
+              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Special Notes</label>
+              <MessageSquare className="absolute right-0 top-10 text-slate-200" size={16} />
+              <textarea
+                name="message"
+                rows={2}
+                value={form.message}
+                onChange={handleChange}
+                className="w-full bg-transparent border-b border-slate-200 py-3 focus:outline-none focus:border-emerald-800 transition-colors text-sm resize-none"
+                placeholder="Allergies or preferences..."
+              />
+            </div>
           </div>
-          {/* Message */}
-          <div>
-            <label className="block font-semibold mb-1">Message <span className="text-gray-400">(optional)</span></label>
-            <textarea
-              name="message"
-              rows={3}
-              value={form.message}
-              onChange={handleChange}
-              className="w-full p-2 rounded-lg border border-green-800 focus:ring-2 focus:ring-green-800"
-              placeholder="Anything you'd like us to know?"
-            ></textarea>
-          </div>
-          {/* Amount */}
-          <div className="flex items-center justify-between mt-2">
-            <span className="font-bold text-emerald-700 text-lg">Amount: ${amount}</span>
+
+          {/* Footer: Amount & Submit */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-slate-50">
+            <div className="text-center md:text-left">
+              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Total All-Inclusive</p>
+              <span className="text-3xl font-serif italic text-emerald-900">${amount}</span>
+            </div>
             <button
               type="submit"
-              className="bg-gradient-to-r from-emerald-600 to-green-400 hover:from-emerald-700 hover:to-green-800 text-white font-bold py-2 px-8 rounded-lg shadow-md transition"
+              className="group flex items-center gap-4 bg-emerald-950 text-white font-black uppercase tracking-[0.3em] text-[10px] py-4 px-10 rounded-full transition-all hover:bg-emerald-800 shadow-xl active:scale-95"
             >
-              Book Now
+              <span>Confirm Booking</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </form>
       ) : (
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-emerald-700 mb-4">Thank you for booking!</h3>
-          <p className="mb-6">We have received your booking. For faster confirmation, you can also send us your details on WhatsApp:</p>
+        <div className="text-center py-12 space-y-8 animate-fade-in">
+          <div className="flex justify-center">
+            <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600">
+               <CheckCircle size={40} />
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-3xl font-serif italic text-slate-900">Thank you, {form.name}</h3>
+            <p className="text-slate-500 text-sm max-w-sm mx-auto leading-relaxed">
+              We have received your reservation. For faster confirmation, please reach out to us on WhatsApp.
+            </p>
+          </div>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-green-800 text-white px-8 py-3 rounded-lg font-bold text-lg shadow hover:bg-green-700 transition"
+            className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-3.5 rounded-full font-black uppercase tracking-widest text-[9px] shadow-md hover:shadow-xl transition-all"
           >
-            Confirm via WhatsApp
+            <FaWhatsapp size={16} />
+            Verify via WhatsApp
           </a>
         </div>
       )}
