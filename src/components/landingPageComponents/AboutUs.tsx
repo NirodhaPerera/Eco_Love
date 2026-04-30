@@ -104,7 +104,7 @@ const AboutUs: React.FC = () => {
               <p className="text-white/80 text-sm leading-relaxed max-h-0 overflow-hidden opacity-0 transition-all duration-700 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 font-light">
                 {exp.desc}
               </p>
-              A
+              
               {/* Subtle Visit Hint */}
               <div className="mt-2 text-[10px] font-bold uppercase tracking-tighter text-green-400 opacity-0 group-hover:opacity-100 transition-opacity">
                 Click to visit site

@@ -59,7 +59,7 @@ const Header = () => {
         {/* Mobile View: Simplified Action Button */}
         <div className="md:hidden flex items-center gap-2">
           <a 
-            href="tel:+94712345678" 
+            href="tel:+94774191148" 
             className="w-10 h-10 rounded-full bg-green-900 text-white flex items-center justify-center shadow-lg active:scale-90 transition-transform"
           >
             <Phone size={18} />
@@ -74,25 +74,34 @@ const Header = () => {
       </div>
 
       {/* Mobile Full-Screen Overlay Menu */}
-      <div className={`fixed inset-0 bg-white/95 backdrop-blur-xl z-[-1] transition-all duration-500 ease-in-out md:hidden ${
-        mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
-      }`}>
-        <div className="flex flex-col items-center justify-center h-full gap-8 px-10 text-center">
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40">Connect with us</span>
-          
-          <div className="space-y-4 w-full">
-            <MobileMenuLink href="tel:+94774191148" icon={<Phone size={20}/>} title="Call Us" detail="+94 71 234 5678" />
-            <MobileMenuLink href="mailto:info@ecolove.com" icon={<Mail size={20}/>} title="Email Us" detail="info@ecolove.com" />
-            <MobileMenuLink href="https://wa.me/94774191148" icon={<MessageCircle size={20}/>} title="WhatsApp" detail="Direct Chat" />
-          </div>
+     
+      <div className={`fixed inset-0 bg-white/95 backdrop-blur-xl z-[100] transition-all duration-500 ease-in-out md:hidden ${
+          mobileMenuOpen 
+            ? 'opacity-100 translate-y-0 pointer-events-auto' 
+            : 'opacity-0 -translate-y-full pointer-events-none'
+        }`}>
+          <div className="flex flex-col items-center justify-center h-full gap-8 px-10 text-center">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40">Connect with us</span>
+            
+            <div className="space-y-4 w-full">
+              {/* Verified contact details for Eco Love Sri Lanka */}
+              <MobileMenuLink href="tel:+94774191148" icon={<Phone size={20}/>} title="Call Us" detail="+94 77 419 1148" />
+              <MobileMenuLink href="mailto:ecovovetours@gmail.com" icon={<Mail size={20}/>} title="Email Us" detail="ecolovetours@gmail.com" />
+              <MobileMenuLink href="https://wa.me/94774191148" icon={<MessageCircle size={20}/>} title="WhatsApp" detail="+94 77 419 1148" />
+            </div>
 
-          <div className="flex gap-6 mt-4">
-            <a href="#" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600"><FaFacebookF size={18}/></a>
-            <a href="#" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600"><FaInstagram size={18}/></a>
-          </div>
+            <div className="flex gap-6 mt-4">
+              {/* Updated social links for your platforms */}
+              <a href="https://www.facebook.com/share/1AjgEvmJX3/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600">
+                <FaFacebookF size={18}/>
+              </a>
+              <a href="https://www.instagram.com/ecolovekitchen" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600">
+                <FaInstagram size={18}/>
+              </a>
+            </div>
 
-          <p className="font-serif italic text-green-900 text-xl mt-8">Nature & Culture.</p>
-        </div>
+            <p className="font-serif italic text-green-900 text-xl mt-8">Nature & Culture.</p>
+          </div>
       </div>
     </nav>
   );
