@@ -74,35 +74,84 @@ const Header = () => {
       </div>
 
       {/* Mobile Full-Screen Overlay Menu */}
-     
-      <div className={`fixed inset-0 bg-white/95 backdrop-blur-xl z-[100] transition-all duration-500 ease-in-out md:hidden ${
-          mobileMenuOpen 
-            ? 'opacity-100 translate-y-0 pointer-events-auto' 
-            : 'opacity-0 -translate-y-full pointer-events-none'
-        }`}>
-          <div className="flex flex-col items-center justify-center h-full gap-8 px-10 text-center">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40">Connect with us</span>
+
+        <div className={`fixed inset-0 bg-white/95 backdrop-blur-xl z-[100] transition-all duration-500 ease-in-out md:hidden ${
+            mobileMenuOpen 
+              ? 'opacity-100 translate-y-0 pointer-events-auto' 
+              : 'opacity-0 -translate-y-full pointer-events-none'
+          }`}>
             
-            <div className="space-y-4 w-full">
-              {/* Verified contact details for Eco Love Sri Lanka */}
-              <MobileMenuLink href="tel:+94774191148" icon={<Phone size={20}/>} title="Call Us" detail="+94 77 419 1148" />
-              <MobileMenuLink href="mailto:ecovovetours@gmail.com" icon={<Mail size={20}/>} title="Email Us" detail="ecolovetours@gmail.com" />
-              <MobileMenuLink href="https://wa.me/94774191148" icon={<MessageCircle size={20}/>} title="WhatsApp" detail="+94 77 419 1148" />
+            {/* Top Navigation Bar in Menu */}
+            <div className="absolute top-0 left-0 w-full p-8 flex items-center justify-between">
+              {/* Brand Logo */}
+              <div className="flex items-center gap-2">
+                <img
+                    src="logo-ecolove2.png"
+                    alt="Eco Love Logo"
+                    className="w-24 object-contain"
+                  />
+                
+              </div>
+
+              {/* Refined Close Button */}
+              <button 
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-green-900 transition-colors shadow-sm"
+                aria-label="Close Menu"
+              >
+                <X size={24} strokeWidth={1.5} />
+              </button>
             </div>
 
-            <div className="flex gap-6 mt-4">
-              {/* Updated social links for your platforms */}
-              <a href="https://www.facebook.com/share/1AjgEvmJX3/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600">
-                <FaFacebookF size={18}/>
-              </a>
-              <a href="https://www.instagram.com/ecolovekitchen" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600">
-                <FaInstagram size={18}/>
-              </a>
-            </div>
+            {/* Center Content */}
+            <div className="flex flex-col items-center justify-center h-full gap-8 px-10 text-center">
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40">
+                Connect with us
+              </span>
+              
+              <div className="space-y-4 w-full">
+                <MobileMenuLink 
+                  href="tel:+94774191148" 
+                  icon={<Phone size={20}/>} 
+                  title="Call Us" 
+                  detail="+94 77 419 1148" 
+                />
+                <MobileMenuLink 
+                  href="mailto:ecolovetours@gmail.com" 
+                  icon={<Mail size={20}/>} 
+                  title="Email Us" 
+                  detail="ecolovetours@gmail.com" 
+                />
+                <MobileMenuLink 
+                  href="https://wa.me/94774191148" 
+                  icon={<MessageCircle size={20}/>} 
+                  title="WhatsApp" 
+                  detail="+94 77 419 1148" 
+                />
+              </div>
 
-            <p className="font-serif italic text-green-900 text-xl mt-8">Nature & Culture.</p>
-          </div>
-      </div>
+              <div className="flex gap-6 mt-4">
+                <a 
+                  href="https://www.facebook.com/share/1DbyJLNNTJ/?mibextid=wwXIfr" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 shadow-sm"
+                >
+                  <FaFacebookF size={18}/>
+                </a>
+                <a 
+                  href="https://www.instagram.com/ecolovekitchen?igsh=MXYzZXNhbWxrN3J1" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 shadow-sm"
+                >
+                  <FaInstagram size={18}/>
+                </a>
+              </div>
+
+              <p className="font-serif italic text-green-900 text-xl mt-8">Nature & Culture.</p>
+            </div>
+        </div>
     </nav>
   );
 };
