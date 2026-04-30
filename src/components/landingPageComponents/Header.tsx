@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { Mail, Phone } from 'lucide-react';
 
@@ -121,3 +121,4 @@ const HeaderOrb = ({ icon, href, label, isSocial = false, scrolled }: { icon: an
 );
 
 export default Header;
+
