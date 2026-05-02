@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Star } from "lucide-react";
-import LottieAnimationReview from "../LottieAnimationReview";
+import { Star, Quote, Plus, Minus } from "lucide-react";
 
 const testimonials = [
   {
@@ -56,135 +55,105 @@ const testimonials = [
     id: 8,
     name: "Alice - Germany",
     role: "Lodge Guest",
-    text: "The lodge is beautiful and quietly located near Galle fort. The design is magical and invites you to linger.From the second one you are carried on your hands and you do not miss anything!Thanks to Malik and his family, we experienced 3 really great activities:We learned Sri Lankan cooked with mother, went on a walking tour of Galle (Malik knows everything about the history and the peculiarities on site) & were at a gold smith nearby to make your own rings.Staying at Malik and his family was the absolute highlight of our 14 day vacation.",
+    text: "The lodge is beautiful and quietly located near Galle fort. The design is magical and invites you to linger. From the second one you are carried on your hands and you do not miss anything! Thanks to Malik and his family, we experienced 3 really great activities: We learned Sri Lankan cooked with mother, went on a walking tour of Galle (Malik knows everything about the history and the peculiarities on site) & were at a gold smith nearby to make your own rings. Staying at Malik and his family was the absolute highlight of our 14 day vacation.",
     rating: 5,
   },
-  {
-    id: 9,
-    name: "Nele - Germany",
-    role: "Lodge Guest",
-    text: "The lodge gave me “arriving at home” vibes. The host just opened that place near to his house. All details are very well selected, it starts with a nice lemon grass smell, over slippers/wonderful soap etc and ends with the most comfortable bed I have ever slept in. You can close all windows so in the night, if you wish, everything can be very dark - since this is very special for Asian countries, i should point that out. I had a delicious breakfast and I also booked a cooking class with the host mom, which was so delicious and interesting for me. I look forward to come back to this amazing place.",
-    rating: 5,
-  },
-  // Add other testimonials as needed...
 ];
 
 const TestimonialsPage: React.FC = () => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  const toggleCard = (id: number) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
-
   return (
-    <section className="bg-white dark:bg-gray-900 py-16 px-6 sm:px-12 lg:px-24">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-          What Our Guests Say
-        </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Real experiences from real travelers with Eco Love Tours.
-        </p>
-      </div>
+    <section className="bg-[#FDFCFB] py-24 md:py-40 px-6 md:px-12 lg:px-24 border-t border-slate-50">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Editorial Header */}
+        <div className="flex flex-col items-center text-center mb-24 space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="h-[1px] w-12 bg-emerald-800" />
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-emerald-800">
+              Guest Chronicles
+            </span>
+            <div className="h-[1px] w-12 bg-emerald-800" />
+          </div>
+          <h2 className="text-5xl md:text-7xl font-serif italic text-slate-900 leading-tight">
+            Soulful Stories.
+          </h2>
+          <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em] max-w-lg">
+            Authentic experiences from our international community.
+          </p>
+        </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-        {testimonials.map(({ id, name, role, text, rating }) => {
-          const isExpanded = expandedId === id;
-          return (
-            <div
-              key={id}
-              className={`bg-green-50 dark:bg-gray-800 rounded-xl p-6 shadow-md overflow-hidden transition-all duration-300 cursor-pointer border border-green-200 dark:border-gray-700 flex flex-col justify-between ${
-                isExpanded ? "h-auto" : "h-[250px]"
-              }`}
-              onClick={() => toggleCard(id)}
-            >
-              <p className="mb-4 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-               {isExpanded ? (
-                  text
-                ) : (
-                  <>
-                    {text.slice(0, 180)}
-                    {text.length > 180 && (
-                      <span className="text-green-800 font-semibold hover:underline cursor-pointer">
-                        ...Read More
-                      </span>
-                    )}
-                  </>
-                )}
-              </p>
-              <div className="mt-auto">
-                <div className="flex items-center mb-2">
-                  {[...Array(rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400" />
-                  ))}
-                  {[...Array(5 - rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-gray-300" />
-                  ))}
+        {/* Clean Typographic Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-100 border border-slate-100 rounded-3xl overflow-hidden shadow-2xl">
+          {testimonials.map(({ id, name, role, text, rating }) => {
+            const isExpanded = expandedId === id;
+            return (
+              <div
+                key={id}
+                className="bg-white p-10 md:p-12 flex flex-col justify-between transition-all duration-500 hover:bg-slate-50 group"
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-10">
+                    <Quote className="text-emerald-800/10 group-hover:text-emerald-800/20 transition-colors" size={40} />
+                    <div className="flex gap-0.5">
+                      {[...Array(rating)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className={`text-slate-600 text-sm md:text-base leading-[1.8] tracking-wide mb-8 transition-all duration-700 ${isExpanded ? '' : 'line-clamp-4'}`}>
+                    {text}
+                  </p>
+                  
+                  {text.length > 180 && (
+                    <button 
+                      onClick={() => setExpandedId(isExpanded ? null : id)}
+                      className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-emerald-800 mb-10 hover:opacity-60 transition-opacity"
+                    >
+                      {isExpanded ? <Minus size={12} /> : <Plus size={12} />}
+                      {isExpanded ? "Show Less" : "Read Full Story"}
+                    </button>
+                  )}
                 </div>
-                <p className="font-semibold text-sm text-gray-800 dark:text-white">{name}</p>
-                <p className="text-xs text-green-700 dark:text-green-300">{role}</p>
+
+                <div className="pt-8 border-t border-slate-50">
+                  <p className="font-serif italic text-slate-900 text-xl mb-1">{name}</p>
+                  <p className="text-[9px] font-black uppercase tracking-[0.3em] text-emerald-700">{role}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
 
-      {/* Lottie Animation */}
-      <div className="mt-16 mb-12 max-w-md mx-auto">
-        <LottieAnimationReview />
-      </div>
-
-<div className="mt-12 flex flex-col items-center space-y-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">
-          Check Our Reviews On
-        </h3>
-        <div className="flex space-x-12">
-          <a
-            href="https://www.tripadvisor.com/Attraction_Review-g297896-d19911120-Reviews-Eco_Love_Tours-Galle_Galle_District_Southern_Province.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-green-700 hover:text-green-900 transition"
-            aria-label="TripAdvisor Reviews"
-          >
-            <img src="tripadvisor.png" alt="TripAdvisor" className="w-12 h-12" />
-          </a>
-
-          <a
-            href="https://g.co/kgs/rnwAB63"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-blue-600 hover:text-blue-800 transition"
-            aria-label="Google Reviews"
-          >
-            <img src="google.png" alt="Google" className="w-12 h-12" />
-          </a>
-
-          <a
-            href="https://www.facebook.com/share/1Ce5zKiE1B/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-blue-700 hover:text-blue-900 transition"
-            aria-label="Facebook Page"
-          >
-            <img src="facebook.png" alt="Facebook" className="w-12 h-12" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/ecolovetours?igsh=MWkyNXZ0cHZqMG5wMA=="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-pink-600 hover:text-pink-800 transition"
-            aria-label="Instagram Profile"
-          >
-            <img src="intagram.png" alt="Instagram" className="w-12 h-12" />
-          </a>
-          
+        {/* Minimal Social Media Icons Section */}
+        <div className="mt-40 pt-20 border-t border-slate-100 text-center">
+           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 block mb-12">
+             Verify our reputation across the web
+           </span>
+           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 hover:opacity-100 transition-opacity duration-700">
+              <SocialIcon href="https://g.co/kgs/rnwAB63" img="google.png" label="Google" />
+              <SocialIcon href="https://www.tripadvisor.com/Attraction_Review-g297896-d19911120-Reviews-Eco_Love_Tours-Galle_Galle_District_Southern_Province.html" img="tripadvisor.png" label="TripAdvisor" />
+              <SocialIcon href="https://www.facebook.com/share/1Ce5zKiE1B/" img="facebook.png" label="Facebook" />
+              <SocialIcon href="https://www.instagram.com/ecolovetours" img="intagram.png" label="Instagram" />
+           </div>
         </div>
       </div>
-
-
     </section>
   );
 };
+
+const SocialIcon = ({ href, img, label }: { href: string; img: string; label: string }) => (
+  <a 
+    href={href} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="flex flex-col items-center gap-4 group transition-all"
+  >
+    <img src={img} alt={label} className="w-8 h-8 grayscale group-hover:grayscale-0 transition-all duration-500" />
+    <span className="text-[8px] font-black uppercase tracking-widest text-slate-400 group-hover:text-emerald-900">{label}</span>
+  </a>
+);
 
 export default TestimonialsPage;

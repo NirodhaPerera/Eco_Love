@@ -14,7 +14,7 @@ function LodgeLayout() {
           { label: 'Gallery', path: '/eco-love-lodge/gallery' },
           { label: 'Contact', path: '/eco-love-lodge/contact' },
         ]}
-        buttonLink="/eco-love-lodge/booking"
+        buttonLink="/eco-love-lodge/stays"
         buttonLabel="Book a Stay"
       />
       <main>

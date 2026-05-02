@@ -11,7 +11,7 @@ function TourLayout() {
         navLinks={[
           { label: 'Home', path: '/eco-love-tours' },
           { label: 'Destinations', path: '/eco-love-tours/destinations' },
-          { label: 'Authentic Experiences', path: '/eco-love-tours/experiences' },
+          { label: 'Experiences', path: '/eco-love-tours/experiences' },
          
           { label: 'Tours', path: '/eco-love-tours/tours' },
           { label: 'Gallery', path: '/eco-love-tours/gallery' },

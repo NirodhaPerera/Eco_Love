@@ -59,8 +59,8 @@ const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-white text-5xl md:text-8xl font-serif italic mb-8 leading-tight">
-            Eco Living, <br />
-            <span className="text-white/20">the Love Way.</span>
+            Where Travel Meets, <br />
+            <span className="text-white/20">Love for Nature.</span>
           </h1>
 
           <p className="text-white/80 text-[10px] md:text-xs font-light tracking-[0.4em] max-w-2xl mx-auto leading-loose uppercase mb-12">

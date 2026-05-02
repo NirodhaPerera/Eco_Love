@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { Calendar } from 'lucide-react';
+import  { useEffect, useState } from 'react';
+import { FaBars, FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { Calendar, X, Phone, MessageCircle } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 interface HeaderKitProps {
@@ -42,12 +42,12 @@ const HeaderKit = ({
         <div className={`transition-all duration-700 ${scrolled ? 'scale-90' : 'scale-100'}`}>
           <img
             src={logoSrc}
-            alt="Site Logo"
+            alt="Eco Love Logo"
             className={`${logoSizeClass} object-contain transition-all duration-700`}
           />
         </div>
 
-        {/* Desktop Navigation - Minimalist Editorial Style */}
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-2">
           {navLinks.map((link) => (
             <NavLink
@@ -69,7 +69,6 @@ const HeaderKit = ({
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 md:gap-4">
-          {/* Action Button (Book/Calendar) */}
           <a href={buttonLink} className="group">
             <button className={`flex items-center gap-2 rounded-full font-black uppercase tracking-widest transition-all duration-500 shadow-lg active:scale-95 ${
                 scrolled 
@@ -82,52 +81,81 @@ const HeaderKit = ({
             </button>
           </a>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle (Visible on Mobile & Tablet) */}
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen(true)}
             className={`lg:hidden w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
                 scrolled ? 'bg-slate-100 text-slate-900' : 'bg-white/20 text-white backdrop-blur-md border border-white/30'
             }`}
           >
-            {menuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+            <FaBars size={18} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay - Matches the previous design */}
-      <div className={`fixed inset-0 bg-white/98 backdrop-blur-xl z-[-1] transition-all duration-700 ease-in-out md:hidden ${
-        menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+      {/* FIXED MOBILE & TABLET OVERLAY */}
+      <div className={`fixed inset-0 bg-white/95 backdrop-blur-xl z-[110] transition-all duration-500 ease-in-out lg:hidden ${
+        menuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-full pointer-events-none'
       }`}>
-        <div className="flex flex-col items-center justify-center h-full gap-6 px-10">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40 mb-4">Discover Eco Love</span>
+        
+        {/* Top Bar inside Menu */}
+        <div className="absolute top-0 left-0 w-full p-8 flex items-center justify-between">
+          <img src={logoSrc} alt="Eco Love Logo" className="w-24 object-contain" />
+          <button 
+            onClick={() => setMenuOpen(false)}
+            className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-green-900 transition-colors shadow-sm"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Menu Items */}
+        <div className="flex flex-col items-center justify-center h-full gap-6 px-10 text-center">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40 mb-4">Nature & Culture</span>
             
-            {navLinks.map((link) => (
-                <NavLink
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setMenuOpen(false)}
-                    className={({ isActive }) =>
-                        `w-full text-center py-4 rounded-2xl text-sm font-black uppercase tracking-[0.3em] transition-all ${
-                            isActive ? 'bg-green-900 text-white shadow-xl scale-105' : 'text-slate-800 active:bg-green-50'
-                        }`
-                    }
-                >
-                    {link.label}
-                </NavLink>
-            ))}
+            <div className="w-full space-y-2">
+                {navLinks.map((link) => (
+                    <NavLink
+                        key={link.path}
+                        to={link.path}
+                        end
+                        onClick={() => setMenuOpen(false)}
+                        className={({ isActive }) =>
+                            `block w-full py-4 rounded-2xl text-[11px] font-black uppercase tracking-[0.3em] transition-all ${
+                                isActive ? 'bg-green-900 text-white shadow-xl' : 'text-slate-800 hover:bg-slate-50'
+                            }`
+                        }
+                    >
+                        {link.label}
+                    </NavLink>
+                ))}
+            </div>
 
             <div className="w-12 h-[1px] bg-slate-200 my-4" />
 
-            <a href={buttonLink} className="w-full">
-                <button className="w-full bg-green-50 text-green-900 py-5 rounded-2xl flex items-center justify-center gap-3 font-black uppercase tracking-widest text-xs">
-                    <Calendar size={18} />
-                    {buttonLabel}
-                </button>
-            </a>
+            {/* Quick Contact Links for Mobile User Convenience */}
+            <div className="w-full space-y-3">
+                <MobileLink href="https://wa.me/94774191148" icon={<MessageCircle size={18}/>} label="WhatsApp Chat" />
+                <MobileLink href="tel:+94774191148" icon={<Phone size={18}/>} label="Call Inquiry" />
+            </div>
+
+            {/* Socials */}
+            <div className="flex gap-6 mt-6">
+                <a href="https://www.facebook.com/share/1DbyJLNNTJ/?mibextid=wwXIfr" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600"><FaFacebookF size={16}/></a>
+                <a href="https://www.instagram.com/ecolovekitchen?igsh=MXYzZXNhbWxrN3J1://www.instagram.com/ecolovekitchen" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600"><FaInstagram size={16}/></a>
+            </div>
         </div>
       </div>
     </nav>
   );
 };
+
+// Helper component for mobile menu contact links
+const MobileLink = ({ href, icon, label }: any) => (
+    <a href={href} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 w-full bg-slate-50 text-slate-600 py-4 rounded-2xl text-[9px] font-black uppercase tracking-widest hover:bg-emerald-50 hover:text-emerald-900 transition-all">
+        {icon}
+        {label}
+    </a>
+);
 
 export default HeaderKit;

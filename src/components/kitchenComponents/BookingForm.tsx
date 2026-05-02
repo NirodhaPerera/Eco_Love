@@ -73,7 +73,16 @@ const BookingForm: React.FC = () => {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Eco Love! I've booked a Coockery session.\n\nName: ${form.title} ${form.name}\nEmail: ${form.email}\nGuests: ${form.noOfPacks}\nDate: ${form.date}\nTime: ${form.time}\nDiet: ${form.diet}\nTotal: $${amount}`
+    `Hi Eco Love! \n\n` +
+    `*Culinary Experience Inquiry: Eco Love Kitchen*\n\n` +
+    `I would like to request a traditional cookery session with the following details:\n\n` +
+    `• *Guest:* ${form.title} ${form.name}\n` +
+    `• *Date:* ${form.date}\n` +
+    `• *Time:* ${form.time}\n` +
+    `• *Participants:* ${form.noOfPacks} Guest(s)\n` +
+    `• *Dietary Preference:* ${form.diet}\n` +
+    `• *Estimated Total:* $${amount}\n\n` +
+    `Could you please confirm the availability for this session? We look forward to learning with you.`
   );
 
   return (
