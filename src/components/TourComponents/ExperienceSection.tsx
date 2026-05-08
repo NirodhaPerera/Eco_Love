@@ -1,82 +1,106 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 const experiences = [
   {
-    title: "Traditional Jewelry Workshop",
+    title: "Jewelry Workshop",
+    category: "Craftsmanship",
     image: "/Eco_Love_Tours/Jewellry /image50.JPG",
-   
   },
   {
-    title: "Traditional Cookery Session",
+    title: "Traditional Cookery",
+    category: "Culinary Heritage",
     image: "/Eco_Love_Tours/coockery/slider5.jpeg",
-   
   },
   {
     title: "Wood Carving",
+    category: "Artisan Skills",
     image: "/Eco_Love_Tours/wood carving/image1.avif",
-   
   },
   {
     title: "Cycling Tours",
+    category: "Active Exploration",
     image: "/Eco_Love_Tours/cycling/image5.jpg",
-   
   },
-  
   {
     title: "Walking Tours",
+    category: "Mindful Journeys",
     image: "/public/Eco_Love_Tours/Walking Tours Images/image4.JPG",
-   
   },
-   {
+  {
     title: "Wildlife Safari",
+    category: "Nature",
     image: "/public/Eco_Love_Tours/safari/image8.JPG",
-   
-  },{
-    title: "Traditional Handloom Factory",
+  },
+  {
+    title: "Handloom Factory",
+    category: "Traditional Arts",
     image: "/public/Eco_Love_Tours/handloom/image16.JPG",
-    
   },
 ];
 
 const AuthenticExperiences: React.FC = () => {
   return (
     <section
-      className="py-16 px-6 bg-green-50 dark:bg-gray-900 text-gray-800 dark:text-white"
+      className="py-24 md:py-40 px-6 bg-[#FDFCFB]"
       id="authentic-experiences"
     >
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4">Authentic Experiences</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Immerse yourself in Sri Lanka’s traditions with our handpicked, real-life experiences.
-        </p>
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 md:mb-24">
+          <div className="space-y-6 max-w-2xl">
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] w-12 bg-emerald-800" />
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-emerald-800">
+                Local Immersion
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif italic text-slate-900 leading-tight">
+              Authentic Experiences.
+            </h2>
+            <p className="text-slate-500 text-sm uppercase tracking-widest leading-loose">
+              Immerse yourself in Sri Lanka’s living traditions through handpicked, soulful encounters.
+            </p>
+          </div>
 
-        {/* See All Button */}
-        <div className="mb-12">
           <Link
             to="/eco-love-tours/experiences"
-            className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full shadow transition"
+            className="group flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-emerald-900 border-b border-emerald-900/20 pb-2 hover:border-emerald-900 transition-all"
           >
-            See All Experiences
+            See All Experiences <ArrowUpRight size={14} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+        {/* Experience Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="relative group rounded-xl overflow-hidden shadow-md bg-white dark:bg-gray-800"
+              className="group cursor-none"
             >
-              <img
-                src={exp.image}
-                alt={exp.title}
-                className="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 group-hover:opacity-50 transition duration-300">
-                <h3 className="text-green-100 text-xl font-semibold mb-2">
-                  {exp.title}
-                </h3>
-               
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-slate-100 mb-6">
+                <img
+                  src={exp.image}
+                  alt={exp.title}
+                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                />
+                {/* Subtle Overlay on Hover */}
+                <div className="absolute inset-0 bg-emerald-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </div>
+              
+              <div className="space-y-2 px-2">
+                <p className="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-800">
+                  {exp.category}
+                </p>
+                <div className="flex justify-between items-center">
+                  <h3 className="text-2xl font-serif italic text-slate-900">
+                    {exp.title}
+                  </h3>
+                  <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowUpRight size={12} className="text-slate-400" />
+                  </div>
+                </div>
               </div>
             </div>
           ))}

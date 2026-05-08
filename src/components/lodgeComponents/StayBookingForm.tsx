@@ -56,7 +56,7 @@ const StayBookingForm: React.FC = () => {
         (checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 60 * 60 * 24)
       );
       // Pricing: $50 for 2 guests, $40 for single guest
-      const pricePerNight = form.noOfPacks === 1 ? 40 : 50; 
+      const pricePerNight = form.noOfPacks === 1 ? 38 : 47; 
       setAmount(nights * pricePerNight);
     }
   }, [form.noOfPacks, checkInDate, checkOutDate]);

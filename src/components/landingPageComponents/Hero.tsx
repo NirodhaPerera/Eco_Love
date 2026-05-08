@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-white text-5xl md:text-8xl font-serif italic mb-8 leading-tight">
-            Where Travel Meets, <br />
+            Where Travel Meets <br />
             <span className="text-white/20">Love for Nature.</span>
           </h1>
 

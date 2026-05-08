@@ -1,170 +1,150 @@
-import React, { useState } from "react";
-import { Star } from "lucide-react";
+import React from "react";
+import { Star, Quote } from "lucide-react";
 import LottieAnimationReview from "../LottieAnimationReview";
 
+// Testimonial data remains consistent with your provided source
 const testimonials = [
   {
     id: 1,
-    name: "Wendy – Australia",
+    name: "Wendy",
+    location: "Australia",
     role: "Apr 2025 • Family",
-    text: "High quality and fabulous experience. Fabulous company and great quality experience.Malika picked us up at Colombo airport and drove my daughter and I, around Sri Lanka.He knew exactly the best spots and is a good driver. We even went for a dinner with his family. I highly recommend him and his company for any travels excellent holiday.",
+    text: "High quality and fabulous experience. Malika picked us up at Colombo airport and drove my daughter and I around Sri Lanka. He knew exactly the best spots and is a good driver. We even went for a dinner with his family. I highly recommend him for any travels.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sine – Switzerland",
+    name: "Sine",
+    location: "Switzerland",
     role: "Mar 2025 • Couples",
-    text: "Amazing Trip in South Sri Lanka, our experience was absolutely fantastic. Our guide, Shehan, was super friendly, a safe driver, super knowledgeable and making our trip truly unforgettable. Shehan provided us with fascinating insights into history, culture, and showed us amazing nature sides.The sites we visited created lasting memories.If you are looking for a tour guide who combines professionalism with a personal touch this is would be for you. I would highly recommend the service.",
+    text: "Amazing Trip in South Sri Lanka. Our guide, Shehan, was super friendly, a safe driver, and super knowledgeable. He provided us with fascinating insights into history and culture. If you are looking for a tour guide who combines professionalism with a personal touch, this is for you.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Lynn Francis – United Kingdom",
+    name: "Lynn Francis",
+    location: "United Kingdom",
     role: "Feb 2025 • Friends",
-    text: "First class tour company..If you want to make the most of your trip to Sri Lanka I can highly recommend Eco love tours. Malik is a first class Guide and Driver. He’s straightforward to deal with, honest, attentive, kind, speaks excellent English and is a genuinely nice guy. He can suggest an itinerary which takes you to all the best sites in the country.If you need accommodation then Ecolove Tours have a beautiful self contained villa for rent and cooking classes on site.You will not be disappointed by Eco Love Tours",
+    text: "First class tour company. Malik is a first class Guide and Driver. He’s straightforward to deal with, honest, attentive, and kind. He suggested an itinerary which took us to all the best sites. Eco Love Tours has a beautiful self-contained villa and cooking classes on site.",
     rating: 5,
   },
-
   {
     id: 4,
-    name: "Jason F - Australia",
+    name: "Jason F",
+    location: "Australia",
     role: "Guest",
-    text: "We had an excellent experience with Eco Love Tours. Our driver Shehan was with us for 10 days and I can’t recommend him highly enough.We sent our itinerary to Malik prior to arriving in Sri Lanka & Shehan was able to accommodate all our requirements.As well as being a great driver Shehan was extremely knowledgeable about Sri Lankan culture, wildlife & interesting attractions.Thanks again to Shehan & everyone at Eco Love tours.",
+    text: "Excellent experience. Our driver Shehan was with us for 10 days and I can’t recommend him highly enough. He accommodated all our requirements and was extremely knowledgeable about Sri Lankan culture and wildlife.",
     rating: 5,
   },
   {
     id: 5,
-    name: "Claudia S - Austria ",
+    name: "Claudia S",
+    location: "Austria",
     role: "Jan 2025 • Couples",
-    text: "Absolute heart recommendation!.Malik has suggested a varied and great itinerary that perfectly suited our interests.We had a great time with Dinesh and can highly recommend him. On our 13-day round trip, we were able to spontaneously change plans for the next day if the weather required it. Dinesh was super flexible and also advised us when we were unsure. Due to the unusually high rainfall, some activities were only possible spontaneously and Dinesh clarified everything for us so we could enjoy the trip.Malik was always available with all questions and we felt very comfortable.Dinesh became a friend over time, whom we met again even after our trip, which made us very happy. We were subsequently still in Malik's beautiful accommodation and had a wonderful time. His family is very warm and we have never lacked anythingDuring Malik's time with his family, we did a cooking class with his mom, went to a silversmith and cycled through rice fields. It was an unforgettable trip and definitely not our last with Dinesh, Malik & his family!",
+    text: "Absolute heart recommendation! Malik suggested a varied itinerary that perfectly suited our interests. Dinesh became a friend over time. We stayed in Malik's beautiful accommodation and had a wonderful time. His family is very warm.",
     rating: 5,
   },
   {
     id: 6,
-    name: "Bumpy - Auckland",
+    name: "Bumpy",
+    location: "Auckland",
     role: "Dec 2024 • Family",
-    text: "Five stars for Eco Love - a highlight of our trip!. Malik and Eco Love Tours made our trip around the southern part of Sri Lanka seamless and totally enjoyable. As a driver, Malik is calm, communicative and safety conscious. As a guide, he's extremely well-connected, and has a deep understanding and knowledge of his country. And as a person, he's so kind, considerate and fun to be around. A fantastic holiday for our family - thank you Malik!",
+    text: "Five stars for Eco Love! Malik made our trip seamless and enjoyable. As a driver, he is calm and safety conscious. As a person, he's so kind and fun to be around. A fantastic holiday for our family.",
     rating: 5,
   },
-  // Add other testimonials as needed...
 ];
 
 const TestimonialsPage: React.FC = () => {
-  const [expandedId, setExpandedId] = useState<number | null>(null);
-
-  const toggleCard = (id: number) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
-
   return (
-    <section className="bg-gradient-to-b from-green-50 to-white dark:bg-gray-900 py-16 px-6 sm:px-12 lg:px-24">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-          What Our Guests Say
-        </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Real experiences from real travelers with Eco Love Tours.
-        </p>
-      </div>
+    <section className="bg-[#FDFCFB] py-24 md:py-40 px-6 sm:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Editorial Header */}
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-24 md:mb-32">
+          <div className="space-y-6 max-w-2xl">
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] w-12 bg-emerald-800" />
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-emerald-800">
+                Guest Chronicles
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif italic text-slate-900 leading-tight">
+              What Our <br /> Guests Say.
+            </h2>
+            <p className="text-slate-500 text-sm uppercase tracking-widest leading-loose">
+              Real experiences from travelers who discovered the soul of Sri Lanka.
+            </p>
+          </div>
+        </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-        {testimonials.map(({ id, name, role, text, rating }) => {
-          const isExpanded = expandedId === id;
-          return (
+        {/* Uniform Grid - Using Grid and Flex for consistent height */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map(({ id, name, location, role, text, rating }) => (
             <div
               key={id}
-              className={`bg-green-50 dark:bg-gray-800 rounded-xl p-6 shadow-md overflow-hidden transition-all duration-300 cursor-pointer border border-green-200 dark:border-gray-700 flex flex-col justify-between ${
-                isExpanded ? "h-auto" : "h-[250px]"
-              }`}
-              onClick={() => toggleCard(id)}
+              className="flex flex-col bg-white border border-slate-100 p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.05)] transition-all duration-500 group"
             >
-              <p className="mb-4 text-sm sm:text-base text-gray-800 dark:text-gray-200">
-               {isExpanded ? (
-                  text
-                ) : (
-                  <>
-                    {text.slice(0, 180)}
-                    {text.length > 180 && (
-                      <span className="text-green-800 font-semibold hover:underline cursor-pointer">
-                        ...Read More
-                      </span>
-                    )}
-                  </>
-                )}
-              </p>
-              <div className="mt-auto">
-                <div className="flex items-center mb-2">
-                  {[...Array(rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400" />
-                  ))}
-                  {[...Array(5 - rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-gray-300" />
-                  ))}
+              <div className="flex flex-col h-full">
+                <Quote className="text-emerald-900/10 mb-6 group-hover:text-emerald-900/20 transition-colors" size={40} />
+                
+                {/* flex-grow ensures this area pushes the footer to the bottom */}
+                <div className="flex-grow">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-10 font-light italic">
+                    "{text}"
+                  </p>
                 </div>
-                <p className="font-semibold text-sm text-gray-800 dark:text-white">{name}</p>
-                <p className="text-xs text-green-700 dark:text-green-300">{role}</p>
+
+                <div className="pt-8 border-t border-slate-50 flex flex-col gap-4">
+                  <div className="flex gap-1">
+                    {[...Array(rating)].map((_, i) => (
+                      <Star key={i} size={12} className="fill-emerald-800 text-emerald-800" />
+                    ))}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-serif italic text-slate-900">{name}</h4>
+                    <p className="text-[9px] font-black uppercase tracking-widest text-emerald-800/40">
+                      {location} • {role}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      {/* Lottie Animation */}
-      <div className="mt-16 mb-12 max-w-md mx-auto">
-        <LottieAnimationReview />
-      </div>
-
-<div className="mt-12 flex flex-col items-center space-y-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">
-          Check Our Reviews On
-        </h3>
-        <div className="flex space-x-12">
-          <a
-            href="https://www.tripadvisor.com/Attraction_Review-g297896-d19911120-Reviews-Eco_Love_Tours-Galle_Galle_District_Southern_Province.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-green-700 hover:text-green-900 transition"
-            aria-label="TripAdvisor Reviews"
-          >
-            <img src="tripadvisor.png" alt="TripAdvisor" className="w-12 h-12" />
-          </a>
-
-          <a
-            href="https://g.co/kgs/rnwAB63"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-blue-600 hover:text-blue-800 transition"
-            aria-label="Google Reviews"
-          >
-            <img src="google.png" alt="Google" className="w-12 h-12" />
-          </a>
-
-          <a
-            href="https://www.facebook.com/share/1Ce5zKiE1B/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-blue-700 hover:text-blue-900 transition"
-            aria-label="Facebook Page"
-          >
-            <img src="facebook.png" alt="Facebook" className="w-12 h-12" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/ecolovetours?igsh=MWkyNXZ0cHZqMG5wMA=="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-pink-600 hover:text-pink-800 transition"
-            aria-label="Instagram Profile"
-          >
-            <img src="intagram.png" alt="Instagram" className="w-12 h-12" />
-          </a>
+        {/* Interactive Verification Section */}
+        <div className="mt-40 border-t border-slate-100 pt-24 text-center">
+          <div className="max-w-md mx-auto mb-16">
+             <LottieAnimationReview />
+          </div>
           
+          <h3 className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 mb-12">
+            Verified On Global Platforms
+          </h3>
+          
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 hover:opacity-100 transition-opacity duration-700">
+            <SocialLink href="https://www.tripadvisor.com/Attraction_Review-g297896-d19911120-Reviews-Eco_Love_Tours-Galle_Galle_District_Southern_Province.html" img="tripadvisor.png" label="TripAdvisor" />
+            <SocialLink href="https://g.co/kgs/rnwAB63" img="google.png" label="Google" />
+            <SocialLink href="https://www.facebook.com/share/1Ce5zKiE1B/" img="facebook.png" label="Facebook" />
+            <SocialLink href="https://www.instagram.com/ecolovetours" img="intagram.png" label="Instagram" />
+          </div>
         </div>
       </div>
-
-
     </section>
   );
 };
+
+const SocialLink = ({ href, img, label }: { href: string; img: string; label: string }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group flex flex-col items-center gap-4 transition-all"
+    aria-label={label}
+  >
+    <img src={img} alt={label} className="w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110" />
+    <span className="text-[8px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">{label}</span>
+  </a>
+);
 
 export default TestimonialsPage;

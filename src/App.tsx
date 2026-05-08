@@ -22,6 +22,7 @@ import TourContact from './components/TourComponents/ContactPage'
 import GalleryPage1 from './components/TourComponents/GalleryPage'
 import AuthenticExperiences from './components/TourComponents/ExpriencePage'
 import ExperienceDetail from './components/TourComponents/ExprienceDetails'
+import DestinationDetail from './components/TourComponents/DestinationDetailPage'
 
 
 
@@ -42,6 +43,7 @@ function App() {
           <Route index element={<ToursHome />} />           {/* /eco-love-tours */}
           <Route path="stays" element={<StaysPage />} />     {/* /eco-love-tours/stays */}
           <Route path="destinations" element={<DestinationsPage />} />     {/* /eco-love-tours/destinations */}
+          <Route path="destinations/:name" element={<DestinationDetail />} />
           <Route path="experiences" element={<AuthenticExperiences />} />     {/* /eco-love-tours/experiences */}
           <Route path="experiences/:slug" element={<ExperienceDetail />} />
 
