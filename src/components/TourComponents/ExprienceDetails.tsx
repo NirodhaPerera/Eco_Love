@@ -1,8 +1,8 @@
 import React, { useEffect, useState, type FormEvent } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { 
-  CheckCircle, MapPin, ArrowLeft, Calendar, Users, 
-  Sparkles, Navigation, Phone, ArrowRight 
+  CheckCircle, ArrowLeft, Calendar, Users, 
+  Sparkles, Navigation, Phone 
 } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";

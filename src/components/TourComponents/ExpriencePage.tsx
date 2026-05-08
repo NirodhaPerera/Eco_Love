@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Compass, Shrub, Sparkles, Map } from "lucide-react";
+import { ArrowRight, Compass, Sparkles, Map } from "lucide-react";
 
 const sliderImages = [
   "/Eco_Love_Tours/Tour_Images/image136.JPG",
