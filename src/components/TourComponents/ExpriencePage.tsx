@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Compass, Sparkles, Map } from "lucide-react";
 
 const sliderImages = [
-  "/Eco_Love_Tours/Tour_Images/image26.jpg",
-  "/Eco_Love_Tours/Tour_Images/image34.jpg",
-  "/Eco_Love_Tours/Tour_Images/image7.jpg",
-  "/Eco_Love_Tours/Tour_Images/image175.jpg",
+  "/Eco_Love_Tours/Tour_Images/img26.jpg",
+  "/Eco_Love_Tours/Tour_Images/img34.jpg",
+  "/Eco_Love_Tours/Tour_Images/img7.jpg",
+  "/Eco_Love_Tours/Tour_Images/img175.jpg",
 ];
 
 const experiences = [
   {
     title: "Traditional Jewelry Workshop",
-    image: "/Eco_Love_Tours/Jewellry /image31.jpg",
+    image: "/Eco_Love_Tours/Jewellry/img31.jpg",
     slug: "jewelry-workshop",
     category: "Craftsmanship",
     description: "Craft your own unique jewelry with local artisans using traditional Sri Lankan methods.",
@@ -33,28 +33,28 @@ const experiences = [
   },
   {
     title: "Cycling Tours",
-    image: "/Eco_Love_Tours/cycling/image5.jpg",
+    image: "/Eco_Love_Tours/cycling/img5.jpg",
     slug: "cycling-tours",
     category: "Adventure",
     description: "Ride through scenic routes and local villages on guided eco-friendly cycling tours.",
   },
   {
     title: "Walking Tours",
-    image: "/Eco_Love_Tours/Walking Tours Images/image4.jpg",
+    image: "/Eco_Love_Tours/Walking Tours Images/img4.jpg",
     slug: "walking-tours",
     category: "Nature",
     description: "Join a relaxed walking tour through culturally rich towns and natural landscapes.",
   },
   {
     title: "Wildlife Safari",
-    image: "/Eco_Love_Tours/safari/image8.jpg",
+    image: "/Eco_Love_Tours/safari/img8.jpg",
     slug: "wildlife-safari",
     category: "Wildlife",
     description: "Embark on an unforgettable safari adventure to witness Sri Lanka's incredible wildlife.",
   },
   {
     title: "Traditional Handloom Factory",
-    image: "/Eco_Love_Tours/handloom/image16.jpg",
+    image: "/Eco_Love_Tours/handloom/img16.jpg",
     slug: "traditional-handloom-factory",
     category: "Textiles",
     description: "Experience the intricate process of handloom weaving and create your own masterpiece.",

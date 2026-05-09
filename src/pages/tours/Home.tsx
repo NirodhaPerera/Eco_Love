@@ -11,15 +11,15 @@ import TourOption from "../../components/TourComponents/TourOption";
 const Home = () => {
 
     const tourImages = [
-    '/Eco_Love_Tours/Tour_Images/image136.jpg',
-    '/Eco_Love_Tours/Tour_Images/image119.jpg',
-    '/Eco_Love_Tours/Tour_Images/image120.jpg',
-    '/Eco_Love_Tours/Tour_Images/image7.jpg',
-    '/Eco_Love_Tours/Tour_Images/image136.jpg',
-    '/Eco_Love_Tours/Tour_Images/image119.jpg ',
-    '/Eco_Love_Tours/Tour_Images/image120.jpg',
-    '/Eco_Love_Tours/Tour_Images/image175.jpg',
-    '/Eco_Love_Tours/Tour_Images/image176.jpg',
+    '/Eco_Love_Tours/Tour_Images/img154.jpg',
+    '/Eco_Love_Tours/Tour_Images/img106.jpg',
+    '/Eco_Love_Tours/Tour_Images/img120.jpg',
+    '/Eco_Love_Tours/Tour_Images/img7.jpg',
+    '/Eco_Love_Tours/Tour_Images/img136.jpg',
+    '/Eco_Love_Tours/Tour_Images/img119.jpg ',
+    '/Eco_Love_Tours/Tour_Images/img120.jpg',
+    '/Eco_Love_Tours/Tour_Images/img175.jpg',
+    '/Eco_Love_Tours/Tour_Images/img176.jpg',
  
   ];
 

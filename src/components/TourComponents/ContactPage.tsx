@@ -5,15 +5,15 @@ import { Mail, Phone, ArrowRight } from "lucide-react";
 import { FaWhatsapp, FaFacebookF, FaInstagram, FaTripadvisor } from "react-icons/fa";
 
 const sliderImages = [
-  '/Eco_Love_Tours/Tour_Images/image136.jpg',
-    '/Eco_Love_Tours/Tour_Images/image119.jpg',
-    '/Eco_Love_Tours/Tour_Images/image120.jpg',
-    '/Eco_Love_Tours/Tour_Images/image7.jpg',
-    '/Eco_Love_Tours/Tour_Images/image136.jpg',
-    '/Eco_Love_Tours/Tour_Images/image119.jpg',
-    '/Eco_Love_Tours/Tour_Images/image120.jpg',
-    '/Eco_Love_Tours/Tour_Images/image175.jpg',
-    '/Eco_Love_Tours/Tour_Images/image176.jpg',
+  '/Eco_Love_Tours/Tour_Images/img136.jpg',
+    '/Eco_Love_Tours/Tour_Images/img119.jpg',
+    '/Eco_Love_Tours/Tour_Images/img120.jpg',
+    '/Eco_Love_Tours/Tour_Images/img7.jpg',
+    '/Eco_Love_Tours/Tour_Images/img136.jpg',
+    '/Eco_Love_Tours/Tour_Images/img119.jpg',
+    '/Eco_Love_Tours/Tour_Images/img120.jpg',
+    '/Eco_Love_Tours/Tour_Images/img175.jpg',
+    '/Eco_Love_Tours/Tour_Images/img176.jpg',
 ];
 
 const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5444.987139418722!2d80.23091297621761!3d6.062435593923488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae1734e5ee6d3d9%3A0x70dbce6ac78efce1!2sEco%20Love%20Kitchen!5e1!3m2!1sen!2slk!4v1749459793694!5m2!1sen!2slk";

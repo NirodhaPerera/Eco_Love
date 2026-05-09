@@ -8,12 +8,12 @@ import type { Destination } from "../TourComponents/Destination";
 
 // Optimized images for the slider
 const sliderImages = [
-  '/Eco_Love_Tours/Tour_Images/image136.jpg',
-  '/Eco_Love_Tours/Tour_Images/image119.jpg',
-  '/Eco_Love_Tours/Tour_Images/image120.jpg',
-  '/Eco_Love_Tours/Tour_Images/image7.jpg',
-  '/Eco_Love_Tours/Tour_Images/image175.jpg',
-  '/Eco_Love_Tours/Tour_Images/image176.jpg',
+  '/Eco_Love_Tours/Tour_Images/img136.jpg',
+  '/Eco_Love_Tours/Tour_Images/img119.jpg',
+  '/Eco_Love_Tours/Tour_Images/img120.jpg',
+  '/Eco_Love_Tours/Tour_Images/img7.jpg',
+  '/Eco_Love_Tours/Tour_Images/img175.jpg',
+  '/Eco_Love_Tours/Tour_Images/img176.jpg',
 ];
 
 const DestinationPage: React.FC = () => {

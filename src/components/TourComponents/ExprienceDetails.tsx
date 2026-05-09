@@ -12,13 +12,14 @@ const LKR_TO_USD_RATE = 330;
 const WHATSAPP_NUMBER = "94774191148"; 
 
 // --- IMAGE ARRAYS ---
-const walkingTourImages = Array.from({ length: 25 }, (_, i) => `/public/Eco_Love_Tours/Walking Tours Images/image${i + 1}.JPG`);
+const walkingTourImages = Array.from({ length: 25 }, (_, i) => `/Eco_Love_Tours/Walking Tours Images/img${i + 1}.jpg`);
 const cookeryImages = Array.from({ length: 15 }, (_, i) => `/Eco_Love_Tours/coockery/img_${i + 1}.JPG`);
-const jewelryImages = Array.from({ length: 56 }, (_, i) => `/Eco_Love_Tours/Jewellry/image${i + 1}.jpg`);
-const woodCarvingImages = Array.from({ length: 28 }, (_, i) => `/Eco_Love_Tours/woodcarving/image${i + 1}.jpg`);
-const cyclingImages = Array.from({ length: 8 }, (_, i) => `/Eco_Love_Tours/cycling/image${i + 1}.jpg`);
-const safariImages = Array.from({ length: 67 }, (_, i) => `/Eco_Love_Tours/safari/image${i + 1}.jpg`);
-const handloomImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/handloom/image${i + 1}.jpg`);
+const jewelryImages = Array.from({ length: 55 }, (_, i) => `/Eco_Love_Tours/Jewellry/img${i + 1}.jpg`);
+const woodCarvingImages = Array.from({ length: 28 }, (_, i) => `/Eco_Love_Tours/wood carving/image${i + 1}.jpg`);
+const cyclingImages = Array.from({ length: 8 }, (_, i) => `/Eco_Love_Tours/cycling/img${i + 1}.jpg`);
+const safariImages = Array.from({ length: 67 }, (_, i) => `/Eco_Love_Tours/safari/img${i + 1}.jpg`);
+const handloomImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/handloom/img${i + 1}.jpg`);
+
 
 // --- MASTER DATA ARRAY ---
 const experiences = [

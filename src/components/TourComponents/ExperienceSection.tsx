@@ -6,7 +6,7 @@ const experiences = [
   {
     title: "Jewelry Workshop",
     category: "Craftsmanship",
-    image: "/Eco_Love_Tours/Jewellry /image31.jpg",
+    image: "/Eco_Love_Tours/Jewellry/img31.jpg",
   },
   {
     title: "Traditional Cookery",
@@ -21,22 +21,22 @@ const experiences = [
   {
     title: "Cycling Tours",
     category: "Active Exploration",
-    image: "/Eco_Love_Tours/cycling/image5.jpg",
+    image: "/Eco_Love_Tours/cycling/img5.jpg",
   },
   {
     title: "Walking Tours",
     category: "Mindful Journeys",
-    image: "/Eco_Love_Tours/Walking Tours Images/image4.jpg",
+    image: "/Eco_Love_Tours/Walking Tours Images/img4.jpg",
   },
   {
     title: "Wildlife Safari",
     category: "Nature",
-    image: "/Eco_Love_Tours/safari/image8.jpg",
+    image: "/Eco_Love_Tours/safari/img8.jpg",
   },
   {
     title: "Handloom Factory",
     category: "Traditional Arts",
-    image: "/Eco_Love_Tours/handloom/image16.jpg",
+    image: "/Eco_Love_Tours/handloom/img16.jpg",
   },
 ];
 

@@ -14,10 +14,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 // --- CONSTANTS ---
 const sliderImages = [
-  "/Eco_Love_Tours/Tour_Images/image136.jpg",
-  "/Eco_Love_Tours/Tour_Images/image119.jpg",
-  "/Eco_Love_Tours/Tour_Images/image7.jpg",
-  "/Eco_Love_Tours/Tour_Images/image175.jpg",
+  "/Eco_Love_Tours/Tour_Images/img136.jpg",
+  "/Eco_Love_Tours/Tour_Images/img119.jpg",
+  "/Eco_Love_Tours/Tour_Images/img7.jpg",
+  "/Eco_Love_Tours/Tour_Images/img175.jpg",
 ];
 
 // Updated Itinerary Data Structure
