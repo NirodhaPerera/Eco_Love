@@ -25,12 +25,41 @@ import ExperienceDetail from './components/TourComponents/ExprienceDetails'
 import DestinationDetail from './components/TourComponents/DestinationDetailPage'
 
 
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
+
+// 1. Create the helper component
+const AnalyticsTracker = () => {
+  const location = useLocation();
+
+ useEffect(() => {
+  if (typeof window.gtag === 'function') {
+    window.gtag('config', 'G-HS9DC0TJRN', { 
+      page_path: location.pathname,
+    });
+  }
+}, [location]);
+
+  return null;
+};
+
+
 
 
 function App() {
   return (
     <Router>
       <ScrollToTop></ScrollToTop>
+
+      <AnalyticsTracker /> {/* 2. Include the tracker in your app */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="eco-love-kitchen" element={<KitchenMain />}>
