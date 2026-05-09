@@ -42,9 +42,7 @@ const DestinationDetail: React.FC = () => {
         </div>
 
         <div className="relative z-10 px-6 md:px-12 pb-20 max-w-7xl mx-auto w-full">
-          <Link to="/eco-love-tours/destinations" className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-white/80 hover:text-white transition-colors mb-12">
-            <ArrowLeft size={14} /> Back to Gallery
-          </Link>
+          
           
           <div className="max-w-4xl">
             <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-[10px] font-black uppercase tracking-[0.4em] text-white mb-6 backdrop-blur-md">

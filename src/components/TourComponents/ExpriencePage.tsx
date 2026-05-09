@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Compass, Sparkles, Map } from "lucide-react";
 
 const sliderImages = [
-  "/Eco_Love_Tours/Tour_Images/image136.JPG",
-  "/Eco_Love_Tours/Tour_Images/image119.JPG",
-  "/Eco_Love_Tours/Tour_Images/image7.JPG",
-  "/Eco_Love_Tours/Tour_Images/image175.JPG",
+  "/Eco_Love_Tours/Tour_Images/image26.jpg",
+  "/Eco_Love_Tours/Tour_Images/image34.jpg",
+  "/Eco_Love_Tours/Tour_Images/image7.jpg",
+  "/Eco_Love_Tours/Tour_Images/image175.jpg",
 ];
 
 const experiences = [
   {
     title: "Traditional Jewelry Workshop",
-    image: "/Eco_Love_Tours/Jewellry /image50.JPG",
+    image: "/Eco_Love_Tours/Jewellry /image31.jpg",
     slug: "jewelry-workshop",
     category: "Craftsmanship",
     description: "Craft your own unique jewelry with local artisans using traditional Sri Lankan methods.",
@@ -26,7 +26,7 @@ const experiences = [
   },
   {
     title: "Wood Carving",
-    image: "/Eco_Love_Tours/wood carving/image1.avif",
+    image: "/Eco_Love_Tours/wood carving/image18.jpg",
     slug: "wood-carving",
     category: "Heritage",
     description: "Explore the ancient art of wood carving with master craftsmen in a serene setting.",
@@ -40,21 +40,21 @@ const experiences = [
   },
   {
     title: "Walking Tours",
-    image: "/public/Eco_Love_Tours/Walking Tours Images/image4.JPG",
+    image: "/Eco_Love_Tours/Walking Tours Images/image4.jpg",
     slug: "walking-tours",
     category: "Nature",
     description: "Join a relaxed walking tour through culturally rich towns and natural landscapes.",
   },
   {
     title: "Wildlife Safari",
-    image: "/public/Eco_Love_Tours/safari/image8.JPG",
+    image: "/Eco_Love_Tours/safari/image8.jpg",
     slug: "wildlife-safari",
     category: "Wildlife",
     description: "Embark on an unforgettable safari adventure to witness Sri Lanka's incredible wildlife.",
   },
   {
     title: "Traditional Handloom Factory",
-    image: "/public/Eco_Love_Tours/handloom/image16.JPG",
+    image: "/Eco_Love_Tours/handloom/image16.jpg",
     slug: "traditional-handloom-factory",
     category: "Textiles",
     description: "Experience the intricate process of handloom weaving and create your own masterpiece.",
@@ -92,7 +92,7 @@ const ExperiencePage: React.FC = () => {
         ))}
         
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#FDFCFB]" />
+       
         <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px]" />
 
         <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-6">

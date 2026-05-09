@@ -1,10 +1,14 @@
 import Footer from '../../components/kitchenComponents/FooterKit';
 import HeaderKit from '../../components/kitchenComponents/HeaderKit';
 import { Outlet } from 'react-router-dom';
+import SeasonalUpdates from '../../components/TourComponents/SeasonalUpdates';
 
 function TourLayout() {
   return (
     <div>
+
+      
+
       <HeaderKit
         logoSrc="/Eco_Love_Tours/logo_tour.png"
         logoSizeClass="w-24 sm:w-32 md:w-40" // Adjust as needed
@@ -20,6 +24,10 @@ function TourLayout() {
         buttonLink="/eco-love-tours/tours"
         buttonLabel="Book Now"
       />
+
+
+      <SeasonalUpdates></SeasonalUpdates>
+      
       <main>
         <Outlet />  {/* This will render the nested routes */}
       </main>

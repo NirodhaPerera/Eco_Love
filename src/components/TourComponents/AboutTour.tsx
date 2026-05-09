@@ -61,12 +61,12 @@ const AboutTour: React.FC = () => {
         <div className="lg:col-span-5 grid grid-cols-2 gap-4 relative">
           <div className="space-y-4">
             <img
-              src="/Eco_Love_Tours/Tour_Images/image136.JPG"
+              src="/Eco_Love_Tours/Tour_Images/image136.jpg"
               alt="Adventure"
               className="w-full aspect-[3/4] object-cover rounded-3xl shadow-lg"
             />
             <img
-              src="/Eco_Love_Tours/Tour_Images/image119.JPG"
+              src="/Eco_Love_Tours/Tour_Images/image119.jpg"
               alt="Nature"
               className="w-full aspect-square object-cover rounded-3xl shadow-lg"
             />
@@ -78,7 +78,7 @@ const AboutTour: React.FC = () => {
               className="w-full aspect-square object-cover rounded-3xl shadow-lg"
             />
             <img
-              src="/Eco_Love_Tours/Tour_Images/image7.JPG"
+              src="/Eco_Love_Tours/Tour_Images/image7.jpg"
               alt="Happy travelers"
               className="w-full aspect-[3/4] object-cover rounded-3xl shadow-lg"
             />

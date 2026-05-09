@@ -4,21 +4,22 @@ import AboutTour from "../../components/TourComponents/AboutTour";
 import DestinationsShowcase from "../../components/TourComponents/DestinationSection";
 import AuthenticExperiences from "../../components/TourComponents/ExperienceSection";
 import GallerySection from "../../components/TourComponents/GallerySection";
+
 import TestimonialSection from "../../components/TourComponents/TestimonialSection";
 import TourOption from "../../components/TourComponents/TourOption";
 
 const Home = () => {
 
     const tourImages = [
-    '/Eco_Love_Tours/Tour_Images/image136.JPG',
-    '/Eco_Love_Tours/Tour_Images/image119.JPG',
-    '/Eco_Love_Tours/Tour_Images/image120.JPG',
-    '/Eco_Love_Tours/Tour_Images/image7.JPG',
-    '/Eco_Love_Tours/Tour_Images/image136.JPG',
-    '/Eco_Love_Tours/Tour_Images/image119.JPG',
-    '/Eco_Love_Tours/Tour_Images/image120.JPG',
-    '/Eco_Love_Tours/Tour_Images/image175.JPG',
-    '/Eco_Love_Tours/Tour_Images/image176.JPG',
+    '/Eco_Love_Tours/Tour_Images/image136.jpg',
+    '/Eco_Love_Tours/Tour_Images/image119.jpg',
+    '/Eco_Love_Tours/Tour_Images/image120.jpg',
+    '/Eco_Love_Tours/Tour_Images/image7.jpg',
+    '/Eco_Love_Tours/Tour_Images/image136.jpg',
+    '/Eco_Love_Tours/Tour_Images/image119.jpg ',
+    '/Eco_Love_Tours/Tour_Images/image120.jpg',
+    '/Eco_Love_Tours/Tour_Images/image175.jpg',
+    '/Eco_Love_Tours/Tour_Images/image176.jpg',
  
   ];
 

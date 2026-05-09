@@ -1,7 +1,7 @@
 import React, { useEffect, useState, type FormEvent } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { 
-  CheckCircle, ArrowLeft, Calendar, Users, 
+  CheckCircle, Calendar, Users, 
   Sparkles, Navigation, Phone 
 } from "lucide-react";
 import DatePicker from "react-datepicker";
@@ -13,12 +13,12 @@ const WHATSAPP_NUMBER = "94774191148";
 
 // --- IMAGE ARRAYS ---
 const walkingTourImages = Array.from({ length: 25 }, (_, i) => `/public/Eco_Love_Tours/Walking Tours Images/image${i + 1}.JPG`);
-const cookeryImages = Array.from({ length: 15 }, (_, i) => `/public/Eco_Love_Tours/coockery/img_${i + 1}.JPG`);
-const jewelryImages = Array.from({ length: 56 }, (_, i) => `/public/Eco_Love_Tours/Jewellry /image${i + 1}.JPG`);
-const woodCarvingImages = Array.from({ length: 9 }, (_, i) => `/public/Eco_Love_Tours/wood carving/image${i + 1}.avif`);
-const cyclingImages = Array.from({ length: 8 }, (_, i) => `/public/Eco_Love_Tours/cycling/image${i + 1}.JPG`);
-const safariImages = Array.from({ length: 67 }, (_, i) => `/public/Eco_Love_Tours/safari/image${i + 1}.JPG`);
-const handloomImages = Array.from({ length: 16 }, (_, i) => `/public/Eco_Love_Tours/handloom/image${i + 1}.JPG`);
+const cookeryImages = Array.from({ length: 15 }, (_, i) => `/Eco_Love_Tours/coockery/img_${i + 1}.JPG`);
+const jewelryImages = Array.from({ length: 56 }, (_, i) => `/Eco_Love_Tours/Jewellry/image${i + 1}.jpg`);
+const woodCarvingImages = Array.from({ length: 28 }, (_, i) => `/Eco_Love_Tours/woodcarving/image${i + 1}.jpg`);
+const cyclingImages = Array.from({ length: 8 }, (_, i) => `/Eco_Love_Tours/cycling/image${i + 1}.jpg`);
+const safariImages = Array.from({ length: 67 }, (_, i) => `/Eco_Love_Tours/safari/image${i + 1}.jpg`);
+const handloomImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/handloom/image${i + 1}.jpg`);
 
 // --- MASTER DATA ARRAY ---
 const experiences = [
@@ -124,7 +124,7 @@ const experiences = [
 
 const ExperienceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
+  
   const experience = experiences.find((exp) => exp.slug === slug);
 
   const [currentImg, setCurrentImg] = useState(0);
@@ -165,21 +165,23 @@ const ExperienceDetail: React.FC = () => {
     <div className="bg-[#FDFCFB] min-h-screen font-sans selection:bg-emerald-100">
       
       {/* HERO SECTION */}
-      <section className="relative h-[65vh] w-full overflow-hidden">
+      <section className="relative w-full h-[85vh] overflow-hidden">
         {experience.images.map((img, index) => (
-          <img
+          <div
             key={index}
-            src={img}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ${
-              index === currentImg ? "opacity-100 scale-105" : "opacity-0 scale-100"
+            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
+              index === currentImg ? "opacity-100" : "opacity-0"
             }`}
-            alt="Hero"
-          />
+          >
+            <img
+              src={img}
+              alt={`slide-${index}`}
+              className="w-full h-full object-cover scale-110 animate-slow-zoom"
+            />
+          </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-[#FDFCFB]" />
-        <button onClick={() => navigate(-1)} className="absolute top-10 left-10 z-30 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white hover:opacity-70">
-          <ArrowLeft size={16} /> Back
-        </button>
+      
+        
         <div className="relative z-20 h-full flex flex-col justify-center items-center text-center">
           <h1 className="text-5xl md:text-7xl font-serif italic text-white drop-shadow-2xl">{experience.title}</h1>
         </div>

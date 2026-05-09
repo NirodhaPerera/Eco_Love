@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import lottie from 'lottie-web';
+import lottie from 'lottie-web/build/player/lottie_light';
 
 const LottieAnimation_2 = () => {
   const containerRef = useRef(null); // ✅ create a ref

@@ -11,7 +11,7 @@ export const destinations: Destination[] = [
     attractions: ["Lion's Paw", "Mirror Wall", "Water Gardens", "Pidurangala Rock"],
     bestTime: "January to April",
     img: "/Eco_Love_Tours/Sigiriya.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image136.JPG", "/Eco_Love_Tours/Tour_Images/image119.JPG", "/Eco_Love_Tours/Tour_Images/image120.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image136.jpg", "/Eco_Love_Tours/Tour_Images/image119.jpg", "/Eco_Love_Tours/Tour_Images/image120.jpg"],
     link: "/eco-love-tours/destinations/sigiriya" 
   },
   { 
@@ -22,7 +22,7 @@ export const destinations: Destination[] = [
     attractions: ["Sri Maha Bodhi", "Ruwanwelisaya", "Jetavanaramaya", "Abhayagiri Dagaba"],
     bestTime: "June to September",
     img: "/Eco_Love_Tours/Anuradhapura.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image7.JPG", "/Eco_Love_Tours/Tour_Images/image8.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image7.jpg", "/Eco_Love_Tours/Tour_Images/image8.jpg"],
     link: "/eco-love-tours/destinations/anuradhapura" 
   },
   { 
@@ -33,7 +33,7 @@ export const destinations: Destination[] = [
     attractions: ["Gal Vihara", "Vatadage", "Rankoth Vehera", "Parakrama Samudra"],
     bestTime: "July to August",
     img: "/Eco_Love_Tours/Polonnaruwa.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image9.JPG", "/Eco_Love_Tours/Tour_Images/image10.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image9.jpg", "/Eco_Love_Tours/Tour_Images/image10.jpg"],
     link: "/eco-love-tours/destinations/polonnaruwa" 
   },
   { 
@@ -44,7 +44,7 @@ export const destinations: Destination[] = [
     attractions: ["Cave Temples", "Golden Buddha Statue", "Ibbankatuwa Burial Site", "Museum"],
     bestTime: "January to May",
     img: "/Eco_Love_Tours/Dambulla.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image11.JPG", "/Eco_Love_Tours/Tour_Images/image12.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image11.jpg", "/Eco_Love_Tours/Tour_Images/image12.jpg"],
     link: "/eco-love-tours/destinations/dambulla" 
   },
   { 
@@ -55,7 +55,7 @@ export const destinations: Destination[] = [
     attractions: ["Temple of the Tooth", "Royal Botanical Gardens", "Kandy Lake", "Bahirawakanda Buddha"],
     bestTime: "January to April",
     img: "/Eco_Love_Tours/Kandy.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image4.JPG", "/Eco_Love_Tours/Tour_Images/image5.JPG", "/Eco_Love_Tours/Tour_Images/image6.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image4.jpg", "/Eco_Love_Tours/Tour_Images/image5.jpg", "/Eco_Love_Tours/Tour_Images/image6.jpg"],
     link: "/eco-love-tours/destinations/kandy" 
   },
   { 
@@ -66,7 +66,7 @@ export const destinations: Destination[] = [
     attractions: ["Galle Fort", "Lighthouse", "Dutch Reformed Church", "Maritime Museum"],
     bestTime: "December to April",
     img: "/Eco_Love_Tours/Galle.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image7.JPG", "/Eco_Love_Tours/Tour_Images/image175.JPG", "/Eco_Love_Tours/Tour_Images/image176.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image7.jpg", "/Eco_Love_Tours/Tour_Images/image175.jpg", "/Eco_Love_Tours/Tour_Images/image176.jpg"],
     link: "/eco-love-tours/destinations/galle" 
   },
   { 
@@ -77,7 +77,7 @@ export const destinations: Destination[] = [
     attractions: ["Nallur Kandaswamy Kovil", "Jaffna Fort", "Delft Island", "Casuarina Beach"],
     bestTime: "January to August",
     img: "/Eco_Love_Tours/Jaffna.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image13.JPG", "/Eco_Love_Tours/Tour_Images/image14.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image13.jpg", "/Eco_Love_Tours/Tour_Images/image14.jpg"],
     link: "/eco-love-tours/destinations/jaffna" 
   },
 
@@ -90,7 +90,7 @@ export const destinations: Destination[] = [
     attractions: ["Main Point Surf", "Whiskey Point", "Pottuvil Lagoon", "Muhudu Maha Vihara"],
     bestTime: "April to October",
     img: "/Eco_Love_Tours/ArugamBay.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image15.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image15.jpg"],
     link: "/eco-love-tours/destinations/arugam-bay" 
   },
   { 
@@ -101,7 +101,7 @@ export const destinations: Destination[] = [
     attractions: ["Bentota Beach", "Brief Garden", "Madu Ganga Safari", "Sea Turtle Hatchery"],
     bestTime: "November to April",
     img: "/Eco_Love_Tours/Bentota.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image16.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image16.jpg"],
     link: "/eco-love-tours/destinations/bentota" 
   },
   { 
@@ -112,7 +112,7 @@ export const destinations: Destination[] = [
     attractions: ["Whale Watching", "Coconut Tree Hill", "Parrot Rock", "Secret Beach"],
     bestTime: "November to April",
     img: "/Eco_Love_Tours/Mirissa.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image17.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image17.jpg"],
     link: "/eco-love-tours/destinations/mirissa" 
   },
   { 
@@ -123,7 +123,7 @@ export const destinations: Destination[] = [
     attractions: ["Coral Sanctuary", "Hikkaduwa Beach", "Narigama Beach", "Turtle Beach"],
     bestTime: "November to April",
     img: "/Eco_Love_Tours/Hikkaduwa.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image18.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image18.jpg"],
     link: "/eco-love-tours/destinations/hikkaduwa" 
   },
   { 
@@ -134,7 +134,7 @@ export const destinations: Destination[] = [
     attractions: ["Japanese Peace Pagoda", "Jungle Beach", "Dalawella Swing", "Main Beach"],
     bestTime: "December to April",
     img: "/Eco_Love_Tours/Unawatuna.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image19.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image19.jpg"],
     link: "/eco-love-tours/destinations/unawatuna" 
   },
   { 
@@ -145,7 +145,7 @@ export const destinations: Destination[] = [
     attractions: ["Taprobane Island", "Stilt Fishermen", "Surf Schools", "Kushtarajagala Statue"],
     bestTime: "October to April",
     img: "/Eco_Love_Tours/Waligama.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image20.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image20.jpg"],
     link: "/eco-love-tours/destinations/weligama" 
   },
   { 
@@ -156,7 +156,7 @@ export const destinations: Destination[] = [
     attractions: ["Rekawa Turtle Watch", "Mulkirigala Rock Temple", "Hummanya Blowhole", "Silent Beach"],
     bestTime: "December to March",
     img: "/Eco_Love_Tours/Tangalle.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image21.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image21.jpg"],
     link: "/eco-love-tours/destinations/tangalle" 
   },
   { 
@@ -167,7 +167,7 @@ export const destinations: Destination[] = [
     attractions: ["Dutch Canal", "Fish Market", "St. Mary's Church", "Negombo Beach"],
     bestTime: "December to April",
     img: "/Eco_Love_Tours/Negombo.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image22.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image22.jpg"],
     link: "/eco-love-tours/destinations/negombo" 
   },
   { 
@@ -178,7 +178,7 @@ export const destinations: Destination[] = [
     attractions: ["Koneswaram Temple", "Pigeon Island", "Nilaveli Beach", "Fort Frederick"],
     bestTime: "May to September",
     img: "/Eco_Love_Tours/Trincomalee.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image23.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image23.jpg"],
     link: "/eco-love-tours/destinations/trincomalee" 
   },
   { 
@@ -189,7 +189,7 @@ export const destinations: Destination[] = [
     attractions: ["Passikudah Bay", "Kalkudah Beach", "Coral Reefs", "Water Sports"],
     bestTime: "May to September",
     img: "/Eco_Love_Tours/Passikudah.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image24.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image24.jpg"],
     link: "/eco-love-tours/destinations/passikudah" 
   },
   { 
@@ -200,7 +200,7 @@ export const destinations: Destination[] = [
     attractions: ["Kitesurfing", "Dolphin Watching", "Bar Reef", "Dutch Fort"],
     bestTime: "May to September (Surf) / Nov to April (Dolphins)",
     img: "/Eco_Love_Tours/Kalpitiya.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image25.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image25.jpg"],
     link: "/eco-love-tours/destinations/kalpitiya" 
   },
 
@@ -213,7 +213,7 @@ export const destinations: Destination[] = [
     attractions: ["Game Drive", "Sithulpawwa Temple", "Magul Maha Vihara", "Leopard Spotting"],
     bestTime: "February to June",
     img: "/Eco_Love_Tours/yala.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image26.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image26.jpg"],
     link: "/eco-love-tours/destinations/yala" 
   },
   { 
@@ -224,7 +224,7 @@ export const destinations: Destination[] = [
     attractions: ["Elephant Transit Home", "Udawalawe Reservoir", "Safari", "Bird Watching"],
     bestTime: "December to March",
     img: "/Eco_Love_Tours/udawalawe.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image27.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image27.jpg"],
     link: "/eco-love-tours/destinations/udawalawe" 
   },
   { 
@@ -235,7 +235,7 @@ export const destinations: Destination[] = [
     attractions: ["Willu Exploration", "Leopard Safari", "Ancient Ruins", "Wildlife Photography"],
     bestTime: "February to October",
     img: "/Eco_Love_Tours/Wilpattu.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image28.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image28.jpg"],
     link: "/eco-love-tours/destinations/wilpattu" 
   },
   { 
@@ -246,7 +246,7 @@ export const destinations: Destination[] = [
     attractions: ["Rainforest Trek", "Bird Watching", "Waterfalls", "Endemic Species Search"],
     bestTime: "January to March / August to September",
     img: "/Eco_Love_Tours/Sinharaja.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image29.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image29.jpg"],
     link: "/eco-love-tours/destinations/sinharaja" 
   },
   { 
@@ -257,7 +257,7 @@ export const destinations: Destination[] = [
     attractions: ["White Water Rafting", "Canyoning", "Jungle Trekking", "Belilena Caves"],
     bestTime: "January to April",
     img: "/Eco_Love_Tours/Kitulgala.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image30.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image30.jpg"],
     link: "/eco-love-tours/destinations/kitulgala" 
   },
   { 
@@ -268,7 +268,7 @@ export const destinations: Destination[] = [
     attractions: ["Buduruwagala Statues", "Diyaluma Falls", "Ella Wala Waterfall", "Paddy Fields"],
     bestTime: "January to May",
     img: "/Eco_Love_Tours/Wellawaya.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image31.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image31.jpg"],
     link: "/eco-love-tours/destinations/wellawaya" 
   },
 
@@ -281,7 +281,7 @@ export const destinations: Destination[] = [
     attractions: ["Nine Arches Bridge", "Little Adam's Peak", "Ella Rock", "Ravana Falls"],
     bestTime: "January to March",
     img: "/Eco_Love_Tours/Ella.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image1.JPG", "/Eco_Love_Tours/Tour_Images/image2.JPG", "/Eco_Love_Tours/Tour_Images/image3.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image1.jpg", "/Eco_Love_Tours/Tour_Images/image2.jpg", "/Eco_Love_Tours/Tour_Images/image3.jpg"],
     link: "/eco-love-tours/destinations/ella" 
   },
   { 
@@ -292,7 +292,7 @@ export const destinations: Destination[] = [
     attractions: ["Gregory Lake", "Horton Plains", "Tea Factory", "Victoria Park"],
     bestTime: "April to June",
     img: "/Eco_Love_Tours/Nuwara-Eliya.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image32.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image32.jpg"],
     link: "/eco-love-tours/destinations/nuwara-eliya" 
   },
   { 
@@ -303,7 +303,7 @@ export const destinations: Destination[] = [
     attractions: ["Adam's Peak", "Castlereagh Reservoir", "Tea Estate Walk", "Devon Falls"],
     bestTime: "December to May",
     img: "/Eco_Love_Tours/Hatton.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image33.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image33.jpg"],
     link: "/eco-love-tours/destinations/hatton" 
   },
 
@@ -316,7 +316,7 @@ export const destinations: Destination[] = [
     attractions: ["Gangaramaya Temple", "Galle Face Green", "Lotus Tower", "Pettah Market"],
     bestTime: "January to March",
     img: "/Eco_Love_Tours/Colombo.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image34.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image34.jpg"],
     link: "/eco-love-tours/destinations/colombo" 
   },
   { 
@@ -327,7 +327,7 @@ export const destinations: Destination[] = [
     attractions: ["Minneriya Safari", "Hiriwadunna Village", "Elephant Gathering", "Eco Walks"],
     bestTime: "July to September",
     img: "/Eco_Love_Tours/Habarana.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image35.JPG"],
+    gallery: ["/Eco_Love_Tours/Tour_Images/image35.jpg"],
     link: "/eco-love-tours/destinations/habarana" 
   }
 ];
