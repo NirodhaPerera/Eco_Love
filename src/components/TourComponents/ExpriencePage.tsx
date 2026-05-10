@@ -53,7 +53,7 @@ const experiences = [
     description: "Embark on an unforgettable safari adventure to witness Sri Lanka's incredible wildlife.",
   },
   {
-    title: "The Art of Sri Lankan Handloom ",
+    title: "The Art of Sri Lankan Handloom",
     image: "/Eco_Love_Tours/handloom/img16.jpg",
     slug: "traditional-handloom-factory",
     category: "Textiles",

@@ -37,7 +37,7 @@ const experiences = [
     image: "/Eco_Love_Tours/safari/img8.jpg",
   },
   {
-    title: "Handloom Factory",
+    title: "The Art of Sri Lankan Handloom ",
     category: "Traditional Arts",
     image: "/Eco_Love_Tours/handloom/img16.jpg",
   },
