@@ -13,7 +13,7 @@ const LandingPage = () => {
 
     return (
       <div className="flex flex-col min-h-screen">
-        <Header />
+      
         
         {/* If you ever decide to nest routes under "/" again, 
            the Outlet will handle it. If not, the home components 
@@ -31,7 +31,7 @@ const LandingPage = () => {
             </main>
         )}
 
-        <Footer />
+        
       </div>
     )
 }

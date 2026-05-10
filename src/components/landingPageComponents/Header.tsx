@@ -38,12 +38,12 @@ const Header = () => {
 
  // Inside Header.tsx
 const experiences = [
-  { path: '/eco-love-kitchen', label: 'Spices,Stories & Sri Lankan Kitchen' },
-  { path: '/eco-love-tours/experiences/walking-tours', label: 'Walk,Stories & Hidden Corners' },
+  { path: '/eco-love-kitchen', label: 'Spices, Stories & Sri Lankan Kitchen' },
+  { path: '/eco-love-tours/experiences/walking-tours', label: 'Walk, Stories & Hidden Corners' },
   { path: '/eco-love-tours/experiences/wildlife-safari', label: 'Slow Safaris & Wild Stories' },
   { path: '/eco-love-tours/experiences/jewelry-workshop', label: 'From Flame to Finger' },
   { path: '/eco-love-tours/experiences/wood-carving', label: 'Carved By Hand, Shaped by Tradition' },
-  { path: '/eco-love-tours/experiences/cycling-tours', label: 'Cycling Tours' },
+  { path: '/eco-love-tours/experiences/cycling-tours', label: 'Pedals, Path & Hidden Stories' },
 ];
 
   return (

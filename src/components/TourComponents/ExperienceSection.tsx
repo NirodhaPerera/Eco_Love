@@ -2,34 +2,37 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
+
+
+
 const experiences = [
   {
-    title: "Jewelry Workshop",
+    title: "From Flame to Finger",
     category: "Craftsmanship",
     image: "/Eco_Love_Tours/Jewellry/img31.jpg",
   },
   {
-    title: "Traditional Cookery",
+    title: "Spices, Stories & Sri Lankan Kitchen",
     category: "Culinary Heritage",
     image: "/Eco_Love_Tours/coockery/slider5.jpeg",
   },
   {
-    title: "Wood Carving",
+    title: "Carved By Hand, Shaped by Tradition",
     category: "Artisan Skills",
     image: "/Eco_Love_Tours/wood carving/image18.jpg",
   },
   {
-    title: "Cycling Tours",
+    title: "Pedals, Path & Hidden Stories",
     category: "Active Exploration",
     image: "/Eco_Love_Tours/cycling/img5.jpg",
   },
   {
-    title: "Walking Tours",
+    title: "Walk, Stories & Hidden Corners",
     category: "Mindful Journeys",
     image: "/Eco_Love_Tours/Walking Tours Images/img4.jpg",
   },
   {
-    title: "Wildlife Safari",
+    title: "Slow Safaris & Wild Stories",
     category: "Nature",
     image: "/Eco_Love_Tours/safari/img8.jpg",
   },
