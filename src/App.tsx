@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
+import GalleryPageMain from './components/landingPageComponents/GalleryPage'
 import KitchenHome from './pages/kitchen/HomePage'
 import KitchenMain from './pages/kitchen/KitchenMain'
 import KitchenSession from './components/kitchenComponents/SessionPage'
@@ -24,10 +25,13 @@ import AuthenticExperiences from './components/TourComponents/ExpriencePage'
 import ExperienceDetail from './components/TourComponents/ExprienceDetails'
 import DestinationDetail from './components/TourComponents/DestinationDetailPage'
 
+import MainLayout from './pages/Mainlayout'
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import ReviewsPage from './components/landingPageComponents/ReviewsPage'
+import BlogPage from './components/landingPageComponents/Blogpage'
+import BlogDetail from './components/landingPageComponents/BlogDetails'
 
 declare global {
   interface Window {
@@ -61,7 +65,15 @@ function App() {
 
       <AnalyticsTracker /> {/* 2. Include the tracker in your app */}
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route element={<MainLayout />} >
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/gallery" element={<GalleryPageMain />} />
+          <Route path="/reviews" element={<ReviewsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+         
+        </Route>
+      
         <Route path="eco-love-kitchen" element={<KitchenMain />}>
           <Route index element={<KitchenHome />} />           {/* /eco-love-kitchen */}
           <Route path="gallery" element={<KitchenGallery />} />     {/* /eco-love-kitchen/lesson */}
