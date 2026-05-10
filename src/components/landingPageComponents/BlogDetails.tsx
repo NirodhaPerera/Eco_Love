@@ -16,7 +16,9 @@ const blogPosts = [
   readTime: "4 min read",
   category: "Stories",
   content: `
-    <p class="italic text-emerald-800 font-bold">“Machan, kotuwe yamuda?”</p>
+    <p class="text-3xl md:text-4xl font-serif italic text-emerald-900 font-medium mb-4">
+    “Machan, kotuwe yamuda?”
+    </p>
     <p>This is something you hear from many youngsters in Galle when the sun begins to set. It means “Dude, shall we go to the fort?”</p>
     
     <p>For locals, Galle Fort is filled with memories. It’s the old jetty where we learned to swim, the star bastion where we spotted sea turtles, or the ramparts where we played cricket (Haha, of course, everywhere cricket).</p>
