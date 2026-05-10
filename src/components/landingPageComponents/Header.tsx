@@ -161,7 +161,7 @@ const experiences = [
           <div className="flex-1 overflow-y-auto p-8">
             <div className="flex flex-col gap-6 mb-12">
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-green-800/40">Navigation</span>
-              <Link to="/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-serif text-green-900">Blog</Link>
+              <Link to="/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-serif text-green-900">Tales from the Island</Link>
               <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-serif text-green-900">Gallery</Link>
               <Link to="/reviews" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-serif text-green-900">Reviews</Link>
             </div>

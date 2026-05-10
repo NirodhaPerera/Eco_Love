@@ -133,7 +133,7 @@ const BlogDetail = () => {
         {/* WHATSAPP CTA */}
         <div className="mt-24 p-12 bg-emerald-900 rounded-[3.5rem] text-center space-y-8 shadow-2xl">
            <h4 className="text-white font-serif italic text-3xl">Want to experience this journey?</h4>
-           <p className="text-white/70 text-sm max-w-md mx-auto">Message us to book a personalized tour or cooking class inspired by this story.</p>
+           <p className="text-white/70 text-sm max-w-md mx-auto">Want to dive deeper into the local culture? Connect with us to experience Sri Lanka through the eyes of the people who call it home.</p>
            <a href="https://wa.me/94774191148" className="inline-flex items-center gap-3 bg-white text-emerald-900 px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-transform">
              <MessageCircle size={16} /> Chat with us
            </a>
