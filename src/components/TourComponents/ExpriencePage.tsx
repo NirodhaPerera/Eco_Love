@@ -108,9 +108,7 @@ const ExperiencePage: React.FC = () => {
             Beyond the sightseeing. Dive into the crafts, flavors, and rhythms of local life through our hand-picked cultural immersions.
           </p>
           
-          <div className="mt-12 animate-bounce">
-            <div className="w-[1px] h-16 bg-gradient-to-b from-white to-transparent mx-auto" />
-          </div>
+         
         </div>
       </section>
 

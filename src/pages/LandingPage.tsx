@@ -1,6 +1,5 @@
 import AboutUs from "../components/landingPageComponents/AboutUs"
-import Footer from "../components/landingPageComponents/Footer"
-import Header from "../components/landingPageComponents/Header" // This should be the global header
+
 import Hero from "../components/landingPageComponents/Hero"
 import StayInKnow from "../components/landingPageComponents/StayInKnow"
 import { Outlet, useLocation } from "react-router-dom"
