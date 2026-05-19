@@ -33,6 +33,9 @@ import ReviewsPage from './components/landingPageComponents/ReviewsPage'
 import BlogPage from './components/landingPageComponents/Blogpage'
 import BlogDetail from './components/landingPageComponents/BlogDetails'
 
+// --- IMPORT VERCEL ANALYTICS ---
+import { Analytics } from '@vercel/analytics/react';
+
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
@@ -64,6 +67,11 @@ function App() {
       <ScrollToTop></ScrollToTop>
 
       <AnalyticsTracker /> {/* 2. Include the tracker in your app */}
+
+
+      {/* Placed here inside the Router, it hooks perfectly onto all page navigation paths */}
+      <Analytics />
+
       <Routes>
         <Route element={<MainLayout />} >
           <Route path="/" element={<LandingPage />} />

@@ -8,39 +8,54 @@ import { ArrowUpRight } from "lucide-react";
 const experiences = [
   {
     title: "From Flame to Finger",
-    category: "Craftsmanship",
     image: "/Eco_Love_Tours/Jewellry/img31.jpg",
+    slug: "jewelry-workshop",
+    category: "Craftsmanship",
+    description: "Craft your own unique jewelry with local artisans using traditional Sri Lankan methods.",
   },
   {
     title: "Spices, Stories & Sri Lankan Kitchen",
-    category: "Culinary Heritage",
     image: "/Eco_Love_Tours/coockery/slider5.jpeg",
+    slug: "cookery-session",
+    category: "Culinary Arts",
+    description: "Learn to cook authentic Sri Lankan dishes with hands-on guidance from local chefs.",
+  },
+  {
+    title: "Galle: Kanneliya Rainforest Trek with Lunch and Swim",
+    image: "/Eco_Love_Tours/kanneliya/Img_5.jpg", // Uses Kanneliya image array path
+    slug: "kanneliya-rainforest-trek",
+    category: "Eco Tourism",
+    description: "Trek through a UNESCO biosphere reserve, swim in pristine natural rock pools, and enjoy a traditional riverside lunch.",
+  },
+  {
+    title: "Whispers Through The Mangroves",
+    image: "/Eco_Love_Tours/Mangrove/Img_2.jpg", // Uses mangrove image array path
+    slug: "mangrove-nature-walk",
+    category: "Nature",
+    description: "Explore serene coastal mangrove ecosystems on a slow-paced guided walk with bird watching and local craft discoveries.",
   },
   {
     title: "Carved By Hand, Shaped by Tradition",
-    category: "Artisan Skills",
     image: "/Eco_Love_Tours/wood carving/image18.jpg",
+    slug: "wood-carving",
+    category: "Heritage",
+    description: "Explore the ancient art of wood carving with master craftsmen in a serene setting.",
   },
   {
     title: "Pedals, Path & Hidden Stories",
-    category: "Active Exploration",
     image: "/Eco_Love_Tours/cycling/img5.jpg",
+    slug: "cycling-tours",
+    category: "Adventure",
+    description: "Ride through scenic routes and local villages on guided eco-friendly cycling tours.",
   },
   {
     title: "Walk, Stories & Hidden Corners",
-    category: "Mindful Journeys",
     image: "/Eco_Love_Tours/Walking Tours Images/img4.jpg",
+    slug: "walking-tours",
+    category: "Heritage",
+    description: "Join a relaxed walking tour through culturally rich towns and natural landscapes.",
   },
-  {
-    title: "Slow Safaris & Wild Stories",
-    category: "Nature",
-    image: "/Eco_Love_Tours/safari/img8.jpg",
-  },
-  {
-    title: "The Art of Sri Lankan Handloom ",
-    category: "Traditional Arts",
-    image: "/Eco_Love_Tours/handloom/img16.jpg",
-  },
+  
 ];
 
 const AuthenticExperiences: React.FC = () => {

@@ -25,6 +25,20 @@ const experiences = [
     description: "Learn to cook authentic Sri Lankan dishes with hands-on guidance from local chefs.",
   },
   {
+    title: "Galle: Kanneliya Rainforest Trek with Lunch and Swim",
+    image: "/Eco_Love_Tours/kanneliya/Img_5.jpg", // Uses Kanneliya image array path
+    slug: "kanneliya-rainforest-trek",
+    category: "Eco Tourism",
+    description: "Trek through a UNESCO biosphere reserve, swim in pristine natural rock pools, and enjoy a traditional riverside lunch.",
+  },
+  {
+    title: "Whispers Through The Mangroves",
+    image: "/Eco_Love_Tours/Mangrove/Img_2.jpg", // Uses mangrove image array path
+    slug: "mangrove-nature-walk",
+    category: "Nature",
+    description: "Explore serene coastal mangrove ecosystems on a slow-paced guided walk with bird watching and local craft discoveries.",
+  },
+  {
     title: "Carved By Hand, Shaped by Tradition",
     image: "/Eco_Love_Tours/wood carving/image18.jpg",
     slug: "wood-carving",
@@ -42,7 +56,7 @@ const experiences = [
     title: "Walk, Stories & Hidden Corners",
     image: "/Eco_Love_Tours/Walking Tours Images/img4.jpg",
     slug: "walking-tours",
-    category: "Nature",
+    category: "Heritage",
     description: "Join a relaxed walking tour through culturally rich towns and natural landscapes.",
   },
   {
