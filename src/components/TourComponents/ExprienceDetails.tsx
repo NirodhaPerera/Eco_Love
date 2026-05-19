@@ -21,8 +21,8 @@ const woodCarvingImages = Array.from({ length: 28 }, (_, i) => `/Eco_Love_Tours/
 const cyclingImages = Array.from({ length: 8 }, (_, i) => `/Eco_Love_Tours/cycling/img${i + 1}.jpg`);
 const safariImages = Array.from({ length: 67 }, (_, i) => `/Eco_Love_Tours/safari/img${i + 1}.jpg`);
 const handloomImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/handloom/img${i + 1}.jpg`);
-const KanneliyaImages = Array.from({ length: 10 }, (_, i) => `/Eco_Love_Tours/Kanneliya/Img_${i + 1}.jpg`);
-const mangroveImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/Mangrove/img${i + 1}.JPG`);
+const KanneliyaImages = Array.from({ length: 10 }, (_, i) => `/Eco_Love_Tours/kanneliya/Img_${i + 1}.jpg`);
+const mangroveImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/Mangrove/Img_${i + 1}.jpg`);
 
 // --- MASTER DATA ARRAY ---
 const experiences = [
@@ -446,78 +446,118 @@ const ExperienceDetail: React.FC = () => {
   return (
     <div className="bg-[#FAF9F6] min-h-screen text-slate-800 antialiased selection:bg-emerald-100">
       
-      {/* 1. ROW HERO & IMAGE GALLERY BLOCK */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-black">
-        {experience.images.slice(0, 5).map((img, index) => (
+      {/* 1. HERO BANNER */}
+      <section className="relative w-full h-[45vh] sm:h-[55vh] md:h-[70vh] overflow-hidden bg-black">
+        {experience.images.map((img, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
               index === currentImg ? "opacity-60" : "opacity-0"
             }`}
           >
-            <img src={img} alt="Gallery item" className="w-full h-full object-cover scale-105 animate-slow-zoom" />
+            <img src={img} alt="Gallery item" className="w-full h-full object-cover scale-105" />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 z-10" />
-        <div className="absolute bottom-12 left-0 right-0 z-20 max-w-7xl mx-auto px-6">
-          <span className="text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/60 px-4 py-2 rounded-full border border-emerald-800/40 backdrop-blur-sm">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 z-10" />
+        <div className="absolute bottom-6 sm:bottom-12 left-0 right-0 z-20 max-w-7xl mx-auto px-4 sm:px-6">
+          <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/60 px-3 py-1.5 rounded-full border border-emerald-800/40 backdrop-blur-sm">
             Activity Provider: Eco Love Sri Lanka
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif text-white tracking-tight mt-4 max-w-4xl font-bold">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-serif text-white tracking-tight mt-3 max-w-4xl font-bold leading-tight">
             {experience.title}
           </h1>
         </div>
       </section>
 
+      {/* 2. THUMBNAIL TRACK SLIDER ROW */}
+      <section className="bg-white py-3 sm:py-4 border-b border-slate-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 snap-x scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {experience.images.slice(0, 12).map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImg(index)}
+                className={`relative w-20 h-14 sm:w-28 sm:h-18 md:w-32 md:h-20 rounded-xl overflow-hidden shrink-0 snap-start transition-all duration-300 ${
+                  index === currentImg 
+                    ? "ring-2 sm:ring-4 ring-emerald-800 scale-95 opacity-100 shadow-md" 
+                    : "opacity-50 hover:opacity-90"
+                }`}
+              >
+                <img src={img} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+              </button>
+            ))}
+            {experience.images.length > 12 && (
+              <div className="w-20 h-14 sm:w-28 sm:h-18 md:w-32 md:h-20 bg-slate-50 border border-dashed border-slate-200 rounded-xl shrink-0 flex flex-col items-center justify-center text-center">
+                <span className="text-xs font-bold text-slate-500">+{experience.images.length - 12}</span>
+                <span className="text-[8px] sm:text-[9px] text-slate-400 font-medium uppercase tracking-wider">Photos</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* MAIN CONTAINER */}
-      <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* LEFT COLUMN: MAIN DATA */}
-          <div className="lg:col-span-8 space-y-12">
+          {/* THE CONTENT & LAYOUT BLOCK SYSTEM */}
+          <div className="w-full lg:col-span-8 flex flex-col gap-8 sm:gap-12">
             
-            {/* 2. QUICK OVERVIEW STATS ROW */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
-              <div className="flex gap-3">
-                <ShieldCheck className="text-emerald-700 shrink-0" size={20} />
+            {/* A. QUICK OVERVIEW STATS (Renders at the top) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-6 bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm">
+              <div className="flex gap-3 items-start sm:items-center">
+                <ShieldCheck className="text-emerald-700 shrink-0" size={18} />
                 <div>
                   <h4 className="text-xs font-bold text-slate-900">Cancellation</h4>
-                  <p className="text-xs text-slate-500 mt-1">{experience.overview?.cancellation}</p>
+                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">{experience.overview?.cancellation}</p>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <Clock className="text-emerald-700 shrink-0" size={20} />
+              <div className="flex gap-3 items-start sm:items-center">
+                <Clock className="text-emerald-700 shrink-0" size={18} />
                 <div>
                   <h4 className="text-xs font-bold text-slate-900">Duration</h4>
-                  <p className="text-xs text-slate-500 mt-1">{experience.overview?.duration}</p>
+                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">{experience.overview?.duration}</p>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <Globe className="text-emerald-700 shrink-0" size={20} />
+              <div className="flex gap-3 items-start sm:items-center">
+                <Globe className="text-emerald-700 shrink-0" size={18} />
                 <div>
                   <h4 className="text-xs font-bold text-slate-900">Live Guide</h4>
-                  <p className="text-xs text-slate-500 mt-1">{experience.overview?.guide}</p>
+                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">{experience.overview?.guide}</p>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <Users className="text-emerald-700 shrink-0" size={20} />
+              <div className="flex gap-3 items-start sm:items-center">
+                <Users className="text-emerald-700 shrink-0" size={18} />
                 <div>
                   <h4 className="text-xs font-bold text-slate-900">Group Option</h4>
-                  <p className="text-xs text-slate-500 mt-1">{experience.overview?.groupSize}</p>
+                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">{experience.overview?.groupSize}</p>
                 </div>
               </div>
             </div>
 
+            {/* B. FULL DESCRIPTION (Surfaces immediately below overview on mobile) */}
+            <section className="space-y-3 sm:space-y-4">
+              <h3 className="text-lg sm:text-xl font-bold font-serif text-slate-900">Full description</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light whitespace-pre-line">
+                {experience.details.about}
+              </p>
+            </section>
+
+            {/* C. BOOK NOW CONTAINER (Render wrapper hidden on desktop, injected here contextually for mobile) */}
+            <div className="block lg:hidden w-full">
+              <BookingCard experience={experience} userName={userName} setUserName={setUserName} participants={participants} setParticipants={setParticipants} date={date} setDate={setDate} totalPrice={totalPrice} priceUSD={priceUSD} handleWhatsAppRedirect={handleWhatsAppRedirect} />
+            </div>
+
             <hr className="border-slate-200" />
 
-            {/* 3. HIGHLIGHTS GRID */}
-            <section className="space-y-4">
-              <h3 className="text-xl font-bold font-serif text-slate-900">Highlights</h3>
-              <ul className="grid md:grid-cols-2 gap-4">
+            {/* D. HIGHLIGHTS */}
+            <section className="space-y-3 sm:space-y-4">
+              <h3 className="text-lg sm:text-xl font-bold font-serif text-slate-900">Highlights</h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {experience.details.highlights.map((highlight, index) => (
-                  <li key={index} className="flex gap-3 items-start text-sm text-slate-600 leading-relaxed">
+                  <li key={index} className="flex gap-3 items-start text-xs sm:text-sm text-slate-600 leading-relaxed">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-700 mt-2 shrink-0" />
-                    {highlight}
+                    <span>{highlight}</span>
                   </li>
                 ))}
               </ul>
@@ -525,38 +565,28 @@ const ExperienceDetail: React.FC = () => {
 
             <hr className="border-slate-200" />
 
-            {/* 4. FULL DESCRIPTION FIELD */}
-            <section className="space-y-4">
-              <h3 className="text-xl font-bold font-serif text-slate-900">Full description</h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-light whitespace-pre-line">
-                {experience.details.about}
-              </p>
-            </section>
-
-            <hr className="border-slate-200" />
-
-            {/* 5. INCLUDES / NOT SUITABLE FOR LIST BLOCK */}
-            <section className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Includes</h4>
-                <ul className="space-y-3">
+            {/* E. INCLUDES / NOT SUITABLE FOR */}
+            <section className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              <div className="space-y-3 sm:space-y-4">
+                <h4 className="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider">Includes</h4>
+                <ul className="space-y-2.5 sm:space-y-3">
                   {experience.details.includes.map((inc, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-sm text-slate-600">
-                      <CheckCircle size={16} className="text-emerald-700 shrink-0" />
-                      {inc}
+                    <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
+                      <CheckCircle size={15} className="text-emerald-700 shrink-0 mt-0.5" />
+                      <span>{inc}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {experience.details.notSuitableFor && experience.details.notSuitableFor.length > 0 && (
-                <div className="space-y-4">
-                  <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Not suitable for</h4>
-                  <ul className="space-y-3">
+                <div className="space-y-3 sm:space-y-4">
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider">Not suitable for</h4>
+                  <ul className="space-y-2.5 sm:space-y-3">
                     {experience.details.notSuitableFor.map((not, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-sm text-slate-500">
-                        <XCircle size={16} className="text-rose-600 shrink-0" />
-                        {not}
+                      <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-500">
+                        <XCircle size={15} className="text-rose-600 shrink-0 mt-0.5" />
+                        <span>{not}</span>
                       </li>
                     ))}
                   </ul>
@@ -566,31 +596,31 @@ const ExperienceDetail: React.FC = () => {
 
             <hr className="border-slate-200" />
 
-            {/* 6. IMPORTANT INFORMATION & LOGISTICS */}
-            <section className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+            {/* F. IMPORTANT INFORMATION & LOGISTICS */}
+            <section className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm space-y-5 sm:space-y-6">
               <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-                <AlertCircle className="text-emerald-800" size={20} />
-                <h3 className="text-lg font-bold text-slate-900">Important information</h3>
+                <AlertCircle className="text-emerald-800" size={18} />
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">Important information</h3>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 {experience.details.importantInfo.bring && experience.details.importantInfo.bring.length > 0 && (
-                  <div className="space-y-3">
+                  <div className="space-y-2.5">
                     <h5 className="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
                       <span className="w-1 h-3 bg-emerald-700 rounded-full inline-block" /> What to bring
                     </h5>
-                    <ul className="list-disc pl-4 text-xs text-slate-500 space-y-1.5 leading-relaxed">
+                    <ul className="list-disc pl-4 text-[11px] sm:text-xs text-slate-500 space-y-1.5 leading-relaxed">
                       {experience.details.importantInfo.bring.map((b, i) => <li key={i}>{b}</li>)}
                     </ul>
                   </div>
                 )}
                 
                 {experience.details.importantInfo.knowBefore && experience.details.importantInfo.knowBefore.length > 0 && (
-                  <div className="space-y-3">
+                  <div className="space-y-2.5">
                     <h5 className="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
                       <span className="w-1 h-3 bg-emerald-700 rounded-full inline-block" /> Know before you go
                     </h5>
-                    <ul className="list-disc pl-4 text-xs text-slate-500 space-y-1.5 leading-relaxed">
+                    <ul className="list-disc pl-4 text-[11px] sm:text-xs text-slate-500 space-y-1.5 leading-relaxed">
                       {experience.details.importantInfo.knowBefore.map((k, i) => <li key={i}>{k}</li>)}
                     </ul>
                   </div>
@@ -598,11 +628,11 @@ const ExperienceDetail: React.FC = () => {
               </div>
 
               {experience.details.meetingPoint && (
-                <div className="pt-6 border-t border-slate-100 space-y-3">
+                <div className="pt-4 sm:pt-6 border-t border-slate-100 space-y-2.5">
                   <h5 className="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
                     <HelpCircle className="text-emerald-700" size={14} /> Meeting Point Logistics
                   </h5>
-                  <p className="text-xs text-slate-500 leading-relaxed font-light bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed font-light bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-100">
                     {experience.details.meetingPoint}
                   </p>
                 </div>
@@ -611,87 +641,110 @@ const ExperienceDetail: React.FC = () => {
 
           </div>
 
-          {/* RIGHT COLUMN: BOOKING CONTROLLER (STICKY ON DESKTOP) */}
-          <div className="lg:col-span-4 lg:sticky lg:top-8">
-            <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] space-y-6">
-              
-              <div className="pb-4 border-b border-slate-100">
-                <span className="text-xs text-slate-400 font-medium block">Price starts from</span>
-                <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-3xl font-bold text-slate-900">
-                    {priceUSD > 0 ? `$${priceUSD.toFixed(0)}` : "Custom"}
-                  </span>
-                  <span className="text-xs text-slate-500 font-medium">per person</span>
-                </div>
-              </div>
-
-              <form onSubmit={handleWhatsAppRedirect} className="space-y-4">
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Your Full Name</label>
-                  <input 
-                    required 
-                    type="text" 
-                    value={userName} 
-                    onChange={(e) => setUserName(e.target.value)} 
-                    className="w-full bg-slate-50 border-0 rounded-xl py-3.5 px-4 text-sm focus:ring-2 focus:ring-emerald-800/20" 
-                    placeholder="Enter full name" 
-                  />
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1">
-                    <Users size={12}/> Number of Adults
-                  </label>
-                  <select 
-                    value={participants} 
-                    onChange={(e) => setParticipants(Number(e.target.value))} 
-                    className="w-full bg-slate-50 border-0 rounded-xl py-3.5 px-4 text-sm cursor-pointer"
-                  >
-                    {[...Array(15)].map((_, i) => <option key={i} value={i + 1}>{i + 1} Participant{i > 0 && 's'}</option>)}
-                  </select>
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1">
-                    <Calendar size={12}/> Select preferred Date
-                  </label>
-                  <DatePicker 
-                    selected={date} 
-                    onChange={(d) => setDate(d)} 
-                    minDate={new Date()} 
-                    className="w-full bg-slate-50 border-0 rounded-xl py-3.5 px-4 text-sm cursor-pointer" 
-                  />
-                </div>
-
-                <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100/40 flex justify-between items-center mt-6">
-                  <span className="text-xs font-bold text-emerald-900">Total Investment estimate:</span>
-                  <span className="text-lg font-black text-emerald-900">
-                    {totalPrice > 0 ? `$${totalPrice.toFixed(2)}` : "On Request"}
-                  </span>
-                </div>
-
-                <button 
-                  type="submit" 
-                  className="w-full bg-emerald-800 text-white font-bold uppercase tracking-widest text-xs py-4 rounded-xl hover:bg-emerald-900 transition-colors flex items-center justify-center gap-2 shadow-md shadow-emerald-900/10"
-                >
-                  Check Availability <Phone size={14} />
-                </button>
-              </form>
-
-              <div className="space-y-2.5 pt-2 text-center text-[11px] text-slate-400">
-                <p className="flex items-center justify-center gap-1.5">
-                  <Sparkles size={12} className="text-amber-500" /> Reserve now & pay later to secure space
-                </p>
-              </div>
-            </div>
+          {/* DESKTOP COLUMN (Keeps layout sticky on the right for monitors) */}
+          <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-8 w-full">
+            <BookingCard experience={experience} userName={userName} setUserName={setUserName} participants={participants} setParticipants={setParticipants} date={date} setDate={setDate} totalPrice={totalPrice} priceUSD={priceUSD} handleWhatsAppRedirect={handleWhatsAppRedirect} />
           </div>
 
         </div>
       </main>
 
-      <footer className="py-12 border-t border-slate-200 bg-white text-center">
-         <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">Eco Love — Premium Handcrafted Immersive Experiences</p>
+      <footer className="py-8 sm:py-12 border-t border-slate-200 bg-white text-center px-4">
+         <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400">Eco Love — Premium Handcrafted Immersive Experiences</p>
       </footer>
+    </div>
+  );
+};
+
+// --- REUSABLE SUB-COMPONENT FOR CLEAN INJECTION MANAGEMENT ---
+interface BookingCardProps {
+  experience: any;
+  userName: string;
+  setUserName: (val: string) => void;
+  participants: number;
+  setParticipants: (val: number) => void;
+  date: Date | null;
+  setDate: (date: Date | null) => void;
+  totalPrice: number;
+  priceUSD: number;
+  handleWhatsAppRedirect: (e: FormEvent) => void;
+}
+
+const BookingCard: React.FC<BookingCardProps> = ({ userName, setUserName, participants, setParticipants, date, setDate, totalPrice, priceUSD, handleWhatsAppRedirect }) => {
+  return (
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.02)] space-y-5 sm:space-y-6 w-full">
+      <div className="pb-3 sm:pb-4 border-b border-slate-100">
+        <span className="text-[11px] sm:text-xs text-slate-400 font-medium block">Price starts from</span>
+        <div className="flex items-baseline gap-1 mt-0.5">
+          <span className="text-2xl sm:text-3xl font-bold text-slate-900">
+            {priceUSD > 0 ? `$${priceUSD.toFixed(0)}` : "Custom"}
+          </span>
+          <span className="text-[11px] sm:text-xs text-slate-500 font-medium">per person</span>
+        </div>
+      </div>
+
+      <form onSubmit={handleWhatsAppRedirect} className="space-y-4">
+        <div className="space-y-1">
+          <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Your Full Name</label>
+          <input 
+            required 
+            type="text" 
+            value={userName} 
+            onChange={(e) => setUserName(e.target.value)} 
+            className="w-full bg-slate-50 border-0 rounded-xl py-3 px-4 text-xs sm:text-sm focus:ring-2 focus:ring-emerald-800/20 text-slate-800" 
+            placeholder="Enter full name" 
+          />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1">
+              <Users size={12}/> Adults
+            </label>
+            <select 
+              value={participants} 
+              onChange={(e) => setParticipants(Number(e.target.value))} 
+              className="w-full bg-slate-50 border-0 rounded-xl py-3 px-4 text-xs sm:text-sm cursor-pointer text-slate-800"
+            >
+              {[...Array(15)].map((_, i) => <option key={i} value={i + 1}>{i + 1} {i === 0 ? 'Guest' : 'Guests'}</option>)}
+            </select>
+          </div>
+
+          <div className="space-y-1 w-full">
+            <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1">
+              <Calendar size={12}/> Date
+            </label>
+            <div className="relative w-full custom-datepicker-container">
+              <DatePicker 
+                selected={date} 
+                onChange={(d) => setDate(d)} 
+                minDate={new Date()} 
+                className="w-full bg-slate-50 border-0 rounded-xl py-3 px-4 text-xs sm:text-sm cursor-pointer text-slate-800" 
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-emerald-50/40 p-3.5 sm:p-4 rounded-xl border border-emerald-100/30 flex justify-between items-center mt-4">
+          <span className="text-[11px] sm:text-xs font-bold text-emerald-900">Estimated Total:</span>
+          <span className="text-base sm:text-lg font-black text-emerald-900">
+            {totalPrice > 0 ? `$${totalPrice.toFixed(2)}` : "On Request"}
+          </span>
+        </div>
+
+        <button 
+          type="submit" 
+          className="w-full bg-emerald-800 text-white font-bold uppercase tracking-widest text-xs py-3.5 sm:py-4 rounded-xl hover:bg-emerald-900 transition-colors flex items-center justify-center gap-2 shadow-md shadow-emerald-900/5"
+        >
+          Check Availability <Phone size={13} />
+        </button>
+      </form>
+
+      <div className="pt-1 text-center text-[10px] sm:text-[11px] text-slate-400">
+        <p className="flex items-center justify-center gap-1.5">
+          <Sparkles size={11} className="text-amber-500" /> Reserve now & pay later to secure space
+        </p>
+      </div>
     </div>
   );
 };
