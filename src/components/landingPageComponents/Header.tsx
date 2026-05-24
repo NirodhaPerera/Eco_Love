@@ -43,7 +43,7 @@ const experiences = [
   { path: '/eco-love-tours/experiences/wildlife-safari', label: 'Slow Safaris & Wild Stories' },
   { path: '/eco-love-tours/experiences/jewelry-workshop', label: 'From Flame to Finger' },
   { path: '/eco-love-tours/experiences/wood-carving', label: 'Carved By Hand, Shaped by Tradition' },
-  { path: '/eco-love-tours/experiences/cycling-tours', label: 'Pedals, Path & Hidden Stories' },
+  { path: '/eco-love-tours/experiences/cycling-tours', label: 'Pedals, Paths & Hidden Stories' },
 ];
 
   return (

@@ -26,7 +26,7 @@ const blogPosts = [
       <img src="/Blog_Img/galle_fort_mythology/img8.jpeg" alt="Playing cricket on Galle Fort ramparts" class="rounded-[2.5rem] my-10 w-full object-contain h-[300px]" />
       <h3 class="text-3xl font-serif italic text-slate-900 mt-12 mb-6">Walking Experience</h3>
       <p>If you are planning to visit Galle Fort, the best way to explore is always on foot. Walk along the ramparts and feel the sea breeze.</p>
-      <p> Don’t forget to pause for a few quiet seconds and look down at the crystal clear waters. If you are lucky, you might spot a green turtle, colorful parrotfish, or even the shadow of a blacktip reef shark moving between the rocks. It all becomes part of the memory.</p>
+      <p> Do remember to pause for a few quiet seconds and look down at the crystal clear waters. If you are lucky, you might spot a green turtle, colorful parrotfish, or even the shadow of a blacktip reef shark moving between the rocks. It all becomes part of the memory.</p>
       <img src="/Blog_Img/galle_fort_mythology/img2.jpeg" alt="Green Turtle in crystal clear water" class="rounded-[2.5rem] my-10 w-full object-contain h-[300px]" />
       <h3 class="text-3xl font-serif italic text-slate-900 mt-12 mb-6">Aeolus Bastion</h3>
       <p>There is one specific bastion at Galle Fort which is very popular as a sunset viewpoint: <strong>Aeolus Bastion</strong> (opposite the military camp).</p>
