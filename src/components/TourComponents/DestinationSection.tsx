@@ -5,7 +5,7 @@ const destinations = [
   {
     name: "Galle",
     description: "Colonial charm meets coastal bliss",
-    img: "/Eco_Love_Tours/Galle.jpg",
+    img: "/Eco_Love_Tours/Galle/img2.jpg",
     link: "/eco-love-tour/destinations/galle",
     category: "Coastal Heritage"
   },

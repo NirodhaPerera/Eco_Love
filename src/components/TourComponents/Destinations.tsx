@@ -10,8 +10,8 @@ export const destinations: Destination[] = [
     longDescription: "Sigiriya is an ancient rock fortress dominated by a massive column of rock nearly 200 metres high. It features the remains of a sky palace, extensive water gardens, and famous frescoes. Known as the Eighth Wonder of the World, it offers a glimpse into ancient Sri Lankan engineering and artistic mastery.",
     attractions: ["Lion's Paw", "Mirror Wall", "Water Gardens", "Pidurangala Rock"],
     bestTime: "January to April",
-    img: "/Eco_Love_Tours/Sigiriya.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image136.jpg", "/Eco_Love_Tours/Tour_Images/image119.jpg", "/Eco_Love_Tours/Tour_Images/image120.jpg"],
+    img: "/Eco_Love_Tours/Sigiriya_II.jpeg", 
+    gallery: ["/Eco_Love_Tours/Tour_Images/img43.jpg", "/Eco_Love_Tours/Tour_Images/img42.jpg", "/Eco_Love_Tours/Sigiriya_II.jpeg"],
     link: "/eco-love-tours/destinations/sigiriya" 
   },
   { 
@@ -22,7 +22,7 @@ export const destinations: Destination[] = [
     attractions: ["Sri Maha Bodhi", "Ruwanwelisaya", "Jetavanaramaya", "Abhayagiri Dagaba"],
     bestTime: "June to September",
     img: "/Eco_Love_Tours/Anuradhapura.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image7.jpg", "/Eco_Love_Tours/Tour_Images/image8.jpg"],
+    gallery: ["/Eco_Love_Tours/Anuradhapura/3d.jpg", "/Eco_Love_Tours/Anuradhapura/img1.jpg", "/Eco_Love_Tours/Anuradhapura/img2.jpg"],
     link: "/eco-love-tours/destinations/anuradhapura" 
   },
   { 
@@ -33,7 +33,7 @@ export const destinations: Destination[] = [
     attractions: ["Gal Vihara", "Vatadage", "Rankoth Vehera", "Parakrama Samudra"],
     bestTime: "July to August",
     img: "/Eco_Love_Tours/Polonnaruwa.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image9.jpg", "/Eco_Love_Tours/Tour_Images/image10.jpg"],
+    gallery: ["/Eco_Love_Tours/Polonnaruwa/img1.jpg", "/Eco_Love_Tours/Polonnaruwa/img3.jpg", "/Eco_Love_Tours/Polonnaruwa/img4.jpg"],
     link: "/eco-love-tours/destinations/polonnaruwa" 
   },
   { 
@@ -44,7 +44,7 @@ export const destinations: Destination[] = [
     attractions: ["Cave Temples", "Golden Buddha Statue", "Ibbankatuwa Burial Site", "Museum"],
     bestTime: "January to May",
     img: "/Eco_Love_Tours/Dambulla.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image11.jpg", "/Eco_Love_Tours/Tour_Images/image12.jpg"],
+    gallery: ["/Eco_Love_Tours/Dambulla/img1.jpg", "/Eco_Love_Tours/Dambulla/img2.jpg", "/Eco_Love_Tours/Dambulla/img3.jpg"],
     link: "/eco-love-tours/destinations/dambulla" 
   },
   { 
@@ -55,7 +55,7 @@ export const destinations: Destination[] = [
     attractions: ["Temple of the Tooth", "Royal Botanical Gardens", "Kandy Lake", "Bahirawakanda Buddha"],
     bestTime: "January to April",
     img: "/Eco_Love_Tours/Kandy.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image4.jpg", "/Eco_Love_Tours/Tour_Images/image5.jpg", "/Eco_Love_Tours/Tour_Images/image6.jpg"],
+    gallery: ["/Eco_Love_Tours/Kandy/img1.jpg", "/Eco_Love_Tours/Kandy/img2.jpg", "/Eco_Love_Tours/Kandy/img3.jpg"],
     link: "/eco-love-tours/destinations/kandy" 
   },
   { 
@@ -65,8 +65,8 @@ export const destinations: Destination[] = [
     longDescription: "Galle is a jewel of colonial architecture and coastal beauty. The Galle Fort, a world heritage site, is the largest remaining fortress in Asia built by European occupiers, showing a unique interaction between European architectural styles and South Asian traditions.",
     attractions: ["Galle Fort", "Lighthouse", "Dutch Reformed Church", "Maritime Museum"],
     bestTime: "December to April",
-    img: "/Eco_Love_Tours/Galle.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image7.jpg", "/Eco_Love_Tours/Tour_Images/image175.jpg", "/Eco_Love_Tours/Tour_Images/image176.jpg"],
+    img: "/Eco_Love_Tours/Galle/img2.jpg", 
+    gallery: ["/Eco_Love_Tours/Tour_Images/img34.jpg", "/Eco_Love_Tours/Tour_Images/img108.jpg", "/Eco_Love_Tours/Tour_Images/img209.jpg"],
     link: "/eco-love-tours/destinations/galle" 
   },
   { 
@@ -77,7 +77,7 @@ export const destinations: Destination[] = [
     attractions: ["Nallur Kandaswamy Kovil", "Jaffna Fort", "Delft Island", "Casuarina Beach"],
     bestTime: "January to August",
     img: "/Eco_Love_Tours/Jaffna.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image13.jpg", "/Eco_Love_Tours/Tour_Images/image14.jpg"],
+    gallery: ["/Eco_Love_Tours/Jaffna/img1.jpg", "/Eco_Love_Tours/Jaffna/img2.jpg", "/Eco_Love_Tours/Jaffna/img4.jpg"],
     link: "/eco-love-tours/destinations/jaffna" 
   },
 
@@ -90,7 +90,7 @@ export const destinations: Destination[] = [
     attractions: ["Main Point Surf", "Whiskey Point", "Pottuvil Lagoon", "Muhudu Maha Vihara"],
     bestTime: "April to October",
     img: "/Eco_Love_Tours/ArugamBay.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image15.jpg"],
+    gallery: ["/Eco_Love_Tours/Arugambay/img2.jpg", "/Eco_Love_Tours/Arugambay/img3.jpg", "/Eco_Love_Tours/Arugambay/img5.jpeg"],
     link: "/eco-love-tours/destinations/arugam-bay" 
   },
   { 
@@ -101,7 +101,7 @@ export const destinations: Destination[] = [
     attractions: ["Bentota Beach", "Brief Garden", "Madu Ganga Safari", "Sea Turtle Hatchery"],
     bestTime: "November to April",
     img: "/Eco_Love_Tours/Bentota.jpg", 
-    gallery: ["/Eco_Love_Tours/Tour_Images/image16.jpg"],
+    gallery: ["/Eco_Love_Tours/Benthota/img2.jpg", "/Eco_Love_Tours/Benthota/img3.jpg", "/Eco_Love_Tours/Benthota/img4.png"],
     link: "/eco-love-tours/destinations/bentota" 
   },
   { 
@@ -122,7 +122,7 @@ export const destinations: Destination[] = [
     longDescription: "Hikkaduwa is one of the original tourist destinations in Sri Lanka. Known for its coral sanctuary and vibrant surf scene, it offers a high-energy environment with plenty of beachfront cafes and bars.",
     attractions: ["Coral Sanctuary", "Hikkaduwa Beach", "Narigama Beach", "Turtle Beach"],
     bestTime: "November to April",
-    img: "/Eco_Love_Tours/Hikkaduwa.jpg", 
+    img: "/Eco_Love_Tours/Hikkaduwa_1.jpg", 
     gallery: ["/Eco_Love_Tours/Tour_Images/image18.jpg"],
     link: "/eco-love-tours/destinations/hikkaduwa" 
   },
@@ -188,7 +188,7 @@ export const destinations: Destination[] = [
     longDescription: "Passikudah is known for having one of the longest stretches of shallow coastline in the world. You can walk kilometers into the sea with water only up to your knees, making it a paradise for families and swimmers.",
     attractions: ["Passikudah Bay", "Kalkudah Beach", "Coral Reefs", "Water Sports"],
     bestTime: "May to September",
-    img: "/Eco_Love_Tours/Passikudah.jpg", 
+    img: "/Eco_Love_Tours/Pasikudah_beach.JPG", 
     gallery: ["/Eco_Love_Tours/Tour_Images/image24.jpg"],
     link: "/eco-love-tours/destinations/passikudah" 
   },
