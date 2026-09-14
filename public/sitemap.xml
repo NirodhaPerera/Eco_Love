@@ -50,4 +50,10 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+
+  <url>
+  <loc>https://ecolovesrilanka.com/the-lodge</loc>
+  <priority>0.9</priority>
+  <changefreq>monthly</changefreq>
+</url>
 </urlset>

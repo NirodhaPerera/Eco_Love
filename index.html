@@ -14,8 +14,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://ecolovesrilanka.com/" />
+    
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="16x16" href="/MetaLogo.png">
@@ -55,7 +54,7 @@
     <meta property="twitter:description" content="Mindful journeys, traditional cookery classes, and tailor-made group tours rooted in responsible tourism." />
     <meta property="twitter:image" content="https://ecolovesrilanka.com/Eco_Love_Tours/about_all%202.jpg" />
 
-    <!-- JSON-LD Schema -->
+    <!-- JSON-LD Schema: Organization -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -77,24 +76,82 @@
           "Tailor-made tours",
           "Group tours",
           "Sri Lankan culinary workshops"
-        ],
-        "subOrganization": [
-          {
-            "@type": "TravelAgency",
-            "name": "Eco Love Tours",
-            "description": "Boutique ethical travel agency offering tailor-made journeys and small group tours across Sri Lanka."
-          },
-          {
-            "@type": "Restaurant",
-            "name": "Eco Love Kitchen",
-            "description": "A cultural cookery class in Galle focusing on traditional Sri Lankan family recipes and sustainable food practices."
-          },
-          {
-            "@type": "Lodge",
-            "name": "The Lodge by Eco Love",
-            "description": "Eco-conscious boutique accommodation nestled in the nature of Galle."
-          }
         ]
+      }
+    </script>
+
+    <!-- JSON-LD Schema: Eco Love Kitchen (Restaurant & Cookery Class) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Eco Love Kitchen",
+        "servesCuisine": "Sri Lankan Traditional",
+        "url": "https://ecolovesrilanka.com/eco-love-kitchen",
+        "telephone": "+94774191148",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "No.227/12 Mories Road, Ambalawatta",
+          "addressLocality": "Galle",
+          "addressRegion": "Southern Province",
+          "addressCountry": "LK"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 6.062435593923488,
+          "longitude": 80.23091297621761
+        },
+        "keywords": "cooking class Galle, traditional Sri Lankan kitchen, culinary workshop, organic food, sustainable food Galle",
+        "priceRange": "$$"
+      }
+    </script>
+
+    <!-- JSON-LD Schema: Eco Love Tours (Travel Agency & Experiences) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Eco Love Tours",
+        "url": "https://ecolovesrilanka.com/eco-love-tours",
+        "telephone": "+94774191148",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Sri Lanka"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Galle",
+          "addressRegion": "Southern Province",
+          "addressCountry": "LK"
+        },
+        "description": "Boutique ethical travel agency providing mindful walking tours, wildlife safaris, cycling trails, and tailor-made group journeys across Sri Lanka.",
+        "priceRange": "$$",
+        "knowsAbout": [
+          "Sustainable travel",
+          "Responsible tourism",
+          "Ethical wildlife safaris",
+          "Walking tours Galle",
+          "Tailor made group tours"
+        ]
+      }
+    </script>
+
+    <!-- JSON-LD Schema: The Lodge by Eco Love (Eco Lodging) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "The Lodge by Eco Love",
+        "description": "Boutique eco-conscious accommodation surrounded by the lush nature and culture of Galle, Sri Lanka.",
+        "url": "https://ecolovesrilanka.com/the-lodge",
+        "telephone": "+94774191148",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Galle",
+          "addressRegion": "Southern Province",
+          "addressCountry": "LK"
+        },
+        "priceRange": "$$"
       }
     </script>
   </head>
