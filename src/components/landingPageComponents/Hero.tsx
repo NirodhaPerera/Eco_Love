@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
       </AnimatePresence>
 
       {/* 2. REFINED EDITORIAL CONTENT */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
           className="max-w-5xl"
         >
           {/* Brand Eyebrow */}
-          <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="flex items-center justify-center gap-2  mt-8 mb-2">
             <div className="h-[1px] w-10 bg-white/40" />
             <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/80">
               Eco Love Sri Lanka

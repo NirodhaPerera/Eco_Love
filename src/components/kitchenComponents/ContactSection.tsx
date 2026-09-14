@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
-  // Brand Color Constants
- 
-  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const phoneNumber = '94774191148';
+    const text = 
+        `Hi Eco Love! \n\n` +
+        `*General Inquiry: Eco Love Sri Lanka*\n\n` +
+        `I would like to get in touch with the following details:\n\n` +
+        `• *Name:* ${formData.name}\n` +
+        `• *Email:* ${formData.email}\n` +
+        `• *Inquiry / Message:* ${formData.message}\n\n` +
+        `Could you please get back to me regarding this? I look forward to hearing from you.`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="contact" className="bg-[#FDFCFB] py-24 md:py-40 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
@@ -32,8 +61,8 @@ const ContactSection: React.FC = () => {
             <div className="space-y-10">
               <ContactDetail 
                 title="Electronic Mail" 
-                value="ecovovetours@gmail.com" 
-                href="mailto:ecovovetours@gmail.com"
+                value="ecolovetours@gmail.com" 
+                href="mailto:ecolovetours@gmail.com"
               />
               <ContactDetail 
                 title="Instant Messaging" 
@@ -56,12 +85,23 @@ const ContactSection: React.FC = () => {
           {/* Form */}
           <div className="lg:col-span-8">
             <form
-              action="https://formspree.io/f/mnnvppkq"
-              method="POST"
+              onSubmit={handleWhatsAppSubmit}
               className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"
             >
-              <FloatingInput label="Full Name" name="name" type="text" />
-              <FloatingInput label="Email Address" name="email" type="email" />
+              <FloatingInput 
+                label="Full Name" 
+                name="name" 
+                type="text" 
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <FloatingInput 
+                label="Email Address" 
+                name="email" 
+                type="email" 
+                value={formData.email}
+                onChange={handleChange}
+              />
               
               <div className="md:col-span-2 group relative">
                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-4 group-focus-within:text-[#14532d]">
@@ -71,13 +111,14 @@ const ContactSection: React.FC = () => {
                   name="message"
                   required
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-[#14532d] transition-all resize-none text-sm tracking-wide placeholder:text-slate-100"
                   placeholder="Tell us about your travel dates or dietary preferences..."
                 />
               </div>
 
               <div className="md:col-span-2">
-                {/* REFINED COMPACT BUTTON */}
                 <button
                   type="submit"
                   className="group relative inline-flex items-center gap-4 bg-[#064e3b] text-white font-black uppercase tracking-[0.3em] text-[10px] py-3.5 px-10 rounded-full transition-all hover:bg-[#14532d] shadow-xl active:scale-95"
@@ -101,7 +142,7 @@ const ContactDetail = ({ title, value, href }: any) => (
   </a>
 );
 
-const FloatingInput = ({ label, name, type }: any) => (
+const FloatingInput = ({ label, name, type, value, onChange }: any) => (
   <div className="group relative">
     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2 transition-colors group-focus-within:text-[#14532d]">
       {label}
@@ -109,6 +150,8 @@ const FloatingInput = ({ label, name, type }: any) => (
     <input
       type={type}
       name={name}
+      value={value}
+      onChange={onChange}
       required
       className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-[#14532d] transition-all text-sm tracking-wide"
     />

@@ -1,0 +1,9 @@
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip; /* or overflow-x: hidden */
+  position: relative;
+  margin: 0;
+  padding: 0;
+}

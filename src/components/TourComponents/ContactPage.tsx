@@ -1,25 +1,28 @@
-
-
 import React, { useEffect, useState } from "react";
 import { Mail, Phone, ArrowRight } from "lucide-react";
 import { FaWhatsapp, FaFacebookF, FaInstagram, FaTripadvisor } from "react-icons/fa";
 
 const sliderImages = [
   '/Eco_Love_Tours/Tour_Images/img136.jpg',
-    '/Eco_Love_Tours/Tour_Images/img119.jpg',
-    '/Eco_Love_Tours/Tour_Images/img120.jpg',
-    '/Eco_Love_Tours/Tour_Images/img7.jpg',
-    '/Eco_Love_Tours/Tour_Images/img136.jpg',
-    '/Eco_Love_Tours/Tour_Images/img119.jpg',
-    '/Eco_Love_Tours/Tour_Images/img120.jpg',
-    '/Eco_Love_Tours/Tour_Images/img175.jpg',
-    '/Eco_Love_Tours/Tour_Images/img176.jpg',
+  '/Eco_Love_Tours/Tour_Images/img119.jpg',
+  '/Eco_Love_Tours/Tour_Images/img120.jpg',
+  '/Eco_Love_Tours/Tour_Images/img7.jpg',
+  '/Eco_Love_Tours/Tour_Images/img136.jpg',
+  '/Eco_Love_Tours/Tour_Images/img119.jpg',
+  '/Eco_Love_Tours/Tour_Images/img120.jpg',
+  '/Eco_Love_Tours/Tour_Images/img175.jpg',
+  '/Eco_Love_Tours/Tour_Images/img176.jpg',
 ];
 
 const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5444.987139418722!2d80.23091297621761!3d6.062435593923488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae1734e5ee6d3d9%3A0x70dbce6ac78efce1!2sEco%20Love%20Kitchen!5e1!3m2!1sen!2slk!4v1749459793694!5m2!1sen!2slk";
 
 const ContactPage: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,6 +30,32 @@ const ContactPage: React.FC = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const phoneNumber = '94774191148';
+    const text = 
+      `Hi Eco Love! \n\n` +
+      `*General Inquiry: Eco Love Sri Lanka*\n\n` +
+      `I would like to get in touch with the following details:\n\n` +
+      `• *Name:* ${formData.name}\n` +
+      `• *Email:* ${formData.email}\n` +
+      `• *Inquiry / Message:* ${formData.message}\n\n` +
+      `Could you please get back to me regarding this? I look forward to hearing from you.`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="bg-[#FDFCFB] min-h-screen font-sans">
@@ -89,7 +118,7 @@ const ContactPage: React.FC = () => {
               <div className="space-y-6">
                 <ContactDetail icon={<Phone size={16}/>} title="Direct Line" value="+94 77 419 1148" href="tel:+94774191148" />
                 <ContactDetail icon={<FaWhatsapp size={16}/>} title="WhatsApp" value="Instant Chat" href="https://wa.me/94774191148" />
-                <ContactDetail icon={<Mail size={16}/>} title="Email" value="ecolovetours@gmail.com" href="mailto:ecovovetours@gmail.com" />
+                <ContactDetail icon={<Mail size={16}/>} title="Email" value="ecolovetours@gmail.com" href="mailto:ecolovetours@gmail.com" />
               </div>
             </div>
 
@@ -105,7 +134,7 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. INQUIRY FORM SECTION (Clean Minimalist Style) */}
+      {/* 3. INQUIRY FORM SECTION */}
       <section className="max-w-7xl mx-auto px-6 py-24 border-t border-slate-100 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           
@@ -124,12 +153,23 @@ const ContactPage: React.FC = () => {
 
           <div className="w-full">
             <form
-              action="https://formspree.io/f/mnnvppkq"
-              method="POST"
+              onSubmit={handleWhatsAppSubmit}
               className="space-y-10"
             >
-              <FloatingInput label="Full Name" name="name" type="text" />
-              <FloatingInput label="Email Address" name="email" type="email" />
+              <FloatingInput 
+                label="Full Name" 
+                name="name" 
+                type="text" 
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <FloatingInput 
+                label="Email Address" 
+                name="email" 
+                type="email" 
+                value={formData.email}
+                onChange={handleChange}
+              />
               
               <div className="group relative">
                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2 group-focus-within:text-emerald-800 transition-colors">
@@ -139,6 +179,8 @@ const ContactPage: React.FC = () => {
                   name="message"
                   required
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-emerald-800 transition-all resize-none text-sm tracking-wide placeholder:text-slate-100"
                   placeholder="Tell us about your plans..."
                 />
@@ -177,7 +219,7 @@ const SocialIcon = ({ icon, href }: any) => (
   </a>
 );
 
-const FloatingInput = ({ label, name, type }: any) => (
+const FloatingInput = ({ label, name, type, value, onChange }: any) => (
   <div className="group relative">
     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1 group-focus-within:text-emerald-800 transition-colors">
       {label}
@@ -185,6 +227,8 @@ const FloatingInput = ({ label, name, type }: any) => (
     <input
       type={type}
       name={name}
+      value={value}
+      onChange={onChange}
       required
       className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-emerald-800 transition-all text-sm tracking-wide"
     />
