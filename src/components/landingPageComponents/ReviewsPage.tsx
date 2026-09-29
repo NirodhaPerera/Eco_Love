@@ -1,16 +1,23 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Quote, UserCircle, ChevronDown, ChevronUp } from 'lucide-react';
-
+import { Star, Quote, UserCircle, ChevronDown, ChevronUp, Calendar, Sparkles } from 'lucide-react';
 
 // --- DATA ---
 const sliderImages = Array.from({ length: 10 }, (_, i) => `/Landing_Page_Images/IMG_${i + 1}.JPG`);
 
-// Reuse your reviewsData array here...
 const reviewsData = [
   // --- LATEST REVIEWS (JULY - SEPTEMBER 2026) ---
   {
     id: 1,
+    name: "Amy Mellersh",
+    country: "Traveler",
+    category: "Kitchen",
+    rating: 5,
+    text: "We had the best time at Eco Love Kitchen !! Was warmly welcomed into their family home and was brought juices. Had an amazing cooking class being taught about spices and traditional Sri Lankan cooking, making around 10 dishes- even made dessert! The food was so yummy and we even got given homemade curry powder to take home. 10/10 recommend !!!",
+    date: "September 2026"
+  },
+   {
+    id: 2,
     name: "Selina Poglonik",
     country: "Local Guide",
     category: "Kitchen",
@@ -19,7 +26,16 @@ const reviewsData = [
     date: "September 2026"
   },
   {
-    id: 2,
+    id: 3,
+    name: "Thelma R",
+    country: "Australia",
+    category: "Tours",
+    rating: 5,
+    text: "Malik was highly recommended to us, by 2 other families and we felt really safe choosing him to take us around beautiful Sri Lanka for 25 days - he helped us with the itinerary and choosing hotels along the way….always totally reliable, punctual and good company. We would happily recommend him to any age group. He definitely understood our needs and limitations, being in our 70’s and we never felt rushed. We learnt so much from him about the country. Thank You!",
+    date: "August 2026"
+  },
+  {
+    id: 4,
     name: "Amandine Contreras",
     country: "Traveler",
     category: "Kitchen",
@@ -28,7 +44,7 @@ const reviewsData = [
     date: "July 2026"
   },
   {
-    id: 3,
+    id: 5,
     name: "Марина Илюхина",
     country: "Local Guide",
     category: "Kitchen",
@@ -37,7 +53,7 @@ const reviewsData = [
     date: "July 2026"
   },
   {
-    id: 4,
+    id: 6,
     name: "RoshK",
     country: "Melbourne, Australia",
     category: "Tours",
@@ -46,7 +62,7 @@ const reviewsData = [
     date: "July 2026"
   },
   {
-    id: 5,
+    id: 7,
     name: "Debbie K",
     country: "United Kingdom",
     category: "Tours",
@@ -55,7 +71,7 @@ const reviewsData = [
     date: "August 2026"
   },
   {
-    id: 6,
+    id: 8,
     name: "Pau M",
     country: "Spain",
     category: "Tours",
@@ -64,7 +80,7 @@ const reviewsData = [
     date: "July 2026"
   },
   {
-    id: 7,
+    id: 9,
     name: "Eli S",
     country: "United Kingdom",
     category: "Tours",
@@ -75,7 +91,7 @@ const reviewsData = [
 
   // --- 2026 REVIEWS ---
   {
-    id: 8,
+    id: 10,
     name: "GetYourGuide traveler",
     country: "United Kingdom",
     category: "Kitchen",
@@ -84,7 +100,7 @@ const reviewsData = [
     date: "April 2026"
   },
   {
-    id: 9,
+    id: 11,
     name: "Mitch",
     country: "Australia",
     category: "Kitchen",
@@ -93,7 +109,7 @@ const reviewsData = [
     date: "April 2026"
   },
   {
-    id: 10,
+    id: 12,
     name: "Belinda",
     country: "Sydney, Australia",
     category: "Tours",
@@ -102,7 +118,7 @@ const reviewsData = [
     date: "March 2026"
   },
   {
-    id: 11,
+    id: 13,
     name: "sevvi",
     country: "United Kingdom",
     category: "Tours",
@@ -111,7 +127,7 @@ const reviewsData = [
     date: "March 2026"
   },
   {
-    id: 12,
+    id: 14,
     name: "Christina R",
     country: "Hamburg, Germany",
     category: "Kitchen",
@@ -120,7 +136,7 @@ const reviewsData = [
     date: "March 2026"
   },
   {
-    id: 13,
+    id: 15,
     name: "Julie H",
     country: "United Kingdom",
     category: "Tours",
@@ -129,7 +145,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 14,
+    id: 16,
     name: "Ruth C",
     country: "Udaipur, India",
     category: "Kitchen",
@@ -138,7 +154,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 15,
+    id: 17,
     name: "Jeremy",
     country: "United Kingdom",
     category: "Kitchen",
@@ -147,7 +163,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 16,
+    id: 18,
     name: "Jacqueline Taylor",
     country: "United Kingdom",
     category: "Kitchen",
@@ -156,7 +172,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 17,
+    id: 19,
     name: "Thomas Dres Nielsen",
     country: "Odense, Denmark",
     category: "Tours",
@@ -165,7 +181,7 @@ const reviewsData = [
     date: "January 2026"
   },
   {
-    id: 18,
+    id: 20,
     name: "Svenja K",
     country: "Germany",
     category: "Tours",
@@ -174,7 +190,7 @@ const reviewsData = [
     date: "January 2026"
   },
   {
-    id: 19,
+    id: 21,
     name: "Bianca A",
     country: "Australia",
     category: "Kitchen",
@@ -183,7 +199,7 @@ const reviewsData = [
     date: "January 2026"
   },
   {
-    id: 20,
+    id: 22,
     name: "Friederike",
     country: "Germany",
     category: "Lodge",
@@ -194,7 +210,7 @@ const reviewsData = [
 
   // --- 2025 REVIEWS ---
   {
-    id: 21,
+    id: 23,
     name: "Maps26321823710",
     country: "Bolanos de Calatrava, Spain",
     category: "Tours",
@@ -203,7 +219,7 @@ const reviewsData = [
     date: "December 2025"
   },
   {
-    id: 22,
+    id: 24,
     name: "Grace Martin",
     country: "United Kingdom",
     category: "Tours",
@@ -212,7 +228,7 @@ const reviewsData = [
     date: "December 2025"
   },
   {
-    id: 23,
+    id: 25,
     name: "GetYourGuide traveler",
     country: "Germany",
     category: "Kitchen",
@@ -221,7 +237,7 @@ const reviewsData = [
     date: "December 2025"
   },
   {
-    id: 24,
+    id: 26,
     name: "Klemens",
     country: "Germany",
     category: "Lodge",
@@ -230,7 +246,7 @@ const reviewsData = [
     date: "December 2025"
   },
   {
-    id: 25,
+    id: 27,
     name: "Carlo S",
     country: "Italy",
     category: "Tours",
@@ -239,7 +255,7 @@ const reviewsData = [
     date: "November 2025"
   },
   {
-    id: 26,
+    id: 28,
     name: "Nithya",
     country: "Australia",
     category: "Kitchen",
@@ -248,7 +264,7 @@ const reviewsData = [
     date: "November 2025"
   },
   {
-    id: 27,
+    id: 29,
     name: "Seaside20605213969",
     country: "Australia",
     category: "Tours",
@@ -257,7 +273,7 @@ const reviewsData = [
     date: "October 2025"
   },
   {
-    id: 28,
+    id: 30,
     name: "Smawds81",
     country: "Australia",
     category: "Tours",
@@ -266,7 +282,7 @@ const reviewsData = [
     date: "September 2025"
   },
   {
-    id: 29,
+    id: 31,
     name: "Ràimon S",
     country: "Spain",
     category: "Tours",
@@ -275,7 +291,7 @@ const reviewsData = [
     date: "August 2025"
   },
   {
-    id: 30,
+    id: 32,
     name: "J S",
     country: "USA",
     category: "Tours",
@@ -284,7 +300,7 @@ const reviewsData = [
     date: "August 2025"
   },
   {
-    id: 31,
+    id: 33,
     name: "Nelle",
     country: "Australia",
     category: "Lodge",
@@ -293,7 +309,7 @@ const reviewsData = [
     date: "July 2025"
   },
   {
-    id: 32,
+    id: 34,
     name: "Jip",
     country: "Netherlands",
     category: "Lodge",
@@ -302,7 +318,7 @@ const reviewsData = [
     date: "February 2025"
   },
   {
-    id: 33,
+    id: 35,
     name: "Martyn",
     country: "United Kingdom",
     category: "Lodge",
@@ -312,7 +328,7 @@ const reviewsData = [
   }
 ];
 
-const categories = ['All', 'Kitchen', 'Tours', 'Lodge'];
+const categories = ['All', 'Latest', 'Kitchen', 'Tours', 'Lodge'];
 
 const ReviewsPage = () => {
   const [filter, setFilter] = useState('All');
@@ -327,6 +343,8 @@ const ReviewsPage = () => {
 
   const filteredReviews = filter === 'All' 
     ? reviewsData 
+    : filter === 'Latest'
+    ? reviewsData.filter(r => r.date.includes('2026'))
     : reviewsData.filter(r => r.category === filter);
 
   return (
@@ -360,13 +378,32 @@ const ReviewsPage = () => {
 
       {/* FILTER & CONTENT SECTION */}
       <main className="max-w-7xl mx-auto px-6 -mt-10 relative z-30 pb-32">
-        <div className="flex flex-wrap justify-center gap-3 mb-20">
+        {/* LATEST UPDATES BANNER */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="flex justify-center mb-8"
+        >
+          <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-emerald-900/10 shadow-lg text-emerald-950 text-xs font-medium">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+            </span>
+            <span className="font-semibold text-emerald-900 flex items-center gap-1.5">
+              <Sparkles size={13} className="text-emerald-700" /> Latest Updates:
+            </span>
+            <span className="text-slate-600">Fresh reviews added for August & September 2026</span>
+          </div>
+        </motion.div>
+
+        {/* CATEGORY FILTERS */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
               className={`px-8 py-4 text-[10px] font-black uppercase tracking-widest rounded-full transition-all duration-500 shadow-xl ${
-                filter === cat ? 'bg-emerald-900 text-white shadow-emerald-900/30' : 'bg-white text-slate-400 border border-slate-100'
+                filter === cat ? 'bg-emerald-900 text-white shadow-emerald-900/30' : 'bg-white text-slate-400 border border-slate-100 hover:text-slate-700'
               }`}
             >
               {cat}
@@ -374,14 +411,15 @@ const ReviewsPage = () => {
           ))}
         </div>
 
-        {/* Masonry Grid Fix: Using columns instead of grid for varying heights */}
-        <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-          <AnimatePresence mode='popLayout'>
-            {filteredReviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        {/* MASONRY GRID */}
+       {/* Row-by-Row Grid Layout */}
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+            <AnimatePresence mode='popLayout'>
+              {filteredReviews.map((review) => (
+                <ReviewCard key={review.id} review={review} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
       </main>
 
       <section className="bg-emerald-900 py-32 px-6 text-center rounded-[5rem] mb-2 mx-4">
@@ -391,7 +429,6 @@ const ReviewsPage = () => {
         </a>
       </section>
 
-      
     </div>
   );
 };
@@ -399,10 +436,13 @@ const ReviewsPage = () => {
 // --- SUB-COMPONENT FOR THE CARD ---
 const ReviewCard = ({ review }: { review: any }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const characterLimit = 220; // Adjust this to decide when "Read More" appears
+  const characterLimit = 220;
 
   const shouldShowReadMore = review.text.length > characterLimit;
   const displayedText = isExpanded ? review.text : review.text.slice(0, characterLimit);
+
+  // Check if this review is from the latest batches
+  const isLatestReview = review.date.includes('September 2026') || review.date.includes('August 2026');
 
   return (
     <motion.div
@@ -410,19 +450,26 @@ const ReviewCard = ({ review }: { review: any }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      className="break-inside-avoid bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] flex flex-col hover:shadow-2xl transition-all duration-500"
+      className="break-inside-avoid bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] flex flex-col hover:shadow-2xl transition-all duration-500 relative group"
     >
-      <div className="flex justify-between items-start mb-6">
-        <div className="flex gap-1">
-          {[...Array(review.rating)].map((_, i) => (
-            <Star key={i} size={12} className="fill-emerald-800 text-emerald-800" />
-          ))}
+      <div className="flex justify-between items-center mb-6">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-1">
+            {[...Array(review.rating)].map((_, i) => (
+              <Star key={i} size={12} className="fill-emerald-800 text-emerald-800" />
+            ))}
+          </div>
+          {isLatestReview && (
+            <span className="text-[9px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-200/60 ml-1">
+              New
+            </span>
+          )}
         </div>
-        <Quote size={28} className="text-emerald-800/5" />
+        <Quote size={28} className="text-emerald-800/10 group-hover:text-emerald-800/20 transition-colors" />
       </div>
 
       <div className="flex-grow">
-        <p className="text-slate-700 font-serif italic text-base md:text-lg leading-relaxed transition-all duration-300">
+        <p className="text-slate-700 font-serif italic text-base md:text-lg leading-relaxed transition-all duration-300 whitespace-pre-line">
           "{displayedText}{!isExpanded && shouldShowReadMore ? '...' : ''}"
         </p>
         
@@ -440,16 +487,23 @@ const ReviewCard = ({ review }: { review: any }) => {
         )}
       </div>
 
-      <div className="flex items-center gap-4 pt-8 mt-8 border-t border-slate-50">
-        <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 border border-slate-100">
+      {/* FOOTER WITH AUTHOR INFO & DATE */}
+      <div className="flex items-center gap-4 pt-6 mt-8 border-t border-slate-50">
+        <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 border border-slate-100 shrink-0">
           <UserCircle size={32} strokeWidth={1} />
         </div>
-        <div>
-          <h4 className="text-xs font-black text-slate-900 uppercase tracking-tight">{review.name}</h4>
-          <div className="flex items-center gap-2 mt-1">
-            <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">{review.country}</span>
+        <div className="min-w-0 flex-1">
+          <h4 className="text-xs font-black text-slate-900 uppercase tracking-tight truncate">{review.name}</h4>
+          
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-[9px] font-black uppercase tracking-widest text-slate-400">
+            <span>{review.country}</span>
             <span className="w-1 h-1 rounded-full bg-slate-200" />
-            <span className="text-[9px] font-black uppercase tracking-widest text-emerald-800 ">{review.category}</span>
+            <span className="text-emerald-800">{review.category}</span>
+            <span className="w-1 h-1 rounded-full bg-slate-200" />
+            <span className="flex items-center gap-1 text-slate-400 font-bold normal-case tracking-normal">
+              <Calendar size={11} className="text-slate-400" />
+              {review.date}
+            </span>
           </div>
         </div>
       </div>

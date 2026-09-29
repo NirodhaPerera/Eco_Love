@@ -29,7 +29,7 @@ const experiences = [
   {
     title: "Walk, Stories & Hidden Corners",
     slug: "walking-tours",
-    pricePerPerson: 12000,
+    pricePerPerson: 13240,
     description: "Explore the historic Galle Dutch Fort on a guided walking tour. Learn about the fort's history and its cultural influences from your guide.",
     images: walkingTourImages,
     overview: {
