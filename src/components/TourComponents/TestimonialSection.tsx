@@ -6,6 +6,24 @@ import LottieAnimationReview from "../LottieAnimationReview";
 export const testimonials = [
   {
     id: 1,
+    name: "Ellen",
+    country: "United Kingdom",
+    category: "Activities",
+    rating: 5,
+    text: "Amazing workshop! The artist was amazing and the translator and his apprentice were so lovely. We love our rings, such a good price!",
+    date: "September 2026"
+  },
+  {
+    id: 2,
+    name: "Lauren",
+    country: "United Kingdom",
+    category: "Activities",
+    rating: 5,
+    text: "The ring making was great, the hosts were friendly and welcoming. We made lovely rings and was able to take part in all of the steps to make them Would definitely recommend to anyone wanting to make something unique to take home..",
+    date: "September 2026"
+  },
+  {
+    id: 3,
     name: "Thelma R",
     country: "Australia",
     category: "Tours",
@@ -14,7 +32,7 @@ export const testimonials = [
     date: "August 2026"
   },
   {
-    id: 2,
+    id: 4,
     name: "RoshK",
     country: "Melbourne, Australia",
     category: "Tours",
@@ -23,25 +41,25 @@ export const testimonials = [
     date: "July 2026"
   },
   {
-    id: 3,
+    id: 5,
     name: "Debbie K",
     country: "United Kingdom",
-    category: "Tours",
+    category: "Activities",
     rating: 5,
     text: "I had the most amazing and awe inspiring experience with Nihal at his jewellery class. Nihal is the most dedicated and talented Artisan. He was so patient with me as I asked many questions about what he was doing during the process of making me the most exquisite ring. His knowledge of gems is unlimited. I would recommend this experience as an absolute must on anyone’s trip to Sri Lanka. Thanks you Nihal, Nipur and Tutu. I will always remember this experience as the best I had on my trip to Sri Lanka.",
     date: "August 2026"
   },
   {
-    id: 4,
+    id: 6,
     name: "Pau M",
     country: "Spain",
-    category: "Tours",
+    category: "Activities",
     rating: 5,
     text: "It has been a totally unique experience. We did the jewelry activity and we could not be happier. We arrived at their workshop where there was a man with a lot of experience and another who was quite a bit younger. They made us some beautiful custom rings with good materials and taking care of every detail precisely. They were very nice, they explained how it works to us, and they led us participate in the manual process they use to make the jewelry. We are taking home a beautiful memory of Sri Lanka that is totally worth it. Thank you very much!",
     date: "July 2026"
   },
   {
-    id: 5,
+    id: 7,
     name: "Eli S",
     country: "United Kingdom",
     category: "Tours",
@@ -50,7 +68,7 @@ export const testimonials = [
     date: "July 2026"
   },
   {
-    id: 6,
+    id: 8,
     name: "Belinda",
     country: "Sydney, Australia",
     category: "Tours",
@@ -59,7 +77,7 @@ export const testimonials = [
     date: "March 2026"
   },
   {
-    id: 7,
+    id: 9,
     name: "sevvi",
     country: "United Kingdom",
     category: "Tours",
@@ -68,7 +86,7 @@ export const testimonials = [
     date: "March 2026"
   },
   {
-    id: 8,
+    id: 10,
     name: "Julie H",
     country: "United Kingdom",
     category: "Tours",
@@ -77,7 +95,7 @@ export const testimonials = [
     date: "February 2026"
   },
   {
-    id: 9,
+    id: 11,
     name: "Thomas Dres Nielsen",
     country: "Odense, Denmark",
     category: "Tours",
@@ -86,7 +104,7 @@ export const testimonials = [
     date: "January 2026"
   },
   {
-    id: 10,
+    id: 12,
     name: "Svenja K",
     country: "Germany",
     category: "Tours",
@@ -95,7 +113,7 @@ export const testimonials = [
     date: "January 2026"
   },
   {
-    id: 11,
+    id: 13,
     name: "Maps26321823710",
     country: "Bolanos de Calatrava, Spain",
     category: "Tours",
@@ -104,16 +122,16 @@ export const testimonials = [
     date: "December 2025"
   },
   {
-    id: 12,
+    id: 14,
     name: "Grace Martin",
     country: "United Kingdom",
-    category: "Tours",
+    category: "Activities",
     rating: 5,
     text: "I had THE best day - we made two rings, with a great selection of stones to choose from. I brought two photos of rings (not the easiest designs) and have left with two rings which look identical. Lovely family run business, in the home - you can really see the care and love that put into this and it was such a special day for me",
     date: "December 2025"
   },
   {
-    id: 13,
+    id: 15,
     name: "Carlo S",
     country: "Italy",
     category: "Tours",
@@ -122,7 +140,7 @@ export const testimonials = [
     date: "November 2025"
   },
   {
-    id: 14,
+    id: 16,
     name: "Seaside20605213969",
     country: "Australia",
     category: "Tours",
@@ -131,7 +149,7 @@ export const testimonials = [
     date: "October 2025"
   },
   {
-    id: 15,
+    id: 17,
     name: "Smawds81",
     country: "Australia",
     category: "Tours",
@@ -140,16 +158,16 @@ export const testimonials = [
     date: "September 2025"
   },
   {
-    id: 16,
+    id: 18,
     name: "Ràimon S",
     country: "Spain",
-    category: "Tours",
+    category: "Activities",
     rating: 5,
     text: "The experience has been unbeatable. We did the workshop 3 friends and we could see how the process of creating a personalized ring is in the first person. The boys have been very friendly and attentive throughout, explaining all the steps and doing their best to make us feel at home. We have been able to choose how we wanted the ring, what I draw and what I write. It has been a 100% recommended experience that also allows you to take a very beautiful memory.",
     date: "August 2025"
   },
   {
-    id: 17,
+    id: 19,
     name: "J S",
     country: "USA",
     category: "Tours",

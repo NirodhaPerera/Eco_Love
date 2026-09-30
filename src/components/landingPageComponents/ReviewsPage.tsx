@@ -5,28 +5,71 @@ import { Star, Quote, UserCircle, ChevronDown, ChevronUp, Calendar, Sparkles } f
 // --- DATA ---
 const sliderImages = Array.from({ length: 10 }, (_, i) => `/Landing_Page_Images/IMG_${i + 1}.JPG`);
 
-const reviewsData = [
+export interface ReviewItem {
+  id: number;
+  name: string;
+  country: string;
+  category: 'Kitchen' | 'Tours' | 'Activities' | 'Lodge';
+  rating: number;
+  text: string;
+  date: string;
+  createdAt?: string; // ISO string used to calculate the 48-hour window
+}
+
+const reviewsData: ReviewItem[] = [
   // --- LATEST REVIEWS (JULY - SEPTEMBER 2026) ---
   {
     id: 1,
+    name: "Rebecca",
+    country: "Australia",
+    category: "Kitchen",
+    rating: 5,
+    text: "Great experience where was given hands on lessons in how to cook 9 traditional Sri Lanka. dishes with receipts sent afterwards. The cooking was great but the eating of the food afterwards was even better. Strongly recommend.",
+    date: "September 2026",
+    createdAt: "2026-09-30T07:00:00Z"
+  },
+  {
+    id: 2,
+    name: "Ellen",
+    country: "United Kingdom",
+    category: "Activities",
+    rating: 5,
+    text: "Amazing workshop! The artist was amazing and the translator and his apprentice were so lovely. We love our rings, such a good price!",
+    date: "September 2026",
+    createdAt: "2026-09-29T10:00:00Z"
+  },
+  {
+    id: 3,
+    name: "Lauren",
+    country: "United Kingdom",
+    category: "Activities",
+    rating: 5,
+    text: "The ring making was great, the hosts were friendly and welcoming. We made lovely rings and was able to take part in all of the steps to make them Would definitely recommend to anyone wanting to make something unique to take home..",
+    date: "September 2026",
+    createdAt: "2026-09-29T10:00:00Z"
+  },
+  {
+    id: 4,
     name: "Amy Mellersh",
     country: "Traveler",
     category: "Kitchen",
     rating: 5,
     text: "We had the best time at Eco Love Kitchen !! Was warmly welcomed into their family home and was brought juices. Had an amazing cooking class being taught about spices and traditional Sri Lankan cooking, making around 10 dishes- even made dessert! The food was so yummy and we even got given homemade curry powder to take home. 10/10 recommend !!!",
-    date: "September 2026"
+    date: "September 2026",
+    createdAt: "2026-09-29T10:00:00Z"
   },
-   {
-    id: 2,
+  {
+    id: 5,
     name: "Selina Poglonik",
-    country: "Local Guide",
+    country: "Traveler",
     category: "Kitchen",
     rating: 5,
     text: "It was just spactaculare! The owner and chef was so so nice and we were included in making all these fantastic sri lankan disces! Afterwards everything was brought to the table, where we ate the most insanly good disces eeeever!!! 9 different disces were made and every one of it tasted so so good. After eating and enjoying the things we made we got our own roasted curry powder and all the recipes. I would highly recommend spending an evening/day here!",
-    date: "September 2026"
+    date: "September 2026",
+    createdAt: "2026-09-29T10:00:00Z"
   },
   {
-    id: 3,
+    id: 6,
     name: "Thelma R",
     country: "Australia",
     category: "Tours",
@@ -35,7 +78,16 @@ const reviewsData = [
     date: "August 2026"
   },
   {
-    id: 4,
+    id: 7,
+    name: "Debbie K",
+    country: "United Kingdom",
+    category: "Activities",
+    rating: 5,
+    text: "I had the most amazing and awe inspiring experience with Nihal at his jewellery class. Nihal is the most dedicated and talented Artisan. He was so patient with me as I asked many questions about what he was doing during the process of making me the most exquisite ring. His knowledge of gems is unlimited. I would recommend this experience as an absolute must on anyone’s trip to Sri Lanka. Thanks you Nihal, Nipur and Tutu. I will always remember this experience as the best I had on my trip to Sri Lanka.",
+    date: "August 2026"
+  },
+  {
+    id: 8,
     name: "Amandine Contreras",
     country: "Traveler",
     category: "Kitchen",
@@ -44,16 +96,16 @@ const reviewsData = [
     date: "July 2026"
   },
   {
-    id: 5,
+    id: 9,
     name: "Марина Илюхина",
-    country: "Local Guide",
+    country: "Traveler",
     category: "Kitchen",
     rating: 5,
     text: "I just love this experience! Amazing and friendly people, thoughtful class and great food!",
     date: "July 2026"
   },
   {
-    id: 6,
+    id: 10,
     name: "RoshK",
     country: "Melbourne, Australia",
     category: "Tours",
@@ -62,25 +114,16 @@ const reviewsData = [
     date: "July 2026"
   },
   {
-    id: 7,
-    name: "Debbie K",
-    country: "United Kingdom",
-    category: "Tours",
-    rating: 5,
-    text: "I had the most amazing and awe inspiring experience with Nihal at his jewellery class. Nihal is the most dedicated and talented Artisan. He was so patient with me as I asked many questions about what he was doing during the process of making me the most exquisite ring. His knowledge of gems is unlimited. I would recommend this experience as an absolute must on anyone’s trip to Sri Lanka. Thanks you Nihal, Nipur and Tutu. I will always remember this experience as the best I had on my trip to Sri Lanka.",
-    date: "August 2026"
-  },
-  {
-    id: 8,
+    id: 11,
     name: "Pau M",
     country: "Spain",
-    category: "Tours",
+    category: "Activities",
     rating: 5,
     text: "It has been a totally unique experience. We did the jewelry activity and we could not be happier. We arrived at their workshop where there was a man with a lot of experience and another who was quite a bit younger. They made us some beautiful custom rings with good materials and taking care of every detail precisely. They were very nice, they explained how it works to us, and they let us participate in the manual process they use to make the jewelry. We are taking home a beautiful memory of Sri Lanka that is totally worth it. Thank you very much!",
     date: "July 2026"
   },
   {
-    id: 9,
+    id: 12,
     name: "Eli S",
     country: "United Kingdom",
     category: "Tours",
@@ -91,7 +134,7 @@ const reviewsData = [
 
   // --- 2026 REVIEWS ---
   {
-    id: 10,
+    id: 13,
     name: "GetYourGuide traveler",
     country: "United Kingdom",
     category: "Kitchen",
@@ -100,7 +143,7 @@ const reviewsData = [
     date: "April 2026"
   },
   {
-    id: 11,
+    id: 14,
     name: "Mitch",
     country: "Australia",
     category: "Kitchen",
@@ -109,7 +152,7 @@ const reviewsData = [
     date: "April 2026"
   },
   {
-    id: 12,
+    id: 15,
     name: "Belinda",
     country: "Sydney, Australia",
     category: "Tours",
@@ -118,7 +161,7 @@ const reviewsData = [
     date: "March 2026"
   },
   {
-    id: 13,
+    id: 16,
     name: "sevvi",
     country: "United Kingdom",
     category: "Tours",
@@ -127,7 +170,7 @@ const reviewsData = [
     date: "March 2026"
   },
   {
-    id: 14,
+    id: 17,
     name: "Christina R",
     country: "Hamburg, Germany",
     category: "Kitchen",
@@ -136,7 +179,7 @@ const reviewsData = [
     date: "March 2026"
   },
   {
-    id: 15,
+    id: 18,
     name: "Julie H",
     country: "United Kingdom",
     category: "Tours",
@@ -145,7 +188,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 16,
+    id: 19,
     name: "Ruth C",
     country: "Udaipur, India",
     category: "Kitchen",
@@ -154,7 +197,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 17,
+    id: 20,
     name: "Jeremy",
     country: "United Kingdom",
     category: "Kitchen",
@@ -163,7 +206,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 18,
+    id: 21,
     name: "Jacqueline Taylor",
     country: "United Kingdom",
     category: "Kitchen",
@@ -172,7 +215,7 @@ const reviewsData = [
     date: "February 2026"
   },
   {
-    id: 19,
+    id: 22,
     name: "Thomas Dres Nielsen",
     country: "Odense, Denmark",
     category: "Tours",
@@ -181,7 +224,7 @@ const reviewsData = [
     date: "January 2026"
   },
   {
-    id: 20,
+    id: 23,
     name: "Svenja K",
     country: "Germany",
     category: "Tours",
@@ -190,7 +233,7 @@ const reviewsData = [
     date: "January 2026"
   },
   {
-    id: 21,
+    id: 24,
     name: "Bianca A",
     country: "Australia",
     category: "Kitchen",
@@ -199,7 +242,7 @@ const reviewsData = [
     date: "January 2026"
   },
   {
-    id: 22,
+    id: 25,
     name: "Friederike",
     country: "Germany",
     category: "Lodge",
@@ -210,7 +253,7 @@ const reviewsData = [
 
   // --- 2025 REVIEWS ---
   {
-    id: 23,
+    id: 26,
     name: "Maps26321823710",
     country: "Bolanos de Calatrava, Spain",
     category: "Tours",
@@ -219,25 +262,25 @@ const reviewsData = [
     date: "December 2025"
   },
   {
-    id: 24,
+    id: 27,
     name: "Grace Martin",
     country: "United Kingdom",
-    category: "Tours",
+    category: "Activities",
     rating: 5,
     text: "I had THE best day - we made two rings, with a great selection of stones to choose from. I brought two photos of rings (not the easiest designs) and have left with two rings which look identical. Lovely family run business, in the home - you can really see the care and love that put into this and it was such a special day for me",
     date: "December 2025"
   },
   {
-    id: 25,
+    id: 28,
     name: "GetYourGuide traveler",
     country: "Germany",
     category: "Kitchen",
     rating: 5,
-    text: "My boyfriend and I had an absolutely amazing time at this cooking class. Malik and his mother were incredibly kind, warm, and welcoming, and this was by far the coolest experience we had during our Sri Lanka vacation. We cooked eight different vegan (on our request) dishes, all using fresh local ingredients, and everything was explained with so much passion and knowledge. We even learned how to make the spice mixes. Malik and his mother also shared a lot about Sri Lankan cuisine and local culture, which made the experience even more special. Also, the family atmosphere was truly unique and authentic, as we were cooking in their own kitchen. And finally the food was simply exceptional. We have been traveling around Sri Lanka for a while now, and this was hands down the best food we have eaten so far. We can truly recommend this cooking class to everyone. It was a real enrichment for us and an unforgettable experience. ☀️🌼",
+    text: "My boyfriend and I had an absolutely amazing time at this cooking class. Malik and his mother were incredibly kind, warm, and welcoming, and this was by far the coolest experience we had during our Sri Lanka vacation. We cooked eight different vegan (on our request) dishes, all using fresh local ingredients, and everything was explained with so much passion and knowledge. We even learned how to make the spice mixes. Malik and his mother also shared a lot about Sri Lankan cuisine and local culture, which made the experience even more special. Also, the family atmosphere was truly unique and authentic, as we were cooking in their own kitchen. And finally the food was simply exceptional. We have been traveling around Sri Lanka for a while now, and this was hands down the best food we have eaten so far. We can truly recommend this cooking class to everyone. It was a real enrichment for us and an unforgettable experience. ☀🌼",
     date: "December 2025"
   },
   {
-    id: 26,
+    id: 29,
     name: "Klemens",
     country: "Germany",
     category: "Lodge",
@@ -246,7 +289,7 @@ const reviewsData = [
     date: "December 2025"
   },
   {
-    id: 27,
+    id: 30,
     name: "Carlo S",
     country: "Italy",
     category: "Tours",
@@ -255,7 +298,7 @@ const reviewsData = [
     date: "November 2025"
   },
   {
-    id: 28,
+    id: 31,
     name: "Nithya",
     country: "Australia",
     category: "Kitchen",
@@ -264,7 +307,7 @@ const reviewsData = [
     date: "November 2025"
   },
   {
-    id: 29,
+    id: 32,
     name: "Seaside20605213969",
     country: "Australia",
     category: "Tours",
@@ -273,7 +316,7 @@ const reviewsData = [
     date: "October 2025"
   },
   {
-    id: 30,
+    id: 33,
     name: "Smawds81",
     country: "Australia",
     category: "Tours",
@@ -282,16 +325,16 @@ const reviewsData = [
     date: "September 2025"
   },
   {
-    id: 31,
+    id: 34,
     name: "Ràimon S",
     country: "Spain",
-    category: "Tours",
+    category: "Activities",
     rating: 5,
     text: "The experience has been unbeatable. We did the workshop 3 friends and we could see how the process of creating a personalized ring is in the first person. The boys have been very friendly and attentive throughout, explaining all the steps and doing their best to make us feel at home. We have been able to choose how we wanted the ring, what I draw and what I write. It has been a 100% recommended experience that also allows you to take a very beautiful memory.",
     date: "August 2025"
   },
   {
-    id: 32,
+    id: 35,
     name: "J S",
     country: "USA",
     category: "Tours",
@@ -300,7 +343,7 @@ const reviewsData = [
     date: "August 2025"
   },
   {
-    id: 33,
+    id: 36,
     name: "Nelle",
     country: "Australia",
     category: "Lodge",
@@ -309,7 +352,7 @@ const reviewsData = [
     date: "July 2025"
   },
   {
-    id: 34,
+    id: 37,
     name: "Jip",
     country: "Netherlands",
     category: "Lodge",
@@ -318,7 +361,7 @@ const reviewsData = [
     date: "February 2025"
   },
   {
-    id: 35,
+    id: 38,
     name: "Martyn",
     country: "United Kingdom",
     category: "Lodge",
@@ -328,7 +371,18 @@ const reviewsData = [
   }
 ];
 
-const categories = ['All', 'Latest', 'Kitchen', 'Tours', 'Lodge'];
+// Added 'Activities' to the categories array
+const categories = ['All', 'Latest', 'Kitchen', 'Tours', 'Activities', 'Lodge'];
+
+// Helper to check if a review was posted within the past 48 hours
+const isWithin48Hours = (createdAt?: string): boolean => {
+  if (!createdAt) return false;
+  const createdTimestamp = new Date(createdAt).getTime();
+  if (isNaN(createdTimestamp)) return false;
+
+  const diffInHours = (Date.now() - createdTimestamp) / (1000 * 60 * 60);
+  return diffInHours >= 0 && diffInHours <= 48;
+};
 
 const ReviewsPage = () => {
   const [filter, setFilter] = useState('All');
@@ -412,14 +466,13 @@ const ReviewsPage = () => {
         </div>
 
         {/* MASONRY GRID */}
-       {/* Row-by-Row Grid Layout */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-            <AnimatePresence mode='popLayout'>
-              {filteredReviews.map((review) => (
-                <ReviewCard key={review.id} review={review} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          <AnimatePresence mode='popLayout'>
+            {filteredReviews.map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </main>
 
       <section className="bg-emerald-900 py-32 px-6 text-center rounded-[5rem] mb-2 mx-4">
@@ -434,15 +487,15 @@ const ReviewsPage = () => {
 };
 
 // --- SUB-COMPONENT FOR THE CARD ---
-const ReviewCard = ({ review }: { review: any }) => {
+const ReviewCard = ({ review }: { review: ReviewItem }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const characterLimit = 220;
 
   const shouldShowReadMore = review.text.length > characterLimit;
   const displayedText = isExpanded ? review.text : review.text.slice(0, characterLimit);
 
-  // Check if this review is from the latest batches
-  const isLatestReview = review.date.includes('September 2026') || review.date.includes('August 2026');
+  // Check if review was added within the last 48 hours
+  const isBrandNew = isWithin48Hours(review.createdAt);
 
   return (
     <motion.div
@@ -459,8 +512,8 @@ const ReviewCard = ({ review }: { review: any }) => {
               <Star key={i} size={12} className="fill-emerald-800 text-emerald-800" />
             ))}
           </div>
-          {isLatestReview && (
-            <span className="text-[9px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-200/60 ml-1">
+          {isBrandNew && (
+            <span className="text-[9px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-200/60 ml-1 animate-pulse">
               New
             </span>
           )}
