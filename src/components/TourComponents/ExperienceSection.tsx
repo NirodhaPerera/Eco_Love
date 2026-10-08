@@ -7,6 +7,13 @@ import { ArrowUpRight } from "lucide-react";
 
 const experiences = [
   {
+    title: "Lagoon Breezes & The Spice Island",
+    image: "/Eco_Love_Tours/Koggala Lake/Img_25.JPG", // Uses Koggala Lake image array path
+    slug: "koggala-lake-tour", // or "koggala-lake-boat-safari"
+    category: "Eco Tourism",
+    description: "Cruise the tranquil waters of Koggala Lake, visit the ancient Thalathuduwa island temple, uncover traditional cinnamon processing, and enjoy fresh refreshments on Cinnamon Island.",
+  },
+  {
     title: "From Flame to Finger",
     image: "/Eco_Love_Tours/Jewellry/img31.jpg",
     slug: "jewelry-workshop",

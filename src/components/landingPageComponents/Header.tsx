@@ -44,6 +44,7 @@ const experiences = [
   { path: '/eco-love-tours/experiences/jewelry-workshop', label: 'From Flame to Finger' },
   { path: '/eco-love-tours/experiences/wood-carving', label: 'Carved By Hand, Shaped by Tradition' },
   { path: '/eco-love-tours/experiences/cycling-tours', label: 'Pedals, Paths & Hidden Stories' },
+  { path: '/eco-love-tours/experiences/koggala-lake-tour', label: 'Lagoon Breezes & The Spice Island' },
 ];
 
   return (

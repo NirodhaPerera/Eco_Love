@@ -4,7 +4,7 @@ import {
   CheckCircle, Calendar, Users, 
   Sparkles, Phone, 
   XCircle, Clock, Globe, ShieldCheck,
-  AlertCircle, HelpCircle
+  AlertCircle, HelpCircle, MapPin
 } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -23,6 +23,7 @@ const safariImages = Array.from({ length: 67 }, (_, i) => `/Eco_Love_Tours/safar
 const handloomImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/handloom/img${i + 1}.jpg`);
 const KanneliyaImages = Array.from({ length: 10 }, (_, i) => `/Eco_Love_Tours/kanneliya/Img_${i + 1}.jpg`);
 const mangroveImages = Array.from({ length: 16 }, (_, i) => `/Eco_Love_Tours/Mangrove/Img_${i + 1}.jpg`);
+const koggalaLakeImages = Array.from({ length: 15 }, (_, i) => `/Eco_Love_Tours/Koggala Lake/Img_${i + 1}.JPG`);
 
 // --- MASTER DATA ARRAY ---
 const experiences = [
@@ -30,6 +31,7 @@ const experiences = [
     title: "Walk, Stories & Hidden Corners",
     slug: "walking-tours",
     pricePerPerson: 13240,
+    timeSlots: ["08:30 AM", "04:00 PM"],
     description: "Explore the historic Galle Dutch Fort on a guided walking tour. Learn about the fort's history and its cultural influences from your guide.",
     images: walkingTourImages,
     overview: {
@@ -76,6 +78,7 @@ const experiences = [
     title: "Spices, Stories & Sri Lankan Kitchen",
     slug: "cookery-session",
     pricePerPerson: 7000,
+    timeSlots: ["10:30 AM", "04:30 PM"],
     description: "Immerse yourself in the vibrant world of Sri Lankan cuisine with a traditional cooking class in Galle. Learn to prepare mouthwatering dishes and enjoy an unforgettable day with a lovely local family.",
     images: cookeryImages,
     overview: {
@@ -116,6 +119,7 @@ const experiences = [
     title: "Galle: Kanneliya Rainforest Trek with Lunch and Swim",
     slug: "kanneliya-rainforest-trek",
     pricePerPerson: 22000,
+    timeSlots: ["07:30 AM"],
     description: "Explore the Kanneliya Rainforest on a guided trek from Galle. Discover the rich biodiversity of a UNESCO-recognized biosphere reserve, relax by a waterfall, and enjoy a Sri Lankan lunch.",
     images: KanneliyaImages,
     overview: {
@@ -162,6 +166,7 @@ const experiences = [
     title: "Whispers Through The Mangroves",
     slug: "mangrove-nature-walk",
     pricePerPerson: 9000,
+    timeSlots: ["07:30 AM", "04:00 PM"],
     description: "Explore Sri Lanka’s mangroves on a guided nature walk. Discover the rich biodiversity of the mangrove ecosystem, observe bird species, and visit a traditional coir rope factory.",
     images: mangroveImages,
     overview: {
@@ -205,10 +210,12 @@ const experiences = [
     }
   },
   {
-    title: "Slow Safaris & Wild Stories",
+    title: "Slow Safaris & Wild Stories: Udawalawe & Yala",
     slug: "wildlife-safari",
-    pricePerPerson: 28000,
-    description: "Embark on a respectful, nature-conscious safari through the wild beauty of Udawalawe NP. Travel in a comfortable open-air jeep with a certified guide and learn about the park's diverse wildlife.",
+    pricePerPerson: 46200, // 46,200 LKR / 330 = $140 USD per person
+    locations: ["Udawalawe National Park", "Yala National Park"],
+    timeSlots: ["06:00 AM", "02:30 PM"],
+    description: "Embark on an ethical, respectful wildlife safari across Udawalawe or Yala National Park. Travel in a comfortable open-air jeep with a certified naturalist, spotting elephants, leopards, and diverse wildlife.",
     images: safariImages,
     overview: {
       cancellation: "Free cancellation up to 24 hours in advance for a full refund",
@@ -217,21 +224,23 @@ const experiences = [
       groupSize: "Private group"
     },
     details: {
-      about: "Embark on a respectful, nature-conscious safari through the wild beauty of Udawalawe National Park — a sanctuary renowned for its large elephant herds, diverse birdlife, and lush landscapes. This is not just a safari; it's a promise to protect and preserve.\n\nWhat makes this safari different? Wildlife viewing should never come at the cost of animal welfare. That’s why experienced and certified guides follow strict ethical safari practices.\n\nTravel in a comfortable, well-maintained open-air jeep, guided by passionate naturalists who share fascinating insights about elephants, crocodiles, buffalo, exotic birds, and more. Whether you're a photographer, animal lover, or nature traveler, this safari offers an authentic and responsible way to explore Udawalawe.",
+      about: "Embark on a respectful, nature-conscious safari through the wild landscapes of Udawalawe or Yala National Park — home to iconic elephant herds, elusive leopards, sloth bears, and abundant birdlife. This is not just a safari; it is a commitment to ethical observation and conservation.\n\nWhat makes our safari different? Wildlife encounters should never compromise animal welfare. Certified naturalist guides follow strict ethical safari standards: maintaining respectful distances, turning off engines near sightings, and avoiding crowds around animal paths.\n\nTravel in a well-maintained, comfortable open-air 4x4 jeep equipped with field binoculars for crisp viewing. Your tracker shares deep insights into animal behavior, tracks, and ecosystem dynamics while you stay refreshed with chilled water and wholesome snacks throughout the journey.",
       highlights: [
-        "Experience a safari that respects the natural behavior of the animals",
-        "Travel in a comfortable open-air jeep with a certified guide",
-        "Learn about the park's diverse wildlife from a passionate naturalist",
-        "See elephants, crocodiles, buffalo, and exotic birds in their natural habitat",
-        "Enjoy a safari that is both respectful and nature-conscious"
+        "Private safari tailored to your choice of Udawalawe or Yala National Park",
+        "Strictly ethical wildlife viewing that respects natural animal behaviors",
+        "High chances to spot wild elephants, leopards, sloth bears, and crocodiles",
+        "Travel in an open-air 4x4 safari jeep with high vantage seating",
+        "High-clarity optical binoculars provided for close-up wildlife observation",
+        "Complimentary wholesome snacks and chilled refreshments during the drive"
       ],
       includes: [
-        "Hotel pickup & drop off (Only if your accommodation is located in Udawalawe)",
-        "Experienced and friendly safari Jeep driver",
-        "Open-air jeep tour",
-        "Insights into local wildlife habitat",
-        "Bottles of mineral water",
-        "All official entrance tickets to the national park"
+        "Hotel pickup & drop-off (within Udawalawe or Yala / Tissamaharama area)",
+        "Experienced safari jeep driver & dedicated naturalist tracker",
+        "Private open-air 4x4 safari jeep tour",
+        "Field binoculars for enhanced wildlife viewing",
+        "Wholesome snacks & tropical fruit bites",
+        "Bottles of chilled mineral water",
+        "All official national park entrance tickets & tracker service fees"
       ],
       notSuitableFor: [
         "Pregnant women",
@@ -239,21 +248,23 @@ const experiences = [
         "Wheelchair users"
       ],
       importantInfo: {
-        bring: ["Comfortable shoes", "Hat", "Camera", "Sunscreen", "Insect repellent"],
+        bring: ["Comfortable clothing", "Sun hat", "Camera / Telephoto lens", "Sunscreen", "Insect repellent"],
         knowBefore: [
-          "Wear comfortable shoes and clothing suitable for the weather.",
-          "Bring a hat, sunscreen, and insect repellent to protect against the sun and bugs.",
-          "Stay hydrated; bring enough water for the duration of the safari.",
-          "Respect the wildlife and follow the guide's instructions at all times. Strictly no animal feeding allowed."
+          "Please specify whether you are booking for Udawalawe or Yala National Park when reserving.",
+          "Morning slot (06:00 AM) offers optimal bird activity and cooler temperatures; afternoon slot (02:30 PM) is ideal for big mammals visiting waterholes.",
+          "High-power binoculars are provided for guests to share during sightings.",
+          "Strict Ethical Policy: No animal feeding, no loud noises, and no off-roading.",
+          "Tipping your tracker and driver is customary but left entirely to your discretion."
         ]
       },
-      meetingPoint: "Your hotel lobby if located within Udawalawe, or the Park Gate Main Counter area."
+      meetingPoint: "Complimentary hotel pickup from your accommodation in Udawalawe or Yala / Tissamaharama, or the respective National Park Main Gate entrance."
     }
   },
   {
     title: "Carved By Hand, Shaped by Tradition",
     slug: "wood-carving",
     pricePerPerson: 11000,
+    timeSlots: ["09:00 AM", "02:00 PM"],
     description: "Join a hands-on workshop in Galle and learn the art of wooden elephant carving. Create your own elephant and take home a meaningful souvenir.",
     images: woodCarvingImages,
     overview: {
@@ -293,6 +304,7 @@ const experiences = [
     title: "Pedals, Path & Hidden Stories",
     slug: "cycling-tours",
     pricePerPerson: 15000,
+    timeSlots: ["07:00 AM", "03:30 PM"],
     description: "Explore the countryside and local villages on an eco-friendly cycling safari.",
     images: cyclingImages,
     overview: {
@@ -331,6 +343,7 @@ const experiences = [
     title: "From Flame to Finger",
     slug: "jewelry-workshop",
     pricePerPerson: 16000,
+    timeSlots: ["09:00 AM", "01:30 PM"],
     description: "Immerse yourself in the vibrant world of Sri Lankan craftsmanship with a Traditional Jewellery Making Workshop. Create your own unique piece of jewelry using authentic techniques and materials.",
     images: jewelryImages,
     overview: {
@@ -374,6 +387,7 @@ const experiences = [
     title: "The Art of Sri Lankan Handloom",
     slug: "traditional-handloom-factory",
     pricePerPerson: 0,
+    timeSlots: ["10:00 AM", "02:00 PM"],
     description: "Witness the weaving process of beautiful Sri Lankan textiles (Free Entrance).",
     images: handloomImages,
     overview: {
@@ -403,7 +417,58 @@ const experiences = [
       },
       meetingPoint: "Handloom Factory Main Entrance Lobby Counter."
     }
-  }
+  },
+  {
+    title: "Lagoon Breezes & The Spice Island",
+    slug: "koggala-lake-tour",
+    pricePerPerson: 13200,
+    timeSlots: ["08:00 AM", "04:00 PM"],
+    description: "An ethical, slow boat cruise across Koggala Lake. Visit Thalathuduwa island temple, witness live cinnamon peeling, and observe wildlife naturally—with strictly zero monkey feeding or handling.",
+    images: koggalaLakeImages,
+    overview: {
+      cancellation: "Free cancellation up to 24 hours in advance for a full refund",
+      duration: "Duration 2 hours",
+      guide: "Live tour guide (English speaking)",
+      groupSize: "Private group"
+    },
+    details: {
+      about: "Koggala Lake Slow Safari – No Feeding, No Handling, Just Nature.\n\nWe practice a strictly ethical, nature-first approach on Koggala Lake. To protect the lagoon's fragile ecosystem, we do not feed, bait, lure, or handle monkeys or any wild animals. Feeding wildlife alters their natural foraging habits, causes digestive harm, and disrupts their behavior. On our slow safari, we observe wildlife peacefully in their natural habitats from a respectful distance—allowing you to experience authentic nature as it should be.\n\nGlide smoothly along mangrove channels where you can spot monkeys, water monitors, and wetland avifauna living freely. Step ashore onto the peaceful island monastery of Thalathuduwa Temple to experience authentic monastic stillness, ancient murals, and quiet lake breezes.\n\nContinue across to Cinnamon Island, where local generational growers demonstrate the delicate craft of stripping, peeling, and curing authentic Ceylon cinnamon. Complete your lake journey by savoring fresh island refreshments and spiced herbal tea amidst the groves before your scenic cruise back.",
+      highlights: [
+        "Ethical, slow wildlife safari: strictly no monkey feeding, baiting, or handling",
+        "Scenic private boat ride across Koggala Lake's mangrove-fringed waterways",
+        "Explore the tranquil Thalathuduwa Buddhist Temple island sanctuary",
+        "Witness traditional Ceylon cinnamon harvesting and peeling methods firsthand",
+        "Spot native wildlife naturally, including monkeys, kingfishers, egrets, and sea eagles",
+        "Enjoy fresh island refreshments and authentic cinnamon tea on Cinnamon Island"
+      ],
+      includes: [
+        "English-speaking tour guide & eco-conscious boatman",
+        "Private boat ride and boat fee",
+        "Full safety equipment (life jackets)",
+        "Visit to Thalathuduwa Island Buddhist Temple",
+        "Live cinnamon demonstration on Cinnamon Island",
+        "Fresh island refreshments (local tea / coconut water)",
+        "Bottled drinking water"
+      ],
+      notSuitableFor: [
+        "Wheelchair users",
+        "Pregnant women"
+      ],
+      importantInfo: {
+        bring: ["Hat", "Sunscreen", "Camera / Binoculars", "Sunglasses", "Modest cover-up clothing for temple"],
+        knowBefore: [
+          "Ethical Wildlife Policy: We strictly follow a no-feeding, no-touching policy for monkeys and all wild animals. All wildlife viewing is done respectfully at a safe, natural distance.",
+          "Life jackets are provided and must be worn during boat transit.",
+          "Dress respectfully for the Thalathuduwa Temple visit: shoulders and knees must be covered, and footwear/hats must be removed before entering sacred temple precincts.",
+          "Lunch is not included, but fresh local refreshments and bottled water are provided.",
+          "Morning slot (08:00 AM) offers calmer waters and active birdlife; Afternoon slot (04:00 PM) offers gentle sunset breezes across the lagoon.",
+          "Transportation to and from the meeting point is not included unless requested separately.",
+          "Tipping staff and guides is customary but at your discretion."
+        ]
+      },
+      meetingPoint: "Koggala Lake Boat Safari Point (Plus Code: X8XF+65X, Koggala, Sri Lanka). Google Maps Link: https://maps.app.goo.gl/fQdrWkvPAhDwEjwj8. Our representative will meet you at the pier entrance."
+    }
+  },
 ];
 
 const ExperienceDetail: React.FC = () => {
@@ -413,10 +478,27 @@ const ExperienceDetail: React.FC = () => {
   const [currentImg, setCurrentImg] = useState(0);
   const [participants, setParticipants] = useState(1);
   const [date, setDate] = useState<Date | null>(new Date());
+  const [timeSlot, setTimeSlot] = useState<string>("");
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
     if (!experience) return;
+
+    // Set default initial slot if available
+    if (experience.timeSlots && experience.timeSlots.length > 0) {
+      setTimeSlot(experience.timeSlots[0]);
+    } else {
+      setTimeSlot("Flexible / On Request");
+    }
+
+    // Set default initial location if experience has multiple locations
+    if ((experience as any).locations && (experience as any).locations.length > 0) {
+      setSelectedLocation((experience as any).locations[0]);
+    } else {
+      setSelectedLocation("");
+    }
+
     const interval = setInterval(() => {
       setCurrentImg((prev) => (prev + 1) % experience.images.length);
     }, 5000);
@@ -432,9 +514,13 @@ const ExperienceDetail: React.FC = () => {
 
   const handleWhatsAppRedirect = (e: FormEvent) => {
     e.preventDefault();
+    const locationLine = selectedLocation ? `*Selected Location / Park:* ${selectedLocation}\n` : "";
+
     const message = `Hello Eco Love! \n\n*Booking Request: ${experience.title}*\n\n` +
       `*Guest Name:* ${userName}\n` +
+      locationLine +
       `*Preferred Date:* ${formattedDate}\n` +
+      `*Time Slot:* ${timeSlot}\n` +
       `*Total Guests:* ${participants}\n` +
       `*Estimated Cost:* ${totalPrice > 0 ? `$${totalPrice.toFixed(2)}` : "Custom Quote"}\n\n` +
       `Is this session available?`;
@@ -446,24 +532,24 @@ const ExperienceDetail: React.FC = () => {
   return (
     <div className="bg-[#FAF9F6] min-h-screen text-slate-800 antialiased selection:bg-emerald-100">
       
-      {/* 1. HERO BANNER */}
-      <section className="relative w-full h-[45vh] sm:h-[55vh] md:h-[70vh] overflow-hidden bg-black">
+      {/* 1. HERO BANNER - INCREASED HEIGHT */}
+      <section className="relative w-full h-[75vh] sm:h-[80vh] md:h-[92vh] lg:h-[98vh] overflow-hidden bg-black">
         {experience.images.map((img, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-              index === currentImg ? "opacity-60" : "opacity-0"
+              index === currentImg ? "opacity-65" : "opacity-0"
             }`}
           >
             <img src={img} alt="Gallery item" className="w-full h-full object-cover scale-105" />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 z-10" />
-        <div className="absolute bottom-6 sm:bottom-12 left-0 right-0 z-20 max-w-7xl mx-auto px-4 sm:px-6">
-          <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/60 px-3 py-1.5 rounded-full border border-emerald-800/40 backdrop-blur-sm">
-            Activity Provider: Eco Love Sri Lanka
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20 z-10" />
+        <div className="absolute bottom-8 sm:bottom-16 left-0 right-0 z-20 max-w-7xl mx-auto px-4 sm:px-6">
+          <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/70 px-3.5 py-1.5 rounded-full border border-emerald-800/40 backdrop-blur-sm">
+            Activity Provider: Eco Love Tours 
           </span>
-          <h1 className="text-2xl sm:text-4xl md:text-6xl font-serif text-white tracking-tight mt-3 max-w-4xl font-bold leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-serif text-white tracking-tight mt-4 max-w-4xl font-bold leading-tight drop-shadow-sm">
             {experience.title}
           </h1>
         </div>
@@ -503,7 +589,7 @@ const ExperienceDetail: React.FC = () => {
           {/* THE CONTENT & LAYOUT BLOCK SYSTEM */}
           <div className="w-full lg:col-span-8 flex flex-col gap-8 sm:gap-12">
             
-            {/* A. QUICK OVERVIEW STATS (Renders at the top) */}
+            {/* A. QUICK OVERVIEW STATS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-6 bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm">
               <div className="flex gap-3 items-start sm:items-center">
                 <ShieldCheck className="text-emerald-700 shrink-0" size={18} />
@@ -535,7 +621,7 @@ const ExperienceDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* B. FULL DESCRIPTION (Surfaces immediately below overview on mobile) */}
+            {/* B. FULL DESCRIPTION */}
             <section className="space-y-3 sm:space-y-4">
               <h3 className="text-lg sm:text-xl font-bold font-serif text-slate-900">Full description</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light whitespace-pre-line">
@@ -543,9 +629,24 @@ const ExperienceDetail: React.FC = () => {
               </p>
             </section>
 
-            {/* C. BOOK NOW CONTAINER (Render wrapper hidden on desktop, injected here contextually for mobile) */}
+            {/* C. MOBILE BOOKING CARD INJECTION */}
             <div className="block lg:hidden w-full">
-              <BookingCard experience={experience} userName={userName} setUserName={setUserName} participants={participants} setParticipants={setParticipants} date={date} setDate={setDate} totalPrice={totalPrice} priceUSD={priceUSD} handleWhatsAppRedirect={handleWhatsAppRedirect} />
+              <BookingCard 
+                experience={experience} 
+                userName={userName} 
+                setUserName={setUserName} 
+                participants={participants} 
+                setParticipants={setParticipants} 
+                date={date} 
+                setDate={setDate} 
+                timeSlot={timeSlot}
+                setTimeSlot={setTimeSlot}
+                selectedLocation={selectedLocation}
+                setSelectedLocation={setSelectedLocation}
+                totalPrice={totalPrice} 
+                priceUSD={priceUSD} 
+                handleWhatsAppRedirect={handleWhatsAppRedirect} 
+              />
             </div>
 
             <hr className="border-slate-200" />
@@ -641,9 +742,24 @@ const ExperienceDetail: React.FC = () => {
 
           </div>
 
-          {/* DESKTOP COLUMN (Keeps layout sticky on the right for monitors) */}
+          {/* DESKTOP COLUMN (Sticky right bar) */}
           <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-8 w-full">
-            <BookingCard experience={experience} userName={userName} setUserName={setUserName} participants={participants} setParticipants={setParticipants} date={date} setDate={setDate} totalPrice={totalPrice} priceUSD={priceUSD} handleWhatsAppRedirect={handleWhatsAppRedirect} />
+            <BookingCard 
+              experience={experience} 
+              userName={userName} 
+              setUserName={setUserName} 
+              participants={participants} 
+              setParticipants={setParticipants} 
+              date={date} 
+              setDate={setDate} 
+              timeSlot={timeSlot}
+              setTimeSlot={setTimeSlot}
+              selectedLocation={selectedLocation}
+              setSelectedLocation={setSelectedLocation}
+              totalPrice={totalPrice} 
+              priceUSD={priceUSD} 
+              handleWhatsAppRedirect={handleWhatsAppRedirect} 
+            />
           </div>
 
         </div>
@@ -656,7 +772,7 @@ const ExperienceDetail: React.FC = () => {
   );
 };
 
-// --- REUSABLE SUB-COMPONENT FOR CLEAN INJECTION MANAGEMENT ---
+// --- REUSABLE BOOKING CARD COMPONENT ---
 interface BookingCardProps {
   experience: any;
   userName: string;
@@ -665,12 +781,35 @@ interface BookingCardProps {
   setParticipants: (val: number) => void;
   date: Date | null;
   setDate: (date: Date | null) => void;
+  timeSlot: string;
+  setTimeSlot: (slot: string) => void;
+  selectedLocation: string;
+  setSelectedLocation: (loc: string) => void;
   totalPrice: number;
   priceUSD: number;
   handleWhatsAppRedirect: (e: FormEvent) => void;
 }
 
-const BookingCard: React.FC<BookingCardProps> = ({ userName, setUserName, participants, setParticipants, date, setDate, totalPrice, priceUSD, handleWhatsAppRedirect }) => {
+const BookingCard: React.FC<BookingCardProps> = ({ 
+  experience, 
+  userName, 
+  setUserName, 
+  participants, 
+  setParticipants, 
+  date, 
+  setDate, 
+  timeSlot,
+  setTimeSlot,
+  selectedLocation,
+  setSelectedLocation,
+  totalPrice, 
+  priceUSD, 
+  handleWhatsAppRedirect 
+}) => {
+  const availableSlots: string[] = experience.timeSlots && experience.timeSlots.length > 0 
+    ? experience.timeSlots 
+    : ["Morning (09:00 AM)", "Afternoon (02:00 PM)"];
+
   return (
     <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.02)] space-y-5 sm:space-y-6 w-full">
       <div className="pb-3 sm:pb-4 border-b border-slate-100">
@@ -684,6 +823,7 @@ const BookingCard: React.FC<BookingCardProps> = ({ userName, setUserName, partic
       </div>
 
       <form onSubmit={handleWhatsAppRedirect} className="space-y-4">
+        {/* Guest Name */}
         <div className="space-y-1">
           <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Your Full Name</label>
           <input 
@@ -696,6 +836,35 @@ const BookingCard: React.FC<BookingCardProps> = ({ userName, setUserName, partic
           />
         </div>
 
+        {/* Location Picker (Mobile & Desktop) */}
+        {experience.locations && experience.locations.length > 0 && (
+          <div className="space-y-2">
+            <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1">
+              <MapPin size={12} className="text-emerald-700" /> Select National Park / Location
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              {experience.locations.map((loc: string) => {
+                const isSelected = selectedLocation === loc;
+                return (
+                  <button
+                    type="button"
+                    key={loc}
+                    onClick={() => setSelectedLocation(loc)}
+                    className={`py-2.5 px-2 text-xs font-semibold rounded-xl border transition-all text-center leading-snug ${
+                      isSelected
+                        ? "border-emerald-800 bg-emerald-50/70 text-emerald-900 shadow-sm ring-1 ring-emerald-800"
+                        : "border-slate-100 bg-slate-50 text-slate-600 hover:bg-slate-100"
+                    }`}
+                  >
+                    {loc.replace(" National Park", "")}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Adults & Date */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
             <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1">
@@ -725,6 +894,33 @@ const BookingCard: React.FC<BookingCardProps> = ({ userName, setUserName, partic
           </div>
         </div>
 
+        {/* Time Slot Picker */}
+        <div className="space-y-2">
+          <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1">
+            <Clock size={12}/> Select Departure Time
+          </label>
+          <div className="grid grid-cols-2 gap-2">
+            {availableSlots.map((slot) => {
+              const isSelected = timeSlot === slot;
+              return (
+                <button
+                  type="button"
+                  key={slot}
+                  onClick={() => setTimeSlot(slot)}
+                  className={`py-2.5 px-3 text-xs font-semibold rounded-xl border transition-all text-center ${
+                    isSelected
+                      ? "border-emerald-800 bg-emerald-50/70 text-emerald-900 shadow-sm ring-1 ring-emerald-800"
+                      : "border-slate-100 bg-slate-50 text-slate-600 hover:bg-slate-100"
+                  }`}
+                >
+                  {slot}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Price Output */}
         <div className="bg-emerald-50/40 p-3.5 sm:p-4 rounded-xl border border-emerald-100/30 flex justify-between items-center mt-4">
           <span className="text-[11px] sm:text-xs font-bold text-emerald-900">Estimated Total:</span>
           <span className="text-base sm:text-lg font-black text-emerald-900">
@@ -734,7 +930,7 @@ const BookingCard: React.FC<BookingCardProps> = ({ userName, setUserName, partic
 
         <button 
           type="submit" 
-          className="w-full bg-emerald-800 text-white font-bold uppercase tracking-widest text-xs py-3.5 sm:py-4 rounded-xl hover:bg-emerald-900 transition-colors flex items-center justify-center gap-2 shadow-md shadow-emerald-900/5"
+          className="w-full bg-emerald-800 text-white font-bold uppercase tracking-widest text-xs py-3.5 sm:py-4 rounded-xl hover:bg-emerald-900 transition-colors flex items-center justify-center gap-2 shadow-md shadow-emerald-900/5 cursor-pointer"
         >
           Check Availability <Phone size={13} />
         </button>
